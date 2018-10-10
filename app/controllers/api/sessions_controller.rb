@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
 
     if @user
       signin(@user)
-      render json: ['SUCCESSFUL LOGIN']
+      render 'api/users/show'
     else
       render json: ['Invalid Credentials'], state: 402
     end
