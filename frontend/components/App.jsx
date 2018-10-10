@@ -12,8 +12,8 @@ const App = () => {
       <h1>Picture Perfect</h1>
       <Link to='/' className='header'>
       </Link>
-      <Route path='/login' component={SignUpFormContainer} />
-      <Route path='/signup' component={LogInFormContainer} />
+      <Route path='/login' component={LogInFormContainer} />
+      <Route path='/signup' component={SignUpFormContainer} />
     </div>
   )
 }
