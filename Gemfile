@@ -52,6 +52,7 @@ group :development do
   gem 'annotate'
   gem 'bcrypt'
   gem 'jquery-rails'
+  gem 'rails_12factor'
 end
 
 group :test do
