@@ -4,17 +4,23 @@ import {Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 import LogInFormContainer from './session_form/signin_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import WelcomeContainer from './welcome/welcome_container';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
 const App = () => {
+
   return (
     <div>
+      <Route exact path="/" component={WelcomeContainer} />
         <div id="banner">
-        <Route path='/login' component={LogInFormContainer} />
-        <Route path='/signup' component={SignUpFormContainer} />
+        <AuthRoute path='/login' component={LogInFormContainer} />
+        <AuthRoute path='/signup' component={SignUpFormContainer} />
         <nav id='navbar'>
-          <div id="logo">
-            PicturePerfect
+          <div id="logo1">
+            Picture
+          </div>
+          <div id="logo2">
+            Perfect
           </div>
           <div id="other-nav">
             <div id="discover">
@@ -36,10 +42,7 @@ const App = () => {
             </div>
           </div>
         </nav>
-
       </div>
-
-
     </div>
   )
 }

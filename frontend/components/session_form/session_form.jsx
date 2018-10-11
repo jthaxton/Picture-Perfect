@@ -14,7 +14,8 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then( () =>
+    this.props.history.push('/'))
   }
 
   update(field) {
@@ -27,7 +28,6 @@ class SessionForm extends React.Component {
     return (
       <div className='login-container'>
         <form onSubmit={this.handleSubmit}>
-          {this.props.formType} or {this.props.navLink}
           <div className='login-form'>
             <form>
               <label>

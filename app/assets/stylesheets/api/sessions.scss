@@ -9,11 +9,11 @@ nav {
 }
 
 #banner {
-  background: image-url('76-Inspirational-picture-quotes-and-motivational-images.jpg');
-  background-size: 100%;
+  background: image-url('76-Inspirational-picture-quotes-and-motivational-images.jpg') no-repeat;
+  min-width: 100%;
   position: absolute;
-  width: 1000px;
-  height: 100px;
+  height: auto;
+  background-size: 100%;
 }
 
 #other-nav {
@@ -22,6 +22,24 @@ nav {
   margin-right: auto;
 }
 
+#licensing {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#about {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#discover {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#logo2{
+  margin-top: -1%;
+}
 
 div #auth-buttons {
   float: right;
@@ -39,4 +57,10 @@ div #login-button {
   padding: 10px;
   cursor: pointer;
   display: flex;
+}
+
+.login-form {
+  border-bottom-color: black;
+  display: block;
+  justify-content: center;
 }
