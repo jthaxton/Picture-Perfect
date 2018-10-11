@@ -17,7 +17,7 @@ const welcome = ({ currentUser, logout }) => {
     </hgroup>
   );
 
-  return currentUser ? personalGreeting() : sessionLinks();
+  return currentUser ? personalWelcome() : sessionLinks();
 };
 
 
