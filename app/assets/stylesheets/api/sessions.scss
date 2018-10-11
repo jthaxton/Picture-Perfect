@@ -11,7 +11,7 @@ nav {
 #banner {
   background: image-url('76-Inspirational-picture-quotes-and-motivational-images.jpg') no-repeat;
   min-width: 100%;
-  position: absolute;
+  position: relative;
   height: auto;
   background-size: 100%;
 }
@@ -57,6 +57,12 @@ div #login-button {
   padding: 10px;
   cursor: pointer;
   display: flex;
+}
+
+.login-container {
+  position: absolute;
+  margin-top: 5%;
+  margin-left: 25%;
 }
 
 .login-form {
