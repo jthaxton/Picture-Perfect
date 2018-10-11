@@ -1,3 +1,42 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+#banner {
+  background: image-url('76-Inspirational-picture-quotes-and-motivational-images.jpg');
+  background-size: 100%;
+  position: absolute;
+  width: 1000px;
+  height: 100px;
+}
+
+#other-nav {
+  display: flex;
+  padding: 10px;
+  margin-right: auto;
+}
+
+
+div #auth-buttons {
+  float: right;
+  display: flex;
+}
+
+div #signup-button {
+  background: lightblue;
+  border-radius: 30px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+}
+div #login-button {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+}

@@ -9,11 +9,37 @@ import WelcomeContainer from './welcome/welcome_container';
 const App = () => {
   return (
     <div>
-      <h1>Picture Perfect</h1>
-      <Link to='/' className='header'>
-      </Link>
-      <Route path='/login' component={LogInFormContainer} />
-      <Route path='/signup' component={SignUpFormContainer} />
+        <div id="banner">
+        <Route path='/login' component={LogInFormContainer} />
+        <Route path='/signup' component={SignUpFormContainer} />
+        <nav id='navbar'>
+          <div id="logo">
+            PicturePerfect
+          </div>
+          <div id="other-nav">
+            <div id="discover">
+              Discover
+            </div>
+            <div id="about">
+              About
+            </div>
+            <div id="licensing">
+              Licensing
+            </div>
+          </div>
+          <div id="auth-buttons">
+            <div id="login-button">
+              <Link to='/login'>Login</Link>
+            </div>
+            <div id="signup-button">
+              <Link to='/signup'>Signup</Link>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+
+
     </div>
   )
 }
