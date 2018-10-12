@@ -2,18 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
+const fetchPictures = () => {
+  $.ajax({
+    url: '/api/pictures',
+    method: 'GET'
+  }).then(pictures => {
+    this.setState({pictures});
+  });
+}
 
 const welcome = ({ currentUser, logout }) => {
   const sessionLinks = () => (
-    <nav className="login-signup">
+    <nav class="login-signup">
       <Link to="/login"></Link>
       <Link to="/signup"></Link>
     </nav>
   );
   const personalWelcome = () => (
-    <hgroup className="header-group">
-      <h1 className="header-name">Welcome, {currentUser.username}!</h1>
-      <button className="header-button" onClick={logout}>Log Out</button>
+    <hgroup class="header-group">
+      <h1 class="header-name">Welcome, {currentUser.username}!</h1>
+      <button class="header-button" onClick={logout}>Log Out</button>
     </hgroup>
   );
 

@@ -9,6 +9,7 @@ gem 'rails', '~> 5.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'jquery-rails'
 gem 'bcrypt'
+gem "aws-sdk-s3"
 
 
 # Use Puma as the app server
