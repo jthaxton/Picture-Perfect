@@ -457,8 +457,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+var _this = undefined;
 
 
+
+
+var fetchPictures = function fetchPictures() {
+  $.ajax({
+    url: '/api/pictures',
+    method: 'GET'
+  }).then(function (pictures) {
+    _this.setState({
+      pictures: pictures
+    });
+  });
+};
 
 var welcome = function welcome(_ref) {
   var currentUser = _ref.currentUser,
@@ -466,7 +479,7 @@ var welcome = function welcome(_ref) {
 
   var sessionLinks = function sessionLinks() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-      className: "login-signup"
+      class: "login-signup"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/login"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -476,11 +489,11 @@ var welcome = function welcome(_ref) {
 
   var personalWelcome = function personalWelcome() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hgroup", {
-      className: "header-group"
+      class: "header-group"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-      className: "header-name"
+      class: "header-name"
     }, "Welcome, ", currentUser.username, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "header-button",
+      class: "header-button",
       onClick: logout
     }, "Log Out"));
   };
