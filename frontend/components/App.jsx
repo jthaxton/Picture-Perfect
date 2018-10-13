@@ -6,7 +6,6 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import WelcomeContainer from './welcome/welcome_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-
 const App = () => {
 
   return (
