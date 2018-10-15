@@ -1,16 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Form from './form';
+import App2 from '../user_pages/app2'
+// import logo from '../../../app/assets/images/fancy_dog.png'
 
 
-const fetchPictures = () => {
-  $.ajax({
-    url: '/api/pictures',
-    method: 'GET'
-  }).then(setState({pictures}))
-}
 
-const welcome = ({ currentUser, logout, photoUrl }) => {
+
+const welcome = ({ currentUser, logout }) => {
+
   const sessionLinks = () => (
     <nav class="login-signup">
       <Link to="/login"></Link>
@@ -19,11 +17,14 @@ const welcome = ({ currentUser, logout, photoUrl }) => {
   );
   const personalWelcome = () => (
     <div>
-    <hgroup class="header-group">
+      <div id="page-content">
+    <h1 class="header-group">
       <h1 class="header-name">Welcome, {currentUser.username}!</h1>
-      <button class="header-button" onClick={logout}>Log Out</button>
-    </hgroup>
-    <Form />
+      <button class="logout-button" onClick={logout}>Log Out</button>
+
+    </h1>
+    <App2 />
+    </div>
 
   </div>
 

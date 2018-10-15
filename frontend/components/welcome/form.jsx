@@ -1,5 +1,4 @@
 import React from 'react';
-import PostIndex from '../user_pages/index'
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -28,6 +27,7 @@ export default class Form extends React.Component {
   }
 
   handleSubmit(e) {
+    console.log(this.state);
     e.preventDefault();
     const formData = new FormData();
     if (this.state.photoFile) {
@@ -51,7 +51,6 @@ export default class Form extends React.Component {
 
   render() {
     console.log(this.state);
-
     const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
     return (
       <div>

@@ -1,6 +1,6 @@
-json.array! @picture do |picture|
-  json.extract! picture, :id
-  json.photoUrl url_for(picture.photo)
+json.array! @pictures do |post|
+  if post.photo.attached?
+    json.extract! post, :id
+    json.photoUrl post.photo.service_url
+  end
 end
-
-json.photoUrls @pictures.photos.map { |file| url_for(file) }

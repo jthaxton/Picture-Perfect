@@ -5,33 +5,40 @@ import LogInFormContainer from './session_form/signin_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import WelcomeContainer from './welcome/welcome_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-
+import Welcome from './welcome/welcome';
+import About from './user_pages/about';
+import Discover from './user_pages/discover';
+import Licensing from './user_pages/licensing';
 const App = () => {
 
   return (
     <div>
       <Route exact path="/" component={WelcomeContainer} />
+        <div id="stick">
         <div id="banner">
         <AuthRoute path='/login' component={LogInFormContainer} />
         <AuthRoute path='/signup' component={SignUpFormContainer} />
         <nav id='navbar'>
           <div id="logo1">
-            Picture
+            <Link to="/">Picture</Link>
           </div>
           <div id="logo2">
-            Perfect
+            <Link to="/">Perfect</Link>
           </div>
           <div id="other-nav">
             <div id="discover">
-              Discover
+              <Link to="/discover">Discover</Link>
             </div>
             <div id="about">
-              About
+              <Link to="/about">About</Link>
             </div>
             <div id="licensing">
-              Licensing
+              <Link to="/licensing">Licensing</Link>
             </div>
+
           </div>
+          <input id="search-bar" type="text" placeholder="Search for photos, location, or people"></input>
+            <img src="/userpic.png" id="user-pic"></img>
           <div id="auth-buttons">
             <div id="login-button">
               <Link to='/login'>Login</Link>
@@ -41,7 +48,14 @@ const App = () => {
             </div>
           </div>
         </nav>
+
       </div>
+
+      </div>
+      <Route path="/discover" component={Discover}/>
+      <Route path="/licensing" component={Licensing}/>
+      <Route path="/about" component={About}/>
+
     </div>
   )
 }

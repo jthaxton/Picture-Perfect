@@ -1,4 +1,10 @@
 class Api::PicturesController < ApplicationController
+
+  def index
+    @pictures = Picture.all
+    render :index
+  end
+
   def show
     @picture = Picture.find_by_id(params[:id])
     render :show
@@ -12,10 +18,13 @@ class Api::PicturesController < ApplicationController
     else
       render json: post.errors.full_messages
     end
+
   end
 
-  def index
-    @pictures = Picture.all
+  def destroy
+    @picture = Picture.find_by_id(params[:id])
+
+    @picture.destroy
   end
 
   private
