@@ -9,7 +9,7 @@ export default function PostIndex({posts}) {
           <li key={picture.id}>
             <h2>{picture.title}</h2>
             <img src={picture.photoUrl}/>
-            <input type="submit" onClick={() => deletePicture(picture)}></input>
+            <input id="delete-button" type="submit" onClick={() => deletePicture(picture.id)} value="Remove Post"></input>
           </li>
         );
       })}
