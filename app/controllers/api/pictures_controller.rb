@@ -22,6 +22,7 @@ class Api::PicturesController < ApplicationController
   end
 
   def destroy
+    debugger
     @picture = Picture.find_by_id(params[:id])
 
     @picture.destroy
