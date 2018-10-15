@@ -93,6 +93,16 @@ div #login-button {
   display: block;
 }
 
+#submit {
+  background: #41cb56;
+  color: white;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background: #34bf49;
+}
+
 .login-form {
   border-bottom-color: black;
   display: block;
@@ -105,6 +115,14 @@ div #login-button {
   background: rgba(0,0,0,0.1);
   margin-right: 10%;
 
+}
+
+ #login-box  {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #000;
 }
 
 #user-pic {

@@ -9,7 +9,7 @@ import Welcome from './welcome/welcome';
 import About from './user_pages/about';
 import Discover from './user_pages/discover';
 import Licensing from './user_pages/licensing';
-const App = () => {
+const App = ({currentUser}) => {
 
   return (
     <div>
@@ -38,7 +38,7 @@ const App = () => {
 
           </div>
           <input id="search-bar" type="text" placeholder="Search for photos, location, or people"></input>
-            <img src="/userpic.png" id="user-pic"></img>
+          <img src="/userpic.png" id="user-pic"></img>
           <div id="auth-buttons">
             <div id="login-button">
               <Link to='/login'>Login</Link>

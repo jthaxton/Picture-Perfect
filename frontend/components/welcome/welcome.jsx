@@ -8,7 +8,8 @@ import App2 from '../user_pages/app2'
 
 
 const welcome = ({ currentUser, logout }) => {
-
+  let user
+  user = currentUser
   const sessionLinks = () => (
     <nav class="login-signup">
       <Link to="/login"></Link>
@@ -18,6 +19,7 @@ const welcome = ({ currentUser, logout }) => {
   const personalWelcome = () => (
     <div>
       <div id="page-content">
+        
     <h1 class="header-group">
       <h1 class="header-name">Welcome, {currentUser.username}!</h1>
       <button class="logout-button" onClick={logout}>Log Out</button>
