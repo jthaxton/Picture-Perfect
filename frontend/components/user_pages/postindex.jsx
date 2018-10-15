@@ -1,20 +1,24 @@
 import React from 'react';
-import {deletePicture} from '../../util/picture_api'
-
+import {deletePicture} from '../../util/picture_api';
+import {createFollow} from '../../util/follow_api_util';
 export default function PostIndex({posts}) {
 
   return (
     <ul>
-      {posts.reverse().map(picture => {
-        debugger
+      {posts.map(picture => {
+        
         return (
 
           <li key={picture.id}>
-            <h2>{picture.title}</h2>
             <h2>{picture.user.username}</h2>
+            <h2>Follow User</h2>
+            <input id="sub-button" type="submit" onClick={() => createFollow(picture.user)} value="Follow User"></input>
+
+            <img src="/userpic.png" id="user-pic"></img>
+            <h2>{picture.title}</h2>
             <img src={picture.photoUrl}/>
             <h2>{picture.body}</h2>
-            <input id="delete-button" type="submit" onClick={() => deletePicture(picture.id)} value="Remove Post"></input>
+            {picture.user.id == Object.keys(getState.entities.users)[0] ? <input id="delete-button" type="submit" onClick={() => deletePicture(picture.id)} value="Remove Post"></input> : null}
           </li>
         );
       })}
