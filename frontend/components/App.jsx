@@ -37,8 +37,8 @@ const App = ({currentUser}) => {
             </div>
 
           </div>
-          <input id="search-bar" type="text" placeholder="Search for photos, location, or people"></input>
-          <img src="/userpic.png" id="user-pic"></img>
+          {getState.session.id > 0 ? <div id="logged-nav"><input id="search-bar" type="text" placeholder="Search for photos, location, or people"></input><img src="/userpic.png" id="user-pic"></img></div> : null}
+
           <div id="auth-buttons">
             <div id="login-button">
               <Link to='/login'>Login</Link>

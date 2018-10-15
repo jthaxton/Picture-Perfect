@@ -226,14 +226,16 @@ var App = function App(_ref) {
     id: "licensing"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
     to: "/licensing"
-  }, "Licensing"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, "Licensing"))), getState.session.id > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "logged-nav"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     id: "search-bar",
     type: "text",
     placeholder: "Search for photos, location, or people"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "/userpic.png",
     id: "user-pic"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "auth-buttons"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "login-button"

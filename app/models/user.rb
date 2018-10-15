@@ -9,7 +9,11 @@ class User < ApplicationRecord
   foreign_key: :user_id,
   class_name: :Picture
 
-  has_many :follows
+  has_many :follows,
+  foreign_key: :follower_id,
+  class_name: :Follow
+
+
   has_many :affection
 
   def self.find_by_credentials(username, password)
