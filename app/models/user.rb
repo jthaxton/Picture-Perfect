@@ -5,7 +5,10 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   attr_reader :password
 
-  has_many :pictures
+  has_many :pictures,
+  foreign_key: :user_id,
+  class_name: :Picture
+
   has_many :follows
   has_many :affection
 

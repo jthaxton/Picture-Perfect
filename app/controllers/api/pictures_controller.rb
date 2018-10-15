@@ -11,7 +11,7 @@ class Api::PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new(user_id: current_user.id)
+    @picture = Picture.new(user_id: current_user.id, body: params[:picture][:body])
     @picture.photo.attach(io: params[:picture][:photo], filename: "")
     if @picture.save
       render json: {message: 'good'}
@@ -22,7 +22,7 @@ class Api::PicturesController < ApplicationController
   end
 
   def destroy
-    
+
     @picture = Picture.find_by_id(params[:id])
 
     @picture.photo.destroy
@@ -30,6 +30,6 @@ class Api::PicturesController < ApplicationController
 
   private
   def picture_params
-    params.require(:picture).permit(:photo)
+    params.require(:picture).permit(:photo, :body)
   end
 end

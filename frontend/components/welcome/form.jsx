@@ -4,14 +4,14 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
+      body: "",
       photoFile: null,
       photoUrl: null
     };
   }
 
   handleInput(e) {
-    this.setState({title: e.currentTarget.value});
+    this.setState({body: e.currentTarget.value});
   }
 
   handleFile(e) {
@@ -30,6 +30,7 @@ export default class Form extends React.Component {
     console.log(this.state);
     e.preventDefault();
     const formData = new FormData();
+    formData.append('picture[body]', this.state.body)
     if (this.state.photoFile) {
 
       formData.append('picture[photo]', this.state.photoFile);
@@ -58,7 +59,7 @@ export default class Form extends React.Component {
         <label htmlFor="post-body">Body of Post</label>
         <input type="text"
           id="post-body"
-          value={this.state.title}
+          value={this.state.body}
           onChange={this.handleInput.bind(this)}/>
         <input type="file"
           onChange={this.handleFile.bind(this)}/>
