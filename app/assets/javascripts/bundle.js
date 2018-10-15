@@ -186,7 +186,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var App = function App() {
+var App = function App(_ref) {
+  var currentUser = _ref.currentUser;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/",
@@ -371,7 +372,9 @@ function (_React$Component) {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         class: "login-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        id: "login-box"
+      }, this.props.formType === 'login' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Log into PicturePerfect") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Sign up for PicturePerfect"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.username,
         onChange: this.update('username')
@@ -380,6 +383,7 @@ function (_React$Component) {
         value: this.state.password,
         onChange: this.update('password')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "submit",
         type: "submit",
         value: this.props.formType
       })))));
@@ -944,6 +948,8 @@ __webpack_require__.r(__webpack_exports__);
 var welcome = function welcome(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout;
+  var user;
+  user = currentUser;
 
   var sessionLinks = function sessionLinks() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {

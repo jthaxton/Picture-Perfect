@@ -3,7 +3,7 @@ import {merge} from 'lodash';
 
 const sessionReducer = (oldstate = {}, action) => {
   Object.freeze(oldstate);
-  
+
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return {id: action.current_user.id}
