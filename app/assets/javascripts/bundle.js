@@ -781,11 +781,12 @@ __webpack_require__.r(__webpack_exports__);
 function PostIndex(_ref) {
   var posts = _ref.posts;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, posts.reverse().map(function (picture) {
+    debugger;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       key: picture.id
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, picture.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, picture.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, picture.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: picture.photoUrl
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, picture.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       id: "delete-button",
       type: "submit",
       onClick: function onClick() {
@@ -842,7 +843,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Form).call(this, props));
     _this.state = {
-      title: "",
+      body: "",
       photoFile: null,
       photoUrl: null
     };
@@ -853,7 +854,7 @@ function (_React$Component) {
     key: "handleInput",
     value: function handleInput(e) {
       this.setState({
-        title: e.currentTarget.value
+        body: e.currentTarget.value
       });
     }
   }, {
@@ -881,6 +882,7 @@ function (_React$Component) {
       console.log(this.state);
       e.preventDefault();
       var formData = new FormData();
+      formData.append('picture[body]', this.state.body);
 
       if (this.state.photoFile) {
         formData.append('picture[photo]', this.state.photoFile);
@@ -912,7 +914,7 @@ function (_React$Component) {
       }, "Body of Post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         id: "post-body",
-        value: this.state.title,
+        value: this.state.body,
         onChange: this.handleInput.bind(this)
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
