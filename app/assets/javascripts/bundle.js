@@ -786,10 +786,12 @@ function PostIndex(_ref) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, picture.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: picture.photoUrl
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      id: "delete-button",
       type: "submit",
       onClick: function onClick() {
-        return Object(_util_picture_api__WEBPACK_IMPORTED_MODULE_1__["deletePicture"])(picture);
-      }
+        return Object(_util_picture_api__WEBPACK_IMPORTED_MODULE_1__["deletePicture"])(picture.id);
+      },
+      value: "Remove Post"
     }));
   }));
 }
