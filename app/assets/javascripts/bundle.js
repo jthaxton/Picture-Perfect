@@ -1228,6 +1228,9 @@ var usersReducer = function usersReducer() {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, oldstate, _defineProperty({}, actions.current_user.id, actions.current_user));
 
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
+      return {};
+
     default:
       return oldstate;
   }
@@ -1277,7 +1280,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePicture", function() { return deletePicture; });
 var deletePicture = function deletePicture(picture) {
   return $.ajax({
-    url: "/api/pictures/".concat(picture.id),
+    url: "/api/pictures/".concat(picture),
     method: 'DELETE'
   });
 };
