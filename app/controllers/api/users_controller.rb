@@ -7,7 +7,7 @@ class Api::UsersController < ApplicationController
       signin(@user)
       render '/api/users/show'
     else
-      render json: ['need to log in'], status: 404
+      render json: ['Choosed different credentials'], status: 404
     end
   end
 

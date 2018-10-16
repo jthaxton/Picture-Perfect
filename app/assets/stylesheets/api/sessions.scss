@@ -58,6 +58,18 @@ body {
   display: flex
 }
 
+#demo-button {
+  background: deepskyblue;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  width:100%;
+}
+
+#demo-button:hover {
+  background: skyblue;
+}
+
 #stick{
   position: fixed;
   top: 0;
@@ -146,8 +158,10 @@ div #login-button {
 //   width: 150px;
 // }
 
+
 #submit {
-  background: #41cb56;
+  background: #34bf49;
+
   color: white;
   cursor: pointer;
   border-radius: 3px;
@@ -155,7 +169,7 @@ div #login-button {
 }
 
 #submit:hover {
-  background: #34bf49;
+  background: #41cb56;
 }
 
 .login-form {

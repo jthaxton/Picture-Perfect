@@ -1,13 +1,13 @@
 import React from 'react';
 import {deletePicture} from '../../util/picture_api';
 import {createFollow} from '../../util/follow_api_util';
-export default function Profile({posts}) {
+export default function Profile({posts, currentUser}) {
 
   return (
-    
+
     <ul>
       {posts.map(picture => {
-
+        if (picture.user.id === currentUser.id) {
         return (
 
           <li key={picture.id}>
@@ -20,7 +20,7 @@ export default function Profile({posts}) {
             {picture.user.id == Object.keys(getState.entities.users)[0] ? <input id="delete-button" type="submit" onClick={() => deletePicture(picture.id)} value="Remove Post"></input> : null}
           </li>
         );
-      })}
+      }})}
     </ul>
   );
 

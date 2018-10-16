@@ -7,31 +7,18 @@ export default class App2 extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      posts: []
-    };
-    this.fetchPosts = this.fetchPosts.bind(this);
+
   }
 
-   fetchPosts() {
-     return $.ajax({
-      url: "/api/pictures",
-      method: "GET"
-    }).then(posts => {
-      this.setState({posts});
-    })
-  };
-
   componentDidMount() {
-  this.fetchPosts();
+  this.props.fetchPosts();
 }
 
 render() {
   return (
     <div>
       <Form fetchPosts={this.fetchPosts}/>
-      <PostIndex posts={this.state.posts}/>
-      <Profile posts={this.state.posts}/>
+      <PostIndex posts={this.props.pictures}/>
     </div>
   );
 }

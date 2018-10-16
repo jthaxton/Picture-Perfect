@@ -13,16 +13,21 @@ import Profile from './user_pages/profile';
 import ProfileDetails from './user_pages/profile_details';
 import Splash from './splash/splash'
 import SplashContainer from './splash/splash_container'
+import ProfileContainer from './user_pages/profile_container'
 const App = ({currentUser}) => {
 
   return (
     <div>
       <Route exact path="/" component={WelcomeContainer} />
-      <Route path="/profile" component={ProfileDetails}/>
+      <Route path="/profile" component={ProfileContainer}/>
       <Route path="/discover" component={Discover}/>
       <Route path="/licensing" component={Licensing}/>
       <Route path="/about" component={About}/>
-      <Splash component={SplashContainer}/>
+      <Route path="/login" component={LogInFormContainer}/>
+      <Route path="/signup" component={SignUpFormContainer}/>
+      <Route exact path="/" component={SplashContainer} />
+
+
     </div>
   )
 }
