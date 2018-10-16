@@ -9,49 +9,17 @@ import Welcome from './welcome/welcome';
 import About from './user_pages/about';
 import Discover from './user_pages/discover';
 import Licensing from './user_pages/licensing';
+import Profile from './user_pages/profile';
+import ProfileDetails from './user_pages/profile_details';
+import Splash from './splash/splash'
+import SplashContainer from './splash/splash_container'
 const App = ({currentUser}) => {
 
   return (
     <div>
-      <Route exact path="/" component={WelcomeContainer} />
-        <div id="stick">
-        <div id="banner">
-        <AuthRoute path='/login' component={LogInFormContainer} />
-        <AuthRoute path='/signup' component={SignUpFormContainer} />
-        <nav id='navbar'>
-          <div id="logo1">
-            <Link to="/">Picture</Link>
-          </div>
-          <div id="logo2">
-            <Link to="/">Perfect</Link>
-          </div>
-          <div id="other-nav">
-            <div id="discover">
-              <Link to="/discover">Discover</Link>
-            </div>
-            <div id="about">
-              <Link to="/about">About</Link>
-            </div>
-            <div id="licensing">
-              <Link to="/licensing">Licensing</Link>
-            </div>
-
-          </div>
-          {getState.session.id > 0 ? <div id="logged-nav"><input id="search-bar" type="text" placeholder="Search for photos, location, or people"></input><img src="/userpic.png" id="user-pic"></img></div> : null}
-
-          <div id="auth-buttons">
-            <div id="login-button">
-              <Link to='/login'>Login</Link>
-            </div>
-            <div id="signup-button">
-              <Link to='/signup'>Signup</Link>
-            </div>
-          </div>
-        </nav>
-
-      </div>
-
-      </div>
+      <Route exact path="/" component={WelcomeContainer, SplashContainer} />
+      <Splash component={SplashContainer}/>
+      <Route path="/profile" component={ProfileDetails}/>
       <Route path="/discover" component={Discover}/>
       <Route path="/licensing" component={Licensing}/>
       <Route path="/about" component={About}/>
