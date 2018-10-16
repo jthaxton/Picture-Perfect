@@ -15,11 +15,13 @@ export const logout = () => dispatch => {
   return ApiUtil.logout().then(user => dispatch(logoutCurrentUser()))
 }
 
-export const signup = (user) => dispatch => {
-  return ApiUtil.signup(user).then(user => dispatch(receiveCurrentUser(user))), err => (
+export const signup = user => dispatch => (
+  ApiUtil.signup(user).then(user => (
+    dispatch(receiveCurrentUser(user))
+  ), err => (
     dispatch(receiveErrors(err.responseJSON))
-  )
-}
+  ))
+);
 
 // actions
 const receiveCurrentUser = (current_user) => {

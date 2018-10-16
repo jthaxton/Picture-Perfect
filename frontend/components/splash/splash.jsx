@@ -6,16 +6,16 @@ import { Link } from 'react-router-dom';
 import Welcome from '../welcome/welcome'
 import {Route, Redirect, Switch, HashRouter} from 'react-router-dom';
 import WelcomeContainer from '../welcome/welcome_container';
+import {withRouter} from 'react-router-dom'
 
-
-
-export default class Splash extends React.Component {
+class Splash extends React.Component {
   constructor(props) {
     super(props)
+
   }
 
   render() {
-    
+
     return (
     <div>
       <Route exact path="/" component={WelcomeContainer} />
@@ -43,9 +43,9 @@ export default class Splash extends React.Component {
         </div>
 
       </div>
-      {getState.session.id > 0 ? <div id="logged-nav"><input id="search-bar" type="text" placeholder="Search for photos, location, or people"></input><img src="/userpic.png" id="user-pic"></img><Link to='/profile'>Profile</Link></div> : <div id="auth-buttons">
+      {this.props.session.id > 0 ? <div id="logged-nav"><input id="search-bar" type="text" placeholder="Search for photos, location, or people"></input><img src="/userpic.png" id="user-pic"></img><Link to='/profile'>Profile</Link></div> : <div id="auth-buttons">
               <div id="login-button">
-                <Link to='/login'>Login</Link>
+                <Link to='/login' replace>Login</Link>
               </div>
               <div id="signup-button">
                 <Link to='/signup'>Signup</Link>
@@ -61,3 +61,4 @@ export default class Splash extends React.Component {
 )
   }
 }
+export default (Splash)

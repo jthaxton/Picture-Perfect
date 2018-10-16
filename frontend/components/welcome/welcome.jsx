@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Form from './form';
-import App2 from '../user_pages/app2'
+import App2Container from '../user_pages/app2_container'
+import {withRouter} from 'react-router-dom'
 
-// import logo from '../../../app/assets/images/fancy_dog.png'
+
 
 
 
@@ -25,7 +26,7 @@ const welcome = ({ currentUser, logout }) => {
       <h1 class="header-name">Welcome, {currentUser.username}!</h1>
       <button class="logout-button" onClick={logout}>Log Out</button>
     </h1>
-    <App2 />
+    <App2Container />
     </div>
 
   </div>

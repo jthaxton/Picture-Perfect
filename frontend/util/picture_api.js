@@ -4,3 +4,10 @@ export const deletePicture = (picture) => {
     method: 'DELETE'
   });
 }
+
+export const fetchPosts = () => {
+  return $.ajax({
+   url: "/api/pictures",
+   method: "GET"
+ });
+}
