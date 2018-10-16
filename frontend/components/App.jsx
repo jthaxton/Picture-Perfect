@@ -18,7 +18,6 @@ const App = ({currentUser}) => {
   return (
     <div>
       <Route exact path="/" component={WelcomeContainer, SplashContainer} />
-      <Splash component={SplashContainer}/>
       <Route path="/profile" component={ProfileDetails}/>
       <Route path="/discover" component={Discover}/>
       <Route path="/licensing" component={Licensing}/>

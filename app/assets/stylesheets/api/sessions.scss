@@ -8,6 +8,48 @@ nav {
   color: white;
 }
 
+#drop-container:hover #dropdown-content {
+  display: block;
+}
+
+ input {
+  // display: block;
+  // display: flex;
+  // justify-content: center;
+  // flex-grow:
+  flex-grow: 1;
+  max-width: 100%;
+  /* height: 40px; */
+  font-size: 14px;
+  padding: 8px 10px;
+}
+
+.anotha-one {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+label {
+  width: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background-color: aliceblue;
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
+
+}
+
+#login-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #user-pic {
   margin-right: 35px;
 }
@@ -23,7 +65,9 @@ nav {
   left: 0;
 }
 
-
+.modals{
+  color: #525558
+}
 
 #banner {
   background: image-url('a.jpg') no-repeat;
@@ -97,14 +141,17 @@ div #login-button {
   display: block;
 }
 
-input {
-  border-radius: 5px;
-}
+// input {
+//   border-radius: 3px;
+//   width: 150px;
+// }
 
 #submit {
   background: #41cb56;
   color: white;
   cursor: pointer;
+  border-radius: 3px;
+  width:100%;
 }
 
 #submit:hover {
@@ -112,9 +159,13 @@ input {
 }
 
 .login-form {
-  border-bottom-color: black;
-  display: block;
+  display: table-caption;
   justify-content: center;
+  width: 400px;
+  padding: 32px 40px 24px;
+  height: 450px;
+  background: white;
+  border: 1px solid #eeeff2
 }
 
 #search-bar {
@@ -131,6 +182,10 @@ input {
   flex-direction: column;
   background: #fff;
   border: 1px solid #000;
+}
+
+label {
+  color: #71767a
 }
 
 #user-pic {

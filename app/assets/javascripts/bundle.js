@@ -200,8 +200,6 @@ var App = function App(_ref) {
     exact: true,
     path: "/",
     component: (_welcome_welcome_container__WEBPACK_IMPORTED_MODULE_5__["default"], _splash_splash_container__WEBPACK_IMPORTED_MODULE_14__["default"])
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_splash__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_14__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/profile",
     component: _user_pages_profile_details__WEBPACK_IMPORTED_MODULE_12__["default"]
@@ -334,13 +332,21 @@ function (_React$Component) {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         class: "login-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        id: "login-box"
-      }, this.props.formType === 'login' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Log into PicturePerfect") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Sign up for PicturePerfect"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, this.props.formType === 'login' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        class: "modals"
+      }, "Log into PicturePerfect") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        class: "modals"
+      }, "Sign up for PicturePerfect"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "login-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        class: "anotha-one"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.username,
         onChange: this.update('username')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Password:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        class: "anotha-one"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Password:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
         value: this.state.password,
         onChange: this.update('password')
