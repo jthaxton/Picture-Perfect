@@ -24,21 +24,26 @@ class SessionForm extends React.Component {
     });
   }
 
-  // renderErrors() {
-  //   return(
-  //     <ul>
-  //       {this.props.errors.map((error, i) => (
-  //         <li key={`error-${i}`}>
-  //           {error}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
+    
+
     return (
+
       <div class='login-container'>
+        {this.renderErrors()}
+
         <form onSubmit={this.handleSubmit}>
           <div class='login-form'>
               {this.props.formType === 'login' ? <h2 class="modals">Log into PicturePerfect</h2> : <h2 class="modals">Sign up for PicturePerfect</h2>}
