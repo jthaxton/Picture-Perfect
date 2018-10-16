@@ -15,6 +15,7 @@ export default class Splash extends React.Component {
   }
 
   render() {
+    
     return (
     <div>
       <Route exact path="/" component={WelcomeContainer} />
