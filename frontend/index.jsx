@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     delete window.currentUser;
   } else {
+
     store = configureStore();
     window.getState = store.getState();
   }

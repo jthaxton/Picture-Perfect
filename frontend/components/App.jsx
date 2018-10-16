@@ -17,12 +17,12 @@ const App = ({currentUser}) => {
 
   return (
     <div>
-      <Route exact path="/" component={WelcomeContainer, SplashContainer} />
+      <Route exact path="/" component={WelcomeContainer} />
       <Route path="/profile" component={ProfileDetails}/>
       <Route path="/discover" component={Discover}/>
       <Route path="/licensing" component={Licensing}/>
       <Route path="/about" component={About}/>
-
+      <Splash component={SplashContainer}/>
     </div>
   )
 }
