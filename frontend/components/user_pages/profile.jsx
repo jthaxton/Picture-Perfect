@@ -1,9 +1,10 @@
 import React from 'react';
 import {deletePicture} from '../../util/picture_api';
 import {createFollow} from '../../util/follow_api_util';
-export default function PostIndex({posts}) {
+export default function Profile({posts}) {
 
   return (
+    
     <ul>
       {posts.map(picture => {
 
@@ -22,4 +23,5 @@ export default function PostIndex({posts}) {
       })}
     </ul>
   );
+
 }
