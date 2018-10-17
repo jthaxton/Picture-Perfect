@@ -625,7 +625,7 @@ function (_React$Component) {
         exact: true,
         path: "/",
         component: _welcome_welcome_container__WEBPACK_IMPORTED_MODULE_6__["default"]
-      }), typeof this.props.session.id === "undefined" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }), typeof this.props.session.id != 'number ' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         class: "background-img",
         src: "/background.jpeg"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
