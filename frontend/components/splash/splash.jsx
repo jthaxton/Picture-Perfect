@@ -19,7 +19,7 @@ class Splash extends React.Component {
     return (
     <div>
       <Route exact path="/" component={WelcomeContainer} />
-
+    {typeof this.props.session.id === "undefined"  ? <div><div><img class="background-img" src="/background.jpeg"></img></div><div id='join-us'><Link id="join" to='/signup'>Join Us</Link></div></div> : null}
     <div id="stick">
     <div id="banner">
     <AuthRoute path='/login' component={LogInFormContainer} />
@@ -43,20 +43,32 @@ class Splash extends React.Component {
         </div>
 
       </div>
-      {this.props.session.id > 0 ? <div id="logged-nav"><input id="search-bar" type="text" placeholder="Search for photos, location, or people"></input><img src="/userpic.png" id="user-pic"></img><Link to='/profile'>Profile</Link></div> : <div id="auth-buttons">
-              <div id="login-button">
-                <Link to='/login' replace>Login</Link>
-              </div>
-              <div id="signup-button">
-                <Link to='/signup'>Signup</Link>
-              </div>
-            </div>}
+      {this.props.session.id > 0 ?
+        <div id="logged-nav"><input id="search-bar" type="text" placeholder="Search for photos, location, or people">
+        </input>
+        <ul class="header-list">
+          <li>
+            <img src="/userpic.png" id="user-pic" class='badge'></img>
+            <ul class='header-notifications'>
+              <li><Link to='/profile'>Profile</Link></li>
+              <li><Link to='/upload'>Upload</Link></li>
+            </ul>
+          </li>
+        </ul>
+      </div> :
+      <div id="auth-buttons">
+        <div id="login-button">
+          <Link to='/login' replace>Login</Link>
+        </div>
+        <div id="signup-button">
+          <Link to='/signup'>Signup</Link>
+        </div>
+      </div>}
     </nav>
 
   </div>
 
   </div>
-  <Welcome/>
   </div>
 )
   }
