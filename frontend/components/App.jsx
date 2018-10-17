@@ -5,7 +5,6 @@ import LogInFormContainer from './session_form/signin_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import WelcomeContainer from './welcome/welcome_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import Welcome from './welcome/welcome';
 import About from './user_pages/about';
 import Discover from './user_pages/discover';
 import Licensing from './user_pages/licensing';
@@ -14,6 +13,8 @@ import ProfileDetails from './user_pages/profile_details';
 import Splash from './splash/splash'
 import SplashContainer from './splash/splash_container'
 import ProfileContainer from './user_pages/profile_container'
+import OtherProfileContainer from './user_pages/other_profile_container'
+import Form from './welcome/form'
 const App = ({currentUser}) => {
 
   return (
@@ -26,7 +27,9 @@ const App = ({currentUser}) => {
       <Route path="/login" component={LogInFormContainer}/>
       <Route path="/signup" component={SignUpFormContainer}/>
       <Route exact path="/" component={SplashContainer} />
+      <Route path="/upload" component={Form}/>
 
+      <SplashContainer/>
 
     </div>
   )

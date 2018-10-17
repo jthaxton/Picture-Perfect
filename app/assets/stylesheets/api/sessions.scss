@@ -1,11 +1,69 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.badge {
+  display: inline;
+  font-size: 14px;
+  padding: 1px 6px;
+  background: #000;
+  border-radius: 50%;
+}
+
+li:hover .badge {
+  background: #f00;
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+}
+
+.header-list > li {
+  position: relative;
+}
+
+.header-notifications {
+  display: none;
+  position: absolute;
+  left: -1px;
+  font-size: 14px;
+  white-space: nowrap;
+  background: #fff;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+}
+
+li:hover .header-notifications {
+  display: block;
+}
+
+.header-notifications > li {
+  border-top: 1px solid #ccc;
+  color: #000;
+}
+
+.header-notifications > li:hover {
+  background: #eee;
+}
+
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
+}
+
+.index-posts {
+  display: flex;
+}
+
+.user-index-posts {
+  display: flex;
+  align-items: baseline;
 }
 
 #drop-container:hover #dropdown-content {
@@ -55,7 +113,8 @@ body {
 }
 
 #logged-nav {
-  display: flex
+  display: flex;
+  align-items: center;
 }
 
 #demo-button {
@@ -82,12 +141,32 @@ body {
 }
 
 #banner {
-  background: image-url('a.jpg') no-repeat;
+  background: rgba(0, 0, 0, 0.1);
   min-width: 100%;
   position: sticky;
   height: auto;
   background-size: 100%;
   top: 0;
+}
+
+#join {
+  text-decoration: none;
+  color: white;
+}
+
+#join-us{
+  display: block;
+  margin-left: 35%;
+  /* margin-top: 5%; */
+  z-index: 2;
+  top: 40%;
+  left: 13%;
+  position: absolute;
+  background: #0099e5;
+  border-radius: 30px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
 }
 
 #other-nav {
@@ -133,7 +212,7 @@ a {
 }
 
 div #signup-button {
-  background: lightblue;
+  background: #0099e5;
   border-radius: 30px;
   padding: 10px;
   cursor: pointer;
@@ -183,10 +262,11 @@ div #login-button {
 }
 
 #search-bar {
-  width: 250px;
+  width: 300px;
   border-radius: 30px;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
   margin-right: 10%;
+  height: 10px;
 
 }
 
@@ -202,6 +282,10 @@ label {
   color: #71767a
 }
 
+#upload-form {
+
+}
+
 #user-pic {
   height: 30px;
   border-radius: 30px;
@@ -209,4 +293,9 @@ label {
 
 #no {
   visibility: hidden;
+}
+
+#sub-button {
+  width: 75px;
+  flex-grow: 0;
 }

@@ -55,7 +55,7 @@ export default class Form extends React.Component {
     const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
     return (
       <div>
-      <form onSubmit={this.handleSubmit.bind(this)}>
+      <form id="upload-form" onSubmit={this.handleSubmit.bind(this)}>
         <label htmlFor="post-body">Body of Post</label>
         <input type="text"
           id="post-body"
