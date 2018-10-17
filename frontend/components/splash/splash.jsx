@@ -20,7 +20,7 @@ class Splash extends React.Component {
     return (
     <div>
       <Route exact path="/" component={WelcomeContainer} />
-    {typeof this.props.session.id === "undefined"  ? <div><div><img class="background-img" src="/background.jpeg"></img></div><div id='join-us'><Link id="join" to='/signup'>Join Us</Link></div></div> : null}
+    {typeof this.props.session.id != 'number '? <div><div><img class="background-img" src="/background.jpeg"></img></div><div id='join-us'><Link id="join" to='/signup'>Join Us</Link></div></div> : null}
     <div id="stick">
     <div id="banner">
     <AuthRoute path='/login' component={LogInFormContainer} />
