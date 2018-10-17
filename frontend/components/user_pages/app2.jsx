@@ -17,7 +17,6 @@ export default class App2 extends React.Component {
 render() {
   return (
     <div id="test">
-      <Form fetchPosts={this.fetchPosts}/>
       <PostIndex posts={this.props.pictures}/>
     </div>
   );
