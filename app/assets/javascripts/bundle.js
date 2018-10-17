@@ -265,10 +265,6 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App(_ref) {
   var currentUser = _ref.currentUser;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    exact: true,
-    path: "/",
-    component: _welcome_welcome_container__WEBPACK_IMPORTED_MODULE_5__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/profile",
     component: _user_pages_profile_container__WEBPACK_IMPORTED_MODULE_14__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
@@ -293,7 +289,7 @@ var App = function App(_ref) {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/upload",
     component: _welcome_form__WEBPACK_IMPORTED_MODULE_16__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_splash_container__WEBPACK_IMPORTED_MODULE_13__["default"], null));
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -581,6 +577,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _welcome_welcome__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../welcome/welcome */ "./frontend/components/welcome/welcome.jsx");
 /* harmony import */ var _welcome_welcome_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../welcome/welcome_container */ "./frontend/components/welcome/welcome_container.jsx");
+/* harmony import */ var _welcome_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../welcome/form */ "./frontend/components/welcome/form.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -598,6 +595,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -685,9 +683,14 @@ function (_React$Component) {
         class: "header-notifications"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: "/profile"
-      }, "Profile")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      }, "Profile")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+        to: "/",
+        onClick: this.props.logout
+      }, "Logout"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "upload-link"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: "/upload"
-      }, "Upload")))))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Upload"))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "auth-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "login-button"
@@ -732,7 +735,15 @@ var mapStateToProps = function mapStateToProps(_ref) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps)(_splash__WEBPACK_IMPORTED_MODULE_2__["default"]));
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    logout: function logout() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["logout"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_splash__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -855,7 +866,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_welcome_form__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "test"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_welcome_form__WEBPACK_IMPORTED_MODULE_1__["default"], {
         fetchPosts: this.fetchPosts
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_postindex__WEBPACK_IMPORTED_MODULE_2__["default"], {
         posts: this.props.pictures
@@ -1113,6 +1126,7 @@ function PostIndex(_ref) {
       },
       value: "Follow User"
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, picture.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      id: "careful-pic",
       src: picture.photoUrl
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, picture.body), picture.user.id == Object.keys(getState.entities.users)[0] ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       id: "delete-button",
@@ -1402,9 +1416,12 @@ function (_React$Component) {
     value: function render() {
       console.log(this.state);
       var preview = this.state.photoUrl ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        id: "careful-pic",
         src: this.state.photoUrl
       }) : null;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "upload-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         id: "upload-form",
         onSubmit: this.handleSubmit.bind(this)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -1417,7 +1434,9 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         onChange: this.handleFile.bind(this)
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Image preview "), preview, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Make a new Post!")));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Image preview "), preview, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "post-picture"
+      }, "Post a Perfect Picture")));
     }
   }]);
 
@@ -1471,10 +1490,7 @@ var welcome = function welcome(_ref) {
       class: "header-group"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
       class: "header-name"
-    }, "Welcome, ", currentUser.username, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      class: "logout-button",
-      onClick: logout
-    }, "Log Out")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_pages_app2_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
+    }, "Welcome, ", currentUser.username, "!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_pages_app2_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
   };
 
   return currentUser ? personalWelcome() : sessionLinks();

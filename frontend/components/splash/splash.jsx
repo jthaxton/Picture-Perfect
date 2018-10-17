@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import Welcome from '../welcome/welcome'
 import {Route, Redirect, Switch, HashRouter} from 'react-router-dom';
 import WelcomeContainer from '../welcome/welcome_container';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+import Form from '../welcome/form'
 
 class Splash extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class Splash extends React.Component {
     <div id="banner">
     <AuthRoute path='/login' component={LogInFormContainer} />
     <AuthRoute path='/signup' component={SignUpFormContainer} />
+
     <nav id='navbar'>
       <div id="logo1">
         <Link to="/">Picture</Link>
@@ -51,10 +53,15 @@ class Splash extends React.Component {
             <img src="/userpic.png" id="user-pic" class='badge'></img>
             <ul class='header-notifications'>
               <li><Link to='/profile'>Profile</Link></li>
-              <li><Link to='/upload'>Upload</Link></li>
+              <li></li>
+              <li><Link to='/' onClick={this.props.logout}>Logout</Link></li>
+
             </ul>
           </li>
         </ul>
+        <div id="upload-link">
+        <Link to='/upload'>Upload</Link>
+        </div>
       </div> :
       <div id="auth-buttons">
         <div id="login-button">
@@ -65,10 +72,12 @@ class Splash extends React.Component {
         </div>
       </div>}
     </nav>
-
   </div>
 
   </div>
+
+
+
   </div>
 )
   }

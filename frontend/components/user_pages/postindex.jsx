@@ -18,7 +18,7 @@ export default function PostIndex({posts}) {
 
             </div>
             <h2>{picture.title}</h2>
-            <img src={picture.photoUrl}/>
+            <img id="careful-pic" src={picture.photoUrl}/>
             <h2>{picture.body}</h2>
             {picture.user.id == Object.keys(getState.entities.users)[0] ? <input id="delete-button" type="submit" onClick={() => deletePicture(picture.id)} value="Remove Post"></input> : null}
           </li>

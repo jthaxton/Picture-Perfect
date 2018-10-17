@@ -8,8 +8,13 @@ const mapStateToProps = ({ session }) => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => dispatch(logout())
+  }
+}
 
 
 export default connect(
-  mapStateToProps,
+  mapStateToProps,mapDispatchToProps
 )(Splash);

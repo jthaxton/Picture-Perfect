@@ -19,7 +19,6 @@ const App = ({currentUser}) => {
 
   return (
     <div>
-      <Route exact path="/" component={WelcomeContainer} />
       <Route path="/profile" component={ProfileContainer}/>
       <Route path="/discover" component={Discover}/>
       <Route path="/licensing" component={Licensing}/>
@@ -29,7 +28,6 @@ const App = ({currentUser}) => {
       <Route exact path="/" component={SplashContainer} />
       <Route path="/upload" component={Form}/>
 
-      <SplashContainer/>
 
     </div>
   )
