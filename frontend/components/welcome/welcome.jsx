@@ -24,11 +24,10 @@ const welcome = ({ currentUser, logout }) => {
 
     <h1 class="header-group">
       <h1 class="header-name">Welcome, {currentUser.username}!</h1>
-      <button class="logout-button" onClick={logout}>Log Out</button>
     </h1>
     <App2Container />
     </div>
-
+    
   </div>
 
   );
