@@ -868,9 +868,7 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "test"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_welcome_form__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        fetchPosts: this.fetchPosts
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_postindex__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_postindex__WEBPACK_IMPORTED_MODULE_2__["default"], {
         posts: this.props.pictures
       }));
     }
