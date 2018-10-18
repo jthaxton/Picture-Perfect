@@ -1,5 +1,6 @@
 import React from 'react';
-import SplashContainer from '../splash/splash_container'
+import SplashContainer from '../splash/splash_container';
+import {Redirect} from 'react-router'
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -35,6 +36,7 @@ export default class Form extends React.Component {
     if (this.state.photoFile) {
 
       formData.append('picture[photo]', this.state.photoFile);
+
     }
     $.ajax({
       url: '/api/pictures',
@@ -45,7 +47,7 @@ export default class Form extends React.Component {
     }).then(
       (response) => console.log(response.message),
       (response) => {
-        console.log(response.responseJSON)
+        console.log(response.responseJSON);
       }
     );
 

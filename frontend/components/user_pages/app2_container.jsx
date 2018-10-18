@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import App2 from './app2';
 import {fetchPictures} from '../../actions/picture_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownprops) => {
   return {
     currentUser: state.entities.users[state.session.id],
-    pictures: Object.values(state.entities.pictures)
+    pictures: Object.values(state.entities.pictures),
+    users: state.entities.users
   };
 };
 

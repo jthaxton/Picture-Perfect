@@ -5,7 +5,6 @@
   display: inline;
   font-size: 14px;
   padding: 1px 6px;
-  /* background: #000; */
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -273,17 +272,21 @@ a {
 #careful-pic {
   width: 100%;
   max-width: 400px;
+  margin-top: -100px;
+}
+
+#bodypost {
+  margin-bottom: 80px;
+  margin-top: 0px;
 }
 
 #profile-feed{
   max-width: 400px;
   max-height: 400px;
-
+  margin-bottom: -75px;
 }
 
-link-to-profile{
-  color: black;
-}
+
 
 div #signup-button {
   background: #0099e5;
@@ -390,6 +393,21 @@ margin-right: 28%;
   flex-grow: 0;
 }
 
+#selfprofilefeed {
+  display: flex;
+  justify-content: center;
+}
+
+#link-to-profile{
+  color: black;
+  margin-bottom: 40px;
+}
+
 li {
   list-style-type: none;
+}
+
+#test > ul{
+  background: white;
+
 }

@@ -16,9 +16,7 @@ export default class OtherProfile extends React.Component {
 
 
   componentDidMount() {
-    debugger
     const variable = this.props.userId
-
      this.props.fetchUser(variable);
   }
 
@@ -31,11 +29,10 @@ export default class OtherProfile extends React.Component {
         <img id="otherprofpic" src={post.photoUrl}></img>
       )
     })
-    debugger
     return (
       <div>
         <Splash session={this.props.session}/>
-      <h1>{this.state.user.username}</h1>
+      <h1>{this.props.username}</h1>
       <div id="otherprof">
 
 
