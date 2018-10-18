@@ -10,5 +10,6 @@ export const receivePictures = (pictures) => {
 }
 
 export const fetchPictures = () => dispatch => {
+  
   return APIUtil.fetchPosts().then(pictures => dispatch(receivePictures(pictures)));
 }

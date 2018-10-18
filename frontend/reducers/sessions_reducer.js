@@ -3,10 +3,10 @@ import {merge} from 'lodash';
 
 const sessionReducer = (oldstate = {}, action) => {
   Object.freeze(oldstate);
-  
+
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return {id: action.current_user.id}
+      return {id: action.current_user.user.id}
     case LOGOUT_CURRENT_USER:
       return {id: null}
     default:
