@@ -16,15 +16,15 @@ class Splash extends React.Component {
   }
 
   render() {
+    
 
     return (
     <div>
       <Route exact path="/" component={WelcomeContainer} />
-    {typeof this.props.session.id !== "number" ? <div><div><img class="background-img" src="/background.jpeg"></img></div><div id='join-us'><Link id="join" to='/signup'>Join Us</Link></div></div> : null}
+    {typeof this.props.session.id != "number" ? <div><div><img className="background-img" src="/background.jpeg"></img></div><div id='join-us'><Link id="join" to='/signup'>Join Us</Link></div></div> : null}
     <div id="stick">
     <div id="banner">
-    <AuthRoute path='/login' component={LogInFormContainer} />
-    <AuthRoute path='/signup' component={SignUpFormContainer} />
+
 
     <nav id='navbar'>
       <div id="logo1">
@@ -48,10 +48,10 @@ class Splash extends React.Component {
       {this.props.session.id > 0 ?
         <div id="logged-nav"><input id="search-bar" type="text" placeholder="Search for photos, location, or people">
         </input>
-        <ul class="header-list">
+        <ul className="header-list">
           <li>
-            <img src="/userpic.png" id="user-pic" class='badge'></img>
-            <ul class='header-notifications'>
+            <img src="/userpic.png" id="user-pic" className='badge'></img>
+            <ul className='header-notifications'>
               <li><Link to='/profile'>Profile</Link></li>
               <li></li>
               <li><Link to='/' onClick={this.props.logout}>Logout</Link></li>

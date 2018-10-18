@@ -14,7 +14,7 @@ import Splash from './splash/splash'
 import SplashContainer from './splash/splash_container'
 import ProfileContainer from './user_pages/profile_container'
 import OtherProfileContainer from './user_pages/other_profile_container'
-import Form from './welcome/form'
+import FormContainer from './welcome/form_container'
 const App = ({currentUser}) => {
 
   return (
@@ -23,11 +23,11 @@ const App = ({currentUser}) => {
       <Route path="/discover" component={Discover}/>
       <Route path="/licensing" component={Licensing}/>
       <Route path="/about" component={About}/>
-      <Route path="/login" component={LogInFormContainer}/>
-      <Route path="/signup" component={SignUpFormContainer}/>
+      <AuthRoute path="/login" component={LogInFormContainer}/>
+      <AuthRoute path="/signup" component={SignUpFormContainer}/>
       <Route exact path="/" component={SplashContainer} />
-      <Route path="/upload" component={Form}/>
-
+      <ProtectedRoute path="/users/:userId" component={OtherProfileContainer}/>
+      <Route path="/upload" component={FormContainer}/>
 
     </div>
   )

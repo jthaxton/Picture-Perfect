@@ -1,4 +1,5 @@
 import React from 'react';
+import SplashContainer from '../splash/splash_container'
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -54,6 +55,8 @@ export default class Form extends React.Component {
     console.log(this.state);
     const preview = this.state.photoUrl ? <img id="careful-pic" src={this.state.photoUrl} /> : null;
     return (
+      <div id="upload-style">
+      <SplashContainer component={this.props.session}/>
       <div id="upload-container">
       <form id="upload-form" onSubmit={this.handleSubmit.bind(this)}>
         <label htmlFor="post-body">Body of Post</label>
@@ -69,6 +72,7 @@ export default class Form extends React.Component {
       </form>
 
       </div>
+    </div>
     )
 
   }

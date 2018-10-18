@@ -15,12 +15,12 @@ export default class ProfileDetails extends React.Component {
   }
 
   render() {
-    
+
 
     if (this.props.pictures.length > 0) {
       return (
         <div>
-          <h1>{this.props.currentUser.username}</h1>
+          <h1>{this.props.currentUser.username}s Profile</h1>
 
           <Profile posts={this.props.pictures} currentUser={this.props.currentUser}/>
         </div>

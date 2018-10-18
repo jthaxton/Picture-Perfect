@@ -7,7 +7,8 @@ import {fetchPictures} from '../../actions/picture_actions';
 const mapStateToProps = (state) => {
   return {
     currentUser: state.entities.users[state.session.id],
-    pictures: Object.values(state.entities.pictures)
+    pictures: Object.values(state.entities.pictures),
+    session: state.session
   };
 };
 

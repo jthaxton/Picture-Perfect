@@ -14,13 +14,15 @@ class SessionForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
+    
     const demo = Object.assign({},{username: 'joe', password: '123456'});
-    this.props.processForm(demo).then( () =>
+    this.props.processForm(demo).then( test =>
     this.props.history.push('/'))
   }
 
   handleSubmit(e) {
     e.preventDefault();
+
     const user = Object.assign({}, this.state);
     this.props.processForm(user).then( () =>
     this.props.history.push('/'))
@@ -32,7 +34,14 @@ class SessionForm extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
+
+
   renderErrors() {
+
     return(
       <ul>
         {this.props.errors.map((error, i) => (

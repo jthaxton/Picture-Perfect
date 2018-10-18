@@ -3,8 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { login } from '../../actions/session_actions';
 import SessionForm from './session_form';
+import {receiveNoErrors} from '../../actions/session_actions';
 
-const mapStateToProps = ({ errors }) => {
+const mapStateToProps = ({ errors }, ownprops) => {
   return {
     errors: errors.session,
     formType: 'login',
@@ -15,6 +16,7 @@ const mapStateToProps = ({ errors }) => {
 const mapDispatchToProps = dispatch => {
   return {
     processForm: (user) => dispatch(login(user)),
+    clearErrors: () => dispatch(receiveNoErrors())
   };
 };
 
