@@ -10,6 +10,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'jquery-rails'
 gem 'bcrypt'
 gem "aws-sdk-s3"
+gem 'ez_download'
 
 
 # Use Puma as the app server

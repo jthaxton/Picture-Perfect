@@ -5,7 +5,7 @@ end
 json.pictures do
   @user.pictures.each do |picture|
     json.set! picture.id do
-      json.extract! picture, :id, :body
+      json.extract! picture, :id, :body, :user
       if picture.photo.attached?
         json.photoUrl picture.photo.service_url
       end
