@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import App2 from './app2';
-import {fetchPictures} from '../../actions/picture_actions';
+import {fetchPictures, removePicture} from '../../actions/picture_actions';
 
 const mapStateToProps = (state, ownprops) => {
   return {
@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownprops) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPosts: () => dispatch(fetchPictures())
+    fetchPosts: () => dispatch(fetchPictures()),
+    deletePicture: (picture) => dispatch(removePicture(picture))
   }
 }
 

@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-    user1 = User.create(username: 'Jerry Seinfeld', password: '1234567')
-    user2 = (username: 'George Constanza', password: '23094578')
-    user3 = (username: "Cosmo Kramer", password: '39034705')
+    user1 = User.create({username: 'Jerry Seinfeld', password: '1234567'})
+    user2 = User.create({username: 'George Constanza', password: '23094578'})
+    user3 = User.create({username: "Cosmo Kramer", password: '39034705'})
 
     picture = Picture.new(user_id: user1.id, body: 'WHAT THE DEAL WITH TRAFFIC')
     file = EzDownload.open('https://images.unsplash.com/photo-1519999482648-25049ddd37b1?ixlib=rb-0.3.5&s=213bb0e97848618dfc895b1bb596d330&auto=format&fit=crop&w=2126&q=80')

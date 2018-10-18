@@ -90,27 +90,44 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/picture_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_PICTURES, receivePictures, fetchPictures */
+/*! exports provided: RECEIVE_PICTURES, REMOVE_PICTURE, receivePictures, deletePicture, fetchPictures, removePicture */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_PICTURES", function() { return RECEIVE_PICTURES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_PICTURE", function() { return REMOVE_PICTURE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePictures", function() { return receivePictures; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePicture", function() { return deletePicture; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPictures", function() { return fetchPictures; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removePicture", function() { return removePicture; });
 /* harmony import */ var _util_picture_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/picture_api */ "./frontend/util/picture_api.js");
 
 var RECEIVE_PICTURES = "RECEIVE_PICTURES";
+var REMOVE_PICTURE = 'REMOVE_PICTURE';
 var receivePictures = function receivePictures(pictures) {
   return {
     type: RECEIVE_PICTURES,
     pictures: pictures
   };
 };
+var deletePicture = function deletePicture(picture) {
+  return {
+    type: REMOVE_PICTURE,
+    picture: picture
+  };
+};
 var fetchPictures = function fetchPictures() {
   return function (dispatch) {
     return _util_picture_api__WEBPACK_IMPORTED_MODULE_0__["fetchPosts"]().then(function (pictures) {
       return dispatch(receivePictures(pictures));
+    });
+  };
+};
+var removePicture = function removePicture(picture) {
+  return function (dispatch) {
+    return _util_picture_api__WEBPACK_IMPORTED_MODULE_0__["deletePicture"](picture).then(function (picture) {
+      return dispatch(deletePicture(picture));
     });
   };
 };
@@ -911,6 +928,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_postindex__WEBPACK_IMPORTED_MODULE_2__["default"], {
         posts: this.props.pictures,
         currentUser: this.props.currentUser,
+        deletePicture: this.props.deletePicture,
         users: this.props.users
       }));
     }
@@ -957,6 +975,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchPosts: function fetchPosts() {
       return dispatch(Object(_actions_picture_actions__WEBPACK_IMPORTED_MODULE_4__["fetchPictures"])());
+    },
+    deletePicture: function deletePicture(picture) {
+      return dispatch(Object(_actions_picture_actions__WEBPACK_IMPORTED_MODULE_4__["removePicture"])(picture));
     }
   };
 };
@@ -1244,17 +1265,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PostIndex; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _util_picture_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/picture_api */ "./frontend/util/picture_api.js");
-/* harmony import */ var _util_follow_api_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/follow_api_util */ "./frontend/util/follow_api_util.js");
-/* harmony import */ var _util_user_api_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../util/user_api_util */ "./frontend/util/user_api_util.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
-
+/* harmony import */ var _util_follow_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/follow_api_util */ "./frontend/util/follow_api_util.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
 
 
 function PostIndex(state) {
-  var users = Object(_util_user_api_util__WEBPACK_IMPORTED_MODULE_3__["fetchAllUsers"])();
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, state.posts.reverse().map(function (picture) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       class: "index-posts"
@@ -1265,7 +1281,7 @@ function PostIndex(state) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: "/userpic.png",
       id: "user-pic"
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
       to: "/users/".concat(picture.user_id),
       username: picture.user.username
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
@@ -1274,14 +1290,14 @@ function PostIndex(state) {
       id: "sub-button",
       type: "submit",
       onClick: function onClick() {
-        return Object(_util_picture_api__WEBPACK_IMPORTED_MODULE_1__["deletePicture"])(picture.id);
+        return state.deletePicture(picture.id);
       },
       value: "Delete Post"
     }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       id: "sub-button",
       type: "submit",
       onClick: function onClick() {
-        return Object(_util_follow_api_util__WEBPACK_IMPORTED_MODULE_2__["createFollow"])(picture.user);
+        return Object(_util_follow_api_util__WEBPACK_IMPORTED_MODULE_1__["createFollow"])(picture.user);
       },
       value: "Follow User"
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, picture.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1842,6 +1858,11 @@ var pictureReducer = function pictureReducer() {
 
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_USER"]:
       return action.pictures;
+
+    case _actions_picture_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_PICTURE"]:
+      var newstate = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["merge"])({}, state);
+      delete newstate[action.picture.id];
+      return newstate;
 
     default:
       return state;

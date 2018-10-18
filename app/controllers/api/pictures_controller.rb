@@ -26,6 +26,8 @@ class Api::PicturesController < ApplicationController
     @picture = Picture.find_by_id(params[:id])
 
     @picture.photo.destroy
+
+    render :show
   end
 
   private
