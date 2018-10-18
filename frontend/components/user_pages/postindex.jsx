@@ -7,7 +7,7 @@ export default function PostIndex(state) {
   return (
     <ul>
       {state.posts.reverse().map(picture => {
-        debugger
+
         return (
           <div class="index-posts">
           <li key={picture.id}>
