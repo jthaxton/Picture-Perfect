@@ -1253,6 +1253,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function PostIndex(state) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, state.posts.reverse().map(function (picture) {
+    debugger;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       class: "index-posts"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -1270,7 +1271,7 @@ function PostIndex(state) {
       id: "sub-button",
       type: "submit",
       onClick: function onClick() {
-        return Object(_util_picture_api__WEBPACK_IMPORTED_MODULE_1__["deletePicture"])(picture.user);
+        return Object(_util_picture_api__WEBPACK_IMPORTED_MODULE_1__["deletePicture"])(picture.id);
       },
       value: "Delete Post"
     }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
