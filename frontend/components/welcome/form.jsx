@@ -29,7 +29,6 @@ export default class Form extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log(this.state);
     e.preventDefault();
     const formData = new FormData();
     formData.append('picture[body]', this.state.body)

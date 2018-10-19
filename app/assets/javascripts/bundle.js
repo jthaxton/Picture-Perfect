@@ -1270,7 +1270,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       if (!this.props.posts) return null;
       var allPosts = this.props.posts.map(function (post) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1661,7 +1660,6 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      console.log(this.state);
       e.preventDefault();
       var formData = new FormData();
       formData.append('picture[body]', this.state.body);
@@ -1871,11 +1869,9 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     };
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])(preloadedState);
-    window.getState = store.getState();
     delete window.currentUser;
   } else {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
-    window.getState = store.getState();
   }
 
   var root = document.getElementById('root');
