@@ -18,17 +18,20 @@ export default class OtherProfile extends React.Component {
   componentDidMount() {
     const variable = this.props.userId
      this.props.fetchUser(variable);
+     
   }
 
   render() {
-    
+
 
     if (!this.props.posts) return null;
     const allPosts = this.props.posts.map(post => {
+
       return (
         <img id="otherprofpic" src={post.photoUrl}></img>
       )
     })
+
     return (
       <div>
         <Splash session={this.props.session}/>

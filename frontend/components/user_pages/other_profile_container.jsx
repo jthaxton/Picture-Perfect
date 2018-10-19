@@ -8,6 +8,7 @@ import {fetchPictures} from '../../actions/picture_actions'
 import {fetchAllUsers} from '../../actions/user_actions'
 
 const mapStateToProps = (state, ownprops) => {
+  
   return {
     currentUserId: state.session.currentUserId,
     users: state.entities.users,
