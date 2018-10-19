@@ -17,7 +17,7 @@ export default class App2 extends React.Component {
 render() {
   return (
     <div id="test">
-      <PostIndex posts={this.props.pictures} currentUser={this.props.currentUser} deletePicture={this.props.deletePicture} users={this.props.users}/>
+      <PostIndex follow={this.props.createFollow} follows={this.props.follows} posts={this.props.pictures} currentUser={this.props.currentUser} deletePicture={this.props.deletePicture} users={this.props.users}/>
     </div>
   );
 }

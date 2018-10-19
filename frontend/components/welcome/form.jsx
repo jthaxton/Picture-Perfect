@@ -49,6 +49,7 @@ export default class Form extends React.Component {
         console.log(response.responseJSON);
       }
     );
+    this.props.history.push('/')
 
   }
 
