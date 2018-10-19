@@ -692,10 +692,6 @@ function (_React$Component) {
         path: "/",
         component: _welcome_welcome_container__WEBPACK_IMPORTED_MODULE_6__["default"],
         session: this.props.session
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
-        exact: true,
-        path: "/about",
-        component: _user_pages_about__WEBPACK_IMPORTED_MODULE_8__["default"]
       }), typeof this.props.session.id != "number" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "background-img",
         src: "/background.jpeg"
