@@ -22,7 +22,6 @@ class Splash extends React.Component {
     return (
     <div>
       <Route exact path="/" component={WelcomeContainer} session={this.props.session}/>
-      <Route exact path="/about" component={About} />
     {typeof this.props.session.id != "number" ? <div><div><img className="background-img" src="/background.jpeg"></img></div><div id='join-us'><Link id="join" to='/signup'>Join Us</Link></div></div> : null}
     <div id="stick">
     <div id="banner">
