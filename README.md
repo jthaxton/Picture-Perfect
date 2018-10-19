@@ -15,8 +15,9 @@ Picture Perfect is a photo blogging application, modeled after 500px, that was b
 ## Possible Future Features
   In the future I would like to add:
   * Edit posts
+  * Infinite scroll
   * User avatars
   * Search
 
 ## Lessons Learned
-While I am proud of my site, I acknowledge that I wasn't completely confident in my React skills at the beginning of the project. Going forward, I know that I should err on the side of caution and make containers whenever possible and break down my components even more. Most importantly, I should keep my basic state structure throughout the project without nesting too deep. 
+While I am proud of my site, I acknowledge that I wasn't completely confident in my React skills at the beginning of the project. Going forward, I know that I should err on the side of caution and make containers whenever possible and break down my components even more. Most importantly, I should keep my basic state structure throughout the project without nesting too deep.
