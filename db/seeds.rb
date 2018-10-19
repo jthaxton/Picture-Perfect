@@ -12,6 +12,8 @@
     user2 = User.create!(username: 'George Constanza', password: '23094578')
     user3 = User.create!(username: "Cosmo Kramer", password: '39034705')
     user4 = User.create!(username: 'joe', password: '123456')
+    user5 = User.create!(username: "Elaine Benes", password: '39034705')
+
 
     picture = Picture.new(user_id: user1.id, body: 'WHAT THE DEAL WITH TRAFFIC')
     file = EzDownload.open('https://images.unsplash.com/photo-1538208576141-8d3dfcfb7b0b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a52c26bb05e049426b40671a9d7dacc2&auto=format&fit=crop&w=634&q=80')
@@ -53,4 +55,9 @@
     picture = Picture.new(user_id: user4.id, body: 'Beautiful moon')
     file = EzDownload.open('https://images.unsplash.com/photo-1517420878257-463729f65889?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b84f1bbee55b70460027ba6bad3c2099&auto=format&fit=crop&w=700&q=80')
     picture.photo.attach(io: file, filename: 'moon.jpg')
+    picture.save!
+
+    picture = Picture.new(user_id: user5.id, body: 'If Seinfeld still tv I get iphone')
+    file = EzDownload.open('https://images.unsplash.com/photo-1490889737678-4bad47eb1a03?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a3c9243782c75ef708ee73490f7620d2&auto=format&fit=crop&w=1050&q=80')
+    picture.photo.attach(io: file, filename: 'phone.jpg')
     picture.save!

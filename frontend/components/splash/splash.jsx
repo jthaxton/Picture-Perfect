@@ -76,7 +76,8 @@ class Splash extends React.Component {
   </div>
 
   </div>
-
+  <AuthRoute path="/login" component={LogInFormContainer}/>
+  <AuthRoute path="/signup" component={SignUpFormContainer}/>
 
 
   </div>

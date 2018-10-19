@@ -412,6 +412,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
+
 var SessionForm =
 /*#__PURE__*/
 function (_React$Component) {
@@ -439,8 +440,8 @@ function (_React$Component) {
 
       e.preventDefault();
       var demo = Object.assign({}, {
-        username: 'joe',
-        password: '123456'
+        username: 'Jerry Seinfeld',
+        password: '1234567'
       });
       this.props.processForm(demo).then(function (test) {
         return _this2.props.history.push('/');
@@ -485,7 +486,46 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         class: "login-container"
-      }, this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "stick"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "banner"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        id: "navbar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "logo1"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/"
+      }, "Picture")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "logo2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/"
+      }, "Perfect")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "other-nav"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "discover"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/discover"
+      }, "Discover")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "about"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/about"
+      }, "About")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "licensing"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/licensing"
+      }, "Licensing"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "auth-buttons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "login-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/login",
+        replace: true
+      }, "Login")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "signup-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/signup"
+      }, "Signup")))))), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         class: "login-form"
@@ -762,7 +802,13 @@ function (_React$Component) {
         id: "signup-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: "/signup"
-      }, "Signup")))))));
+      }, "Signup")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["AuthRoute"], {
+        path: "/login",
+        component: _session_form_signin_form_container__WEBPACK_IMPORTED_MODULE_1__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["AuthRoute"], {
+        path: "/signup",
+        component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_2__["default"]
+      }));
     }
   }]);
 
@@ -1316,10 +1362,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function PostIndex(state) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, state.posts.reverse().map(function (picture) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, state.posts.reverse().map(function (picture) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       class: "index-posts"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: picture.id
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       class: "user-index-posts"
@@ -1378,31 +1424,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Profile(state) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_splash_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_splash_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
     component: state.session
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "/userpic.png",
     id: "user-pic"
   }), state.posts.map(function (picture) {
     if (picture.user.id === state.currentUser.id) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: picture.id,
         id: "selfprofilefeed"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         class: "profile-posts"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         class: "user-info"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, picture.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         id: "profile-feed",
         src: picture.photoUrl
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, picture.body), picture.user.id == Object.keys(state.currentUser.id) ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), picture.user.id == Object.keys(state.currentUser.id) ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "delete-button",
         type: "submit",
         onClick: function onClick() {
           return Object(_util_picture_api__WEBPACK_IMPORTED_MODULE_1__["deletePicture"])(picture.id);
         },
         value: "Remove Post"
-      }) : null));
+      }) : null)));
     }
   }));
 }
@@ -1508,7 +1554,9 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       if (this.props.pictures.length > 0) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.currentUser.username, "s Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_profile__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          class: "header-name"
+        }, this.props.currentUser.username, "s Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_profile__WEBPACK_IMPORTED_MODULE_1__["default"], {
           posts: this.props.pictures,
           currentUser: this.props.currentUser
         }));
