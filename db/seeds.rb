@@ -61,3 +61,8 @@
     file = EzDownload.open('https://images.unsplash.com/photo-1490889737678-4bad47eb1a03?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a3c9243782c75ef708ee73490f7620d2&auto=format&fit=crop&w=1050&q=80')
     picture.photo.attach(io: file, filename: 'phone.jpg')
     picture.save!
+
+    picture = Picture.new(user_id: user5.id, body: "I'm speechless. I'm without speech.")
+    file = EzDownload.open('https://images.unsplash.com/photo-1495954484750-af469f2f9be5?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=87ec405669df2423b33545ef51c7fc4d&auto=format&fit=crop&w=1050&q=80')
+    picture.photo.attach(io: file, filename: 'phone.jpg')
+    picture.save!
