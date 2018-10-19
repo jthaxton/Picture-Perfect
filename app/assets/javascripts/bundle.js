@@ -642,6 +642,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _welcome_welcome__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../welcome/welcome */ "./frontend/components/welcome/welcome.jsx");
 /* harmony import */ var _welcome_welcome_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../welcome/welcome_container */ "./frontend/components/welcome/welcome_container.jsx");
 /* harmony import */ var _welcome_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../welcome/form */ "./frontend/components/welcome/form.jsx");
+/* harmony import */ var _user_pages_about__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../user_pages/about */ "./frontend/components/user_pages/about.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -671,6 +672,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Splash =
 /*#__PURE__*/
 function (_React$Component) {
@@ -688,7 +690,12 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
         exact: true,
         path: "/",
-        component: _welcome_welcome_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+        component: _welcome_welcome_container__WEBPACK_IMPORTED_MODULE_6__["default"],
+        session: this.props.session
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+        exact: true,
+        path: "/about",
+        component: _user_pages_about__WEBPACK_IMPORTED_MODULE_8__["default"]
       }), typeof this.props.session.id != "number" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "background-img",
         src: "/background.jpeg"
@@ -816,6 +823,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../splash/splash */ "./frontend/components/splash/splash.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -837,6 +845,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
 var About =
 /*#__PURE__*/
 function (_React$Component) {
@@ -851,11 +861,50 @@ function (_React$Component) {
   _createClass(About, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "background-img",
+        src: "/background.jpeg"
+      }), "}", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "stick"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "banner"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        id: "navbar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "logo1"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/"
+      }, "Picture")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "logo2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/"
+      }, "Perfect")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "other-nav"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "discover"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/discover"
+      }, "Discover")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "about"
-      }, "ABOUT"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        id: "about"
-      }, "\"When in doubt, wrap it in a div tag\" - a wise person")));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/about"
+      }, "About")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "licensing"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/licensing"
+      }, "Licensing")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "find-me"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.linkedin.com/in/josephthaxton/"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        class: "find-me",
+        src: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://github.com/jthaxton"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        class: "find-me",
+        src: "https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png"
+      }))));
     }
   }]);
 
