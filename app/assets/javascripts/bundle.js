@@ -903,10 +903,7 @@ function (_React$Component) {
   _createClass(About, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "background-img",
-        src: "/background.jpeg"
-      }), "}", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "stick"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "banner"

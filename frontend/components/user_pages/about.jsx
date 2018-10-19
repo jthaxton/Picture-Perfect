@@ -12,7 +12,6 @@ class About extends React.Component {
   render() {
     return (
       <div>
-        <img className="background-img" src="/background.jpeg"></img>}
         <div id="stick">
         <div id="banner">
 
