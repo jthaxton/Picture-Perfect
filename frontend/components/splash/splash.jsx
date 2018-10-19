@@ -7,7 +7,8 @@ import Welcome from '../welcome/welcome'
 import {Route, Redirect, Switch, HashRouter} from 'react-router-dom';
 import WelcomeContainer from '../welcome/welcome_container';
 import {withRouter} from 'react-router-dom';
-import Form from '../welcome/form'
+import Form from '../welcome/form';
+import About from '../user_pages/about'
 
 class Splash extends React.Component {
   constructor(props) {
@@ -16,11 +17,12 @@ class Splash extends React.Component {
   }
 
   render() {
-    
+
 
     return (
     <div>
-      <Route exact path="/" component={WelcomeContainer} />
+      <Route exact path="/" component={WelcomeContainer} session={this.props.session}/>
+      <Route exact path="/about" component={About} />
     {typeof this.props.session.id != "number" ? <div><div><img className="background-img" src="/background.jpeg"></img></div><div id='join-us'><Link id="join" to='/signup'>Join Us</Link></div></div> : null}
     <div id="stick">
     <div id="banner">

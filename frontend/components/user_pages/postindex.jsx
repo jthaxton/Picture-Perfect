@@ -2,6 +2,8 @@ import React from 'react';
 import {createFollow} from '../../util/follow_api_util';
 import {Link} from 'react-router-dom';
 export default function PostIndex(state) {
+
+  
   return (
     <ul>
       {state.posts.reverse().map(picture => {
