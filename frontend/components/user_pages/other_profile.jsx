@@ -21,7 +21,7 @@ export default class OtherProfile extends React.Component {
   }
 
   render() {
-
+    debugger
 
     if (!this.props.posts) return null;
     const allPosts = this.props.posts.map(post => {

@@ -440,10 +440,10 @@ function (_React$Component) {
 
       e.preventDefault();
       var demo = Object.assign({}, {
-        username: 'Jerry Seinfeld',
-        password: '1234567'
+        username: 'joe',
+        password: '123456'
       });
-      this.props.processForm(demo).then(function (test) {
+      this.props.processDemo(demo).then(function (test) {
         return _this2.props.history.push('/');
       });
     }
@@ -608,6 +608,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     clearErrors: function clearErrors() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["receiveNoErrors"])());
+    },
+    processDemo: function processDemo(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
     }
   };
 };
@@ -656,6 +659,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     clearErrors: function clearErrors() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["receiveNoErrors"])());
+    },
+    processDemo: function processDemo(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
     }
   };
 };
@@ -1264,6 +1270,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      debugger;
       if (!this.props.posts) return null;
       var allPosts = this.props.posts.map(function (post) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
