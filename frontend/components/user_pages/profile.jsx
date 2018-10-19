@@ -7,7 +7,7 @@ export default function Profile(state) {
 
   return (
 
-    <ul>
+    <div>
       <SplashContainer component={state.session}/>
         <img src="/userpic.png" id="user-pic"></img>
 
@@ -15,19 +15,20 @@ export default function Profile(state) {
         if (picture.user.id === state.currentUser.id) {
         return (
 
-          <li key={picture.id} id="selfprofilefeed">
+          <div key={picture.id} id="selfprofilefeed">
             <div class="profile-posts">
               <div class="user-info">
               </div>
-            <h2>{picture.title}</h2>
+            <div>
             <img id="profile-feed" src={picture.photoUrl}/>
-            <h2>{picture.body}</h2>
             {picture.user.id == Object.keys(state.currentUser.id) ? <input id="delete-button" type="submit" onClick={() => deletePicture(picture.id)} value="Remove Post"></input> : null}
             </div>
-          </li>
+
+            </div>
+          </div>
         );
       }})}
-    </ul>
+    </div>
   );
 
 }

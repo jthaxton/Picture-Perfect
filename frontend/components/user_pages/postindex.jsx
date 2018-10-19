@@ -3,14 +3,14 @@ import {createFollow} from '../../util/follow_api_util';
 import {Link} from 'react-router-dom';
 export default function PostIndex(state) {
 
-  
+
   return (
-    <ul>
+    <div>
       {state.posts.reverse().map(picture => {
 
         return (
           <div class="index-posts">
-          <li key={picture.id}>
+          <div key={picture.id}>
             <div class="user-index-posts">
             <img src="/userpic.png" id="user-pic"></img>
             <Link to={`/users/${picture.user_id}`} username={picture.user.username}><h1 id="link-to-profile">{picture.user.username}</h1></Link>
@@ -19,10 +19,10 @@ export default function PostIndex(state) {
             <h2>{picture.title}</h2>
             <img id="careful-pic" src={picture.photoUrl}/>
             <h2 id="bodypost">{picture.body}</h2>
-          </li>
+          </div>
           </div>
         );
       })}
-    </ul>
+    </div>
   );
 }

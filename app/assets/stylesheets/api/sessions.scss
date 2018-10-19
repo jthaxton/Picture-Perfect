@@ -1,6 +1,10 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.header-name {
+  margin-top:100px;
+}
+
 .badge {
   display: inline;
   font-size: 14px;
@@ -21,6 +25,8 @@
 #otherprofpic {
   max-width: 400px;
   padding: 1px;
+  margin-top: 15px;
+
 }
 
 .header {
@@ -79,6 +85,7 @@ nav {
 
 .index-posts {
   display: flex;
+  justify-content: center;
 }
 
 .user-index-posts {
@@ -270,7 +277,6 @@ a {
 }
 
 #careful-pic {
-  width: 100%;
   max-width: 400px;
   margin-top: -100px;
 }
@@ -283,7 +289,6 @@ a {
 #profile-feed{
   max-width: 400px;
   max-height: 400px;
-  margin-bottom: -75px;
 }
 
 .find-me{
@@ -378,7 +383,9 @@ label {
   border: 1px solid #eeeff2;
 }
 
-
+.user-index-posts{
+  justify-content: center;
+}
 
 
 #no {
@@ -388,7 +395,6 @@ label {
 #test {
   display: flex;
 justify-content: center;
-margin-right: 28%;
 }
 
 #sub-button {

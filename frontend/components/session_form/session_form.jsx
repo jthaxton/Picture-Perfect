@@ -1,5 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom'
+import {Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
+
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -14,8 +16,8 @@ class SessionForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
-    
-    const demo = Object.assign({},{username: 'joe', password: '123456'});
+
+    const demo = Object.assign({},{username: 'Jerry Seinfeld', password: '1234567'});
     this.props.processForm(demo).then( test =>
     this.props.history.push('/'))
   }
@@ -59,6 +61,43 @@ class SessionForm extends React.Component {
     return (
 
       <div class='login-container'>
+      <div id="stick">
+      <div id="banner">
+
+
+      <nav id='navbar'>
+        <div id="logo1">
+          <Link to="/">Picture</Link>
+        </div>
+        <div id="logo2">
+          <Link to="/">Perfect</Link>
+        </div>
+        <div id="other-nav">
+          <div id="discover">
+            <Link to="/discover">Discover</Link>
+          </div>
+          <div id="about">
+            <Link to="/about">About</Link>
+          </div>
+          <div id="licensing">
+            <Link to="/licensing">Licensing</Link>
+          </div>
+
+        </div>
+        <div id="auth-buttons">
+          <div id="login-button">
+            <Link to='/login' replace>Login</Link>
+          </div>
+          <div id="signup-button">
+            <Link to='/signup'>Signup</Link>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    </div>
+
+
         {this.renderErrors()}
 
         <form onSubmit={this.handleSubmit}>
