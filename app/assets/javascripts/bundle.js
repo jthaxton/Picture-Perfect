@@ -86,6 +86,55 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/follows_actions.js":
+/*!*********************************************!*\
+  !*** ./frontend/actions/follows_actions.js ***!
+  \*********************************************/
+/*! exports provided: RECEIVE_FOLLOW, RECEIVE_ALL_FOLLOWS, follow, follows */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_FOLLOW", function() { return RECEIVE_FOLLOW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_FOLLOWS", function() { return RECEIVE_ALL_FOLLOWS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "follow", function() { return follow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "follows", function() { return follows; });
+/* harmony import */ var _util_follow_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/follow_api_util */ "./frontend/util/follow_api_util.js");
+
+var RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
+var RECEIVE_ALL_FOLLOWS = 'RECEIVE_ALL_FOLLOWS';
+
+var receiveFollow = function receiveFollow(user) {
+  return {
+    type: RECEIVE_FOLLOW,
+    user: user
+  };
+};
+
+var receiveAllFollows = function receiveAllFollows() {
+  return {
+    type: RECEIVE_ALL_FOLLOWS,
+    user: user
+  };
+};
+
+var follow = function follow(user) {
+  return function (dispatch) {
+    return Object(_util_follow_api_util__WEBPACK_IMPORTED_MODULE_0__["createFollow"])().then(function (user) {
+      return dispatch(receiveFollow(user));
+    });
+  };
+};
+var follows = function follows() {
+  return function (dispatch) {
+    return Object(_util_follow_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchFollows"])().then(function () {
+      return dispatch(receiveAllFollows());
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/picture_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/picture_actions.js ***!
@@ -1020,6 +1069,8 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "test"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_postindex__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        follow: this.props.createFollow,
+        follows: this.props.follows,
         posts: this.props.pictures,
         currentUser: this.props.currentUser,
         deletePicture: this.props.deletePicture,
@@ -1051,6 +1102,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _app2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app2 */ "./frontend/components/user_pages/app2.jsx");
 /* harmony import */ var _actions_picture_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/picture_actions */ "./frontend/actions/picture_actions.js");
+/* harmony import */ var _actions_follows_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/follows_actions */ "./frontend/actions/follows_actions.js");
+
 
 
 
@@ -1072,6 +1125,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deletePicture: function deletePicture(picture) {
       return dispatch(Object(_actions_picture_actions__WEBPACK_IMPORTED_MODULE_4__["removePicture"])(picture));
+    },
+    fetchFollows: function fetchFollows() {
+      return dispatch(follows());
+    },
+    createFollow: function createFollow(follow) {
+      return dispatch(follow(follow));
     }
   };
 };
@@ -1377,7 +1436,8 @@ function PostIndex(state) {
       id: "user-pic"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
       to: "/users/".concat(picture.user_id),
-      username: picture.user.username
+      username: picture.user.username,
+      follows: state.follows
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
       id: "link-to-profile"
     }, picture.user.username)), state.currentUser.id === picture.user_id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1391,7 +1451,7 @@ function PostIndex(state) {
       id: "sub-button",
       type: "submit",
       onClick: function onClick() {
-        return Object(_util_follow_api_util__WEBPACK_IMPORTED_MODULE_1__["createFollow"])(picture.user);
+        return state.follow(picture.user);
       },
       value: "Follow User"
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, picture.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1679,6 +1739,7 @@ function (_React$Component) {
       }, function (response) {
         console.log(response.responseJSON);
       });
+      this.props.history.push('/');
     }
   }, {
     key: "render",
@@ -1894,12 +1955,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _picture_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./picture_reducer */ "./frontend/reducers/picture_reducer.js");
+/* harmony import */ var _follows_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./follows_reducer */ "./frontend/reducers/follows_reducer.js");
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  pictures: _picture_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  pictures: _picture_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  follows: _follows_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 }));
 
 /***/ }),
@@ -1920,6 +1984,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 }));
+
+/***/ }),
+
+/***/ "./frontend/reducers/follows_reducer.js":
+/*!**********************************************!*\
+  !*** ./frontend/reducers/follows_reducer.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_follows_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/follows_actions */ "./frontend/actions/follows_actions.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var followsReducer = function followsReducer() {
+  var oldstate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var actions = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(oldstate);
+
+  switch (actions.type) {
+    case _actions_follows_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FOLLOW"]:
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, oldstate, _defineProperty({}, actions.follow.id, _defineProperty({}, actions.current_user, actions.user)));
+
+    case _actions_follows_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_FOLLOWS"]:
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, oldstate, _defineProperty({}, actions.follow.id, _defineProperty({}, actions.current_user, actions.user)));
+
+    default:
+      return oldstate;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (followsReducer);
 
 /***/ }),
 
@@ -2141,12 +2243,13 @@ var configureStore = function configureStore() {
 /*!******************************************!*\
   !*** ./frontend/util/follow_api_util.js ***!
   \******************************************/
-/*! exports provided: createFollow */
+/*! exports provided: createFollow, fetchFollows */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFollow", function() { return createFollow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchFollows", function() { return fetchFollows; });
 var createFollow = function createFollow(user) {
   return $.ajax({
     url: '/api/follows',
@@ -2154,6 +2257,12 @@ var createFollow = function createFollow(user) {
     data: {
       user: user
     }
+  });
+};
+var fetchFollows = function fetchFollows() {
+  return $.ajax({
+    url: '/api/follows',
+    method: 'GET'
   });
 };
 

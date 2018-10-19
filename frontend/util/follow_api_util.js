@@ -5,3 +5,10 @@ export const createFollow = (user) => {
     data: {user}
   });
 }
+
+export const fetchFollows = () => {
+  return $.ajax({
+    url: '/api/follows',
+    method: 'GET'
+  })
+}

@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import App2 from './app2';
 import {fetchPictures, removePicture} from '../../actions/picture_actions';
+import {fetchFollows, follow} from '../../actions/follows_actions'
 
 const mapStateToProps = (state, ownprops) => {
   return {
@@ -15,7 +16,9 @@ const mapStateToProps = (state, ownprops) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchPosts: () => dispatch(fetchPictures()),
-    deletePicture: (picture) => dispatch(removePicture(picture))
+    deletePicture: (picture) => dispatch(removePicture(picture)),
+    fetchFollows: () => dispatch(follows()),
+    createFollow: (follow) => dispatch(follow(follow))
   }
 }
 
