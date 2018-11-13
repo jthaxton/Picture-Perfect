@@ -3,12 +3,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { signup, login } from '../../actions/session_actions';
 import SessionForm from './session_form';
-import {receiveNoErrors} from '../../actions/session_actions'
+import {receiveNoErrors} from '../../actions/session_actions';
 
 const mapStateToProps = ({ errors }) => {
   return {
     errors: errors.session,
-    formType: 'signup',
+    formType: 'Sign Up',
     navLink: <Link to="/signup">signup</Link>,
   };
 };

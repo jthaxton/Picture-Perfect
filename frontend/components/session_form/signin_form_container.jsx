@@ -8,7 +8,7 @@ import {receiveNoErrors} from '../../actions/session_actions';
 const mapStateToProps = ({ errors }, ownprops) => {
   return {
     errors: errors.session,
-    formType: 'login',
+    formType: 'Login',
     navLink: <Link to="/login">sign up</Link>,
   };
 };

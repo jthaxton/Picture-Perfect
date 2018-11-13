@@ -574,11 +574,13 @@ function (_React$Component) {
         id: "signup-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/signup"
-      }, "Signup")))))), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, "Signup")))))), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "modalform"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         class: "login-form"
-      }, this.props.formType === 'login' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      }, this.props.formType === "Login" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         class: "modals"
       }, "Log into PicturePerfect") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         class: "modals"
@@ -589,13 +591,13 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.username,
-        onChange: this.update('username')
+        onChange: this.update("username")
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         class: "anotha-one"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Password:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
         value: this.state.password,
-        onChange: this.update('password')
+        onChange: this.update("password")
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "submit",
         type: "submit",
@@ -606,7 +608,7 @@ function (_React$Component) {
         id: "demo-button",
         type: "submit",
         value: "Demo Login"
-      })))));
+      }))))));
     }
   }]);
 
@@ -643,7 +645,7 @@ var mapStateToProps = function mapStateToProps(_ref, ownprops) {
   var errors = _ref.errors;
   return {
     errors: errors.session,
-    formType: 'login',
+    formType: 'Login',
     navLink: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
       to: "/login"
     }, "sign up")
@@ -694,7 +696,7 @@ var mapStateToProps = function mapStateToProps(_ref) {
   var errors = _ref.errors;
   return {
     errors: errors.session,
-    formType: 'signup',
+    formType: 'Sign Up',
     navLink: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
       to: "/signup"
     }, "signup")
@@ -791,6 +793,8 @@ function (_React$Component) {
         className: "background-img",
         src: "/background.jpeg"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "share"
+      }, "Share photos with artists like you!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "join-us"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         id: "join",
@@ -829,17 +833,20 @@ function (_React$Component) {
         id: "search-bar",
         type: "text",
         placeholder: "Search for photos, location, or people"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "header-list"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "/userpic.png",
         id: "user-pic",
         className: "badge"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "header-list"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "/menu.png",
+        id: "user-menu"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "header-notifications"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: "/profile"
-      }, "Profile")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      }, "Profile")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: "/",
         onClick: this.props.logout
       }, "Logout"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1428,6 +1435,7 @@ function PostIndex(state) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       class: "index-posts"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "indexitem",
       key: picture.id
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       class: "user-index-posts"

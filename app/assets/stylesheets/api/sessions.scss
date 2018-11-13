@@ -38,21 +38,30 @@
   position: relative;
 }
 
+#user-menu {
+  height: 28px;
+    width: 32px;
+    padding-right: 15px;
+    margin-bottom: -7px;
+    padding-bottom: 1px;
+}
+
 .header-notifications {
-  display: none;
-  position: absolute;
-  left: -1px;
-  font-size: 14px;
-  white-space: nowrap;
-  background: #fff;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  overflow: hidden;
-  padding: 0;
-  width: 100px;
+    display: none;
+    position: absolute;
+    left: -1px;
+    font-size: 14px;
+    white-space: nowrap;
+    background: #fff;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+    padding: 0;
+    width: 100px;
+    top: 31px;
 }
 
 #upload-link {
@@ -70,6 +79,7 @@ li:hover .header-notifications {
   color: #000;
   background: rgba(0, 0, 0, 0.1);
   text-decoration: none;
+  padding: 10px;
 }
 
 .header-notifications > li:hover {
@@ -115,6 +125,12 @@ nav {
   padding: 8px 10px;
 }
 
+#indexitem {
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .anotha-one {
   margin: 0;
   padding: 0;
@@ -127,12 +143,21 @@ label {
   width: 100%;
 }
 
-body {
-  min-height: 100%;
-  margin: 0;
-  background-color: aliceblue;
-  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
+html {
+  height: 100%;
+  overflow: auto;
+}
 
+body {
+    overflow: auto;
+    min-height: 100%;
+    margin: 0;
+    /* background-color: aliceblue; */
+    font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
+    background: linear-gradient(#cc2b5e , #753a88);
+    height: 100%;
+    background-repeat: no-repeat;
+    margin: 0;
 }
 
 #login-center {
@@ -161,8 +186,9 @@ body {
 }
 
 #navbar{
-  padding-left: 3%;
-  padding-right: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+    height: 42px;
 }
 
 #demo-button {
@@ -192,6 +218,11 @@ body {
   color: #525558
 }
 
+#modalform {
+    display: flex;
+    justify-content: center;
+}
+
 #banner {
   background: rgba(0, 0, 0, 0.1);
   min-width: 100%;
@@ -202,12 +233,34 @@ body {
 }
 
 .background-img {
-  width: 100%
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
 }
 
 #join {
   text-decoration: none;
   color: white;
+}
+
+#share {
+    margin-left: 35%;
+    display: block;
+    margin-left: 30%;
+    z-index: 2;
+    top: 30%;
+    left: 30%;
+    position: absolute;
+    border-radius: 30px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    color: white;
+    font-family: Lato, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 40px;
+    margin-left: 0px;
 }
 
 #upload-style{
@@ -217,18 +270,20 @@ body {
 }
 
 #join-us{
-  display: block;
-  margin-left: 35%;
-  /* margin-top: 5%; */
-  z-index: 2;
-  top: 40%;
-  left: 13%;
-  position: absolute;
-  background: #0099e5;
-  border-radius: 30px;
-  padding: 10px;
-  cursor: pointer;
-  display: flex;
+    display: block;
+    /* margin-left: 35%; */
+    /* margin-top: 5%; */
+    z-index: 2;
+    top: 55%;
+    left: 50%;
+    position: absolute;
+    background: #0099e5;
+    border-radius: 30px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 #other-nav {
@@ -274,12 +329,14 @@ a {
 }
 
 #post-picture {
-  background: #34bf49;
-  background: #34bf49;
-  color: white;
-  cursor: pointer;
-  border-radius: 3px;
-  width: 100%;
+    background: #34bf49;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 100%;
+    height: 50px;
+    /* top: 73px; */
+    font-size: 24px;
 }
 
 #careful-pic {
@@ -316,11 +373,11 @@ div #login-button {
 }
 
 .login-container {
-  position: absolute;
-  margin-top: 5%;
-  margin-left: 25%;
-  z-index: 3;
-  display: block;
+  // position: absolute;
+  // margin-top: 5%;
+  // margin-left: 25%;
+  // z-index: 3;
+  // display: block;
 }
 
 // input {
@@ -343,13 +400,14 @@ div #login-button {
 }
 
 .login-form {
-  display: table-caption;
-  justify-content: center;
-  width: 400px;
-  padding: 32px 40px 24px;
-  height: 450px;
-  background: white;
-  border: 1px solid #eeeff2
+    display: table-caption;
+    justify-content: center;
+    width: 400px;
+    padding: 32px 40px 24px;
+    height: 450px;
+    background: white;
+    border: 1px solid #eeeff2;
+    margin-top: 42px;
 }
 
 #search-bar {

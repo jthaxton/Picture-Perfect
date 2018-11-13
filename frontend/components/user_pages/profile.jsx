@@ -10,7 +10,7 @@ export default function Profile(state) {
     <div>
       <SplashContainer component={state.session}/>
         <img src="/userpic.png" id="user-pic"></img>
-
+  
       {state.posts.map(picture => {
         if (picture.user.id === state.currentUser.id) {
         return (

@@ -10,7 +10,7 @@ export default function PostIndex(state) {
 
         return (
           <div class="index-posts">
-          <div key={picture.id}>
+          <div id="indexitem" key={picture.id}>
             <div class="user-index-posts">
             <img src="/userpic.png" id="user-pic"></img>
             <Link to={`/users/${picture.user_id}`} username={picture.user.username} follows={state.follows}><h1 id="link-to-profile">{picture.user.username}</h1></Link>

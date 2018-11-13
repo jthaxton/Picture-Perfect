@@ -1,18 +1,18 @@
 import React from 'react';
 import LogInFormContainer from '../session_form/signin_form_container';
-import SignUpFormContainer from '../session_form/signup_form_container'
+import SignUpFormContainer from '../session_form/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import { Link } from 'react-router-dom';
-import Welcome from '../welcome/welcome'
+import Welcome from '../welcome/welcome';
 import {Route, Redirect, Switch, HashRouter} from 'react-router-dom';
 import WelcomeContainer from '../welcome/welcome_container';
 import {withRouter} from 'react-router-dom';
 import Form from '../welcome/form';
-import About from '../user_pages/about'
+import About from '../user_pages/about';
 
 class Splash extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
   }
 
@@ -22,7 +22,7 @@ class Splash extends React.Component {
     return (
     <div>
       <Route exact path="/" component={WelcomeContainer} session={this.props.session}/>
-    {typeof this.props.session.id != "number" ? <div><div><img className="background-img" src="/background.jpeg"></img></div><div id='join-us'><Link id="join" to='/signup'>Join Us</Link></div></div> : null}
+        {typeof this.props.session.id != "number" ? <div><div><img className="background-img" src="/background.jpeg"></img></div><div id="share">Share photos with artists like you!</div><div id='join-us'><Link id="join" to='/signup'>Join Us</Link></div></div> : null}
     <div id="stick">
     <div id="banner">
 
@@ -49,12 +49,13 @@ class Splash extends React.Component {
       {this.props.session.id > 0 ?
         <div id="logged-nav"><input id="search-bar" type="text" placeholder="Search for photos, location, or people">
         </input>
+        <img src="/userpic.png" id="user-pic" className='badge'></img>
         <ul className="header-list">
           <li>
-            <img src="/userpic.png" id="user-pic" className='badge'></img>
+            <img src="/menu.png" id="user-menu"></img>
+
             <ul className='header-notifications'>
               <li><Link to='/profile'>Profile</Link></li>
-              <li></li>
               <li><Link to='/' onClick={this.props.logout}>Logout</Link></li>
 
             </ul>
@@ -73,15 +74,17 @@ class Splash extends React.Component {
         </div>
       </div>}
     </nav>
+ 
   </div>
-
-  </div>
-  <AuthRoute path="/login" component={LogInFormContainer}/>
-  <AuthRoute path="/signup" component={SignUpFormContainer}/>
 
 
   </div>
-)
+        <AuthRoute path="/login" component={LogInFormContainer} />
+        <AuthRoute path="/signup" component={SignUpFormContainer} />
+
+
+  </div>
+);
   }
 }
-export default (Splash)
+export default (Splash);
