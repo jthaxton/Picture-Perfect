@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .header-name {
-  margin-top:100px;
+  margin-top:-25;
 }
 
 .badge {
@@ -40,10 +40,10 @@
 
 #user-menu {
   height: 28px;
-    width: 32px;
-    padding-right: 15px;
-    margin-bottom: -7px;
-    padding-bottom: 1px;
+  width: 32px;
+  padding-right: 15px;
+  margin-bottom: -7px;
+  padding-bottom: 1px;
 }
 
 .header-notifications {
@@ -52,10 +52,10 @@
     left: -1px;
     font-size: 14px;
     white-space: nowrap;
-    background: #fff;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    background: #cc2b5e;
+    border-left: 1px solid #cc2b5e;
+    border-right: 1px solid #cc2b5e;
+    border-bottom: 1px solid #cc2b5e;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     overflow: hidden;
@@ -68,6 +68,10 @@
   background: #34bf49;
   color: white;
   padding: 10px;
+}
+
+#upload-link:hover {
+  background: #65e278;
 }
 
 li:hover .header-notifications {
@@ -83,7 +87,19 @@ li:hover .header-notifications {
 }
 
 .header-notifications > li:hover {
-  background: #eee;
+  background: #cc2b5e;
+}
+
+.header-group {
+  display: flex;
+  justify-content: center; 
+}
+
+#frontpage{
+  display: flex;
+  // position: absolute;
+  justify-content: center;
+  
 }
 
 nav {
@@ -100,8 +116,10 @@ nav {
 }
 
 .index-posts {
-  display: flex;
-  justify-content: center;
+    display: block;
+    justify-content: center;
+    background: white;
+    border-style: solid;
 }
 
 .user-index-posts {
@@ -186,8 +204,8 @@ body {
 }
 
 #navbar{
-    padding-left: 3%;
-    padding-right: 3%;
+    padding-left: 16%;
+    padding-right: 28%;
     height: 42px;
 }
 
@@ -208,10 +226,6 @@ body {
   top: 0;
   width: 100%;
   left: 0;
-}
-
-#solid {
-
 }
 
 .modals{
@@ -249,7 +263,7 @@ body {
     margin-left: 30%;
     z-index: 2;
     top: 30%;
-    left: 30%;
+    // left: 30%;
     position: absolute;
     border-radius: 30px;
     padding: 10px;
@@ -275,7 +289,7 @@ body {
     /* margin-top: 5%; */
     z-index: 2;
     top: 55%;
-    left: 50%;
+    // left: 50%;
     position: absolute;
     background: #0099e5;
     border-radius: 30px;
@@ -317,7 +331,7 @@ div #auth-buttons {
 }
 
 h1 {
-  margin-top: 3%;
+  margin-top: 1%;
 }
 h2 {
   margin-top: 20%;
@@ -337,6 +351,10 @@ a {
     height: 50px;
     /* top: 73px; */
     font-size: 24px;
+}
+
+#post-picture:hover {
+  background: #65e278;
 }
 
 #careful-pic {
@@ -448,7 +466,7 @@ label {
 }
 
 .user-index-posts{
-  justify-content: center;
+  justify-content: left;
 }
 
 

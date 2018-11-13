@@ -789,7 +789,9 @@ function (_React$Component) {
         path: "/",
         component: _welcome_welcome_container__WEBPACK_IMPORTED_MODULE_6__["default"],
         session: this.props.session
-      }), typeof this.props.session.id != "number" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }), typeof this.props.session.id != "number" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "frontpage"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "background-img",
         src: "/background.jpeg"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1435,9 +1437,6 @@ function PostIndex(state) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       class: "index-posts"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "indexitem",
-      key: picture.id
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       class: "user-index-posts"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: "/userpic.png",
@@ -1462,7 +1461,10 @@ function PostIndex(state) {
         return state.follow(picture.user);
       },
       value: "Follow User"
-    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, picture.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "indexitem",
+      key: picture.id
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, picture.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       id: "careful-pic",
       src: picture.photoUrl
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {

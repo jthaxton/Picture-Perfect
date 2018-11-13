@@ -10,11 +10,11 @@ import Discover from './user_pages/discover';
 import Licensing from './user_pages/licensing';
 import Profile from './user_pages/profile';
 import ProfileDetails from './user_pages/profile_details';
-import Splash from './splash/splash'
-import SplashContainer from './splash/splash_container'
-import ProfileContainer from './user_pages/profile_container'
-import OtherProfileContainer from './user_pages/other_profile_container'
-import FormContainer from './welcome/form_container'
+import Splash from './splash/splash';
+import SplashContainer from './splash/splash_container';
+import ProfileContainer from './user_pages/profile_container';
+import OtherProfileContainer from './user_pages/other_profile_container';
+import FormContainer from './welcome/form_container';
 const App = ({currentUser}) => {
 
   return (
@@ -30,7 +30,7 @@ const App = ({currentUser}) => {
       <Route path="/upload" component={FormContainer}/>
 
     </div>
-  )
-}
+  );
+};
 
 export default App;
