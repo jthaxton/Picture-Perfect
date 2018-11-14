@@ -61,7 +61,7 @@ class Splash extends React.Component {
 
                       <ul className="header-notifications">
                         <li>
-                          <Link to="/profile">Profile</Link>
+                          <Link to={`/users/${this.props.session.id}`}>Profile</Link>
                         </li>
                         <li>
                           <Link to="/" onClick={this.props.logout}>
