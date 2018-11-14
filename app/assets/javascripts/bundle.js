@@ -1338,25 +1338,28 @@ function (_React$Component) {
       if (!this.props.posts) return null;
       var allPosts = this.props.posts.map(function (post) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          class: "index-posts"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "infpost"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "indexitem"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           id: "careful-pic",
           src: post.photoUrl
-        })));
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          class: "nomargin",
+          id: "bodypost"
+        }, post.body)))));
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_splash__WEBPACK_IMPORTED_MODULE_4__["default"], {
         session: this.props.session
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "test"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "index-posts"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "infpost"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "user-index-posts"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "user-post-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, allPosts)))))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "user-index-posts"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, allPosts)))));
     }
   }]);
 

@@ -31,8 +31,13 @@ export default class OtherProfile extends React.Component {
       return (
         
         <div>
+          <div class="index-posts">
+            <div id="infpost">
           <div id="indexitem">
           <img id="careful-pic" src={post.photoUrl} />
+          <h2 class="nomargin" id="bodypost">{post.body}</h2>
+          </div>
+          </div>
         </div>
         </div>
       );
@@ -41,18 +46,18 @@ export default class OtherProfile extends React.Component {
     return <div>
         <Splash session={this.props.session} />
         <div id='test'>
-        <div class="index-posts">
-          <div id="infpost">
+        <div>
+          <div id="user-post-info">
+
+            <h1>{this.props.user.username}</h1>
+            </div>
+
             <div id="user-index-posts">
-              <div id="user-post-info">
-                
-                  <h1>{this.props.user.username}</h1>
+ 
 
                   <div>{allPosts}</div>
+                </div>
                
-              </div>
-            </div>
-            </div>
           </div>
         </div>
       </div>;

@@ -150,10 +150,12 @@ nav {
   padding: 8px 10px;
 }
 
+
 #indexitem {
      display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 #infpost {
@@ -389,6 +391,12 @@ a {
   margin-top: 0px;
 }
 
+#bodypost, .nomargin {
+  margin-bottom: 0px;
+  margin-top: 0px;
+
+}
+
 #profile-feed{
   max-width: 400px;
   max-height: 400px;
@@ -508,6 +516,8 @@ justify-content: center;
 
 #user-post-info {
   display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 #del-button {
