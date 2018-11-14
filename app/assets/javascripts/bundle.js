@@ -598,11 +598,13 @@ function (_React$Component) {
         type: "password",
         value: this.state.password,
         onChange: this.update("password")
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "sub"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "submit",
         type: "submit",
         value: this.props.formType
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleDemo
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "demo-button",
@@ -1318,15 +1320,9 @@ function (_React$Component) {
   _inherits(OtherProfile, _React$Component);
 
   function OtherProfile(props) {
-    var _this;
-
     _classCallCheck(this, OtherProfile);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(OtherProfile).call(this, props));
-    _this.state = {
-      user: _this.props.fetchUser(_this.props.userId)
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(OtherProfile).call(this, props));
   }
 
   _createClass(OtherProfile, [{
@@ -1338,18 +1334,29 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      if (!this.props.user) return null;
       if (!this.props.posts) return null;
       var allPosts = this.props.posts.map(function (post) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          id: "otherprofpic",
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "indexitem"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          id: "careful-pic",
           src: post.photoUrl
-        });
+        })));
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_splash__WEBPACK_IMPORTED_MODULE_4__["default"], {
         session: this.props.session
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "otherprof"
-      }, allPosts));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "test"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        class: "index-posts"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "infpost"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "user-index-posts"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "user-post-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, allPosts)))))));
     }
   }]);
 
@@ -1435,9 +1442,14 @@ __webpack_require__.r(__webpack_exports__);
 function PostIndex(state) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, state.posts.reverse().map(function (picture) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      class: "index-posts"
+      class: "index-posts",
+      "data-infinite-scroll": "{ \"path\": \".pagination__next\", \"append\": \".infpost\", \"history\": false }"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      class: "infpost"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       class: "user-index-posts"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "user-post-info"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: "/userpic.png",
       id: "user-pic"
@@ -1447,8 +1459,8 @@ function PostIndex(state) {
       follows: state.follows
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
       id: "link-to-profile"
-    }, picture.user.username)), state.currentUser.id === picture.user_id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      id: "sub-button",
+    }, picture.user.username))), state.currentUser.id === picture.user_id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      id: "del-button",
       type: "submit",
       onClick: function onClick() {
         return state.deletePicture(picture.id);
@@ -1469,7 +1481,7 @@ function PostIndex(state) {
       src: picture.photoUrl
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       id: "bodypost"
-    }, picture.body)));
+    }, picture.body))));
   }));
 }
 

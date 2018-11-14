@@ -5,6 +5,12 @@
   margin-top:-25;
 }
 
+#sub {
+  width: 400px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
 .badge {
   display: inline;
   font-size: 14px;
@@ -18,12 +24,13 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-left: 40%;
-  margin-top: 5%;
+  // margin-left: 40%;
+  margin-top: 25%;
 }
 
 #otherprofpic {
   max-width: 400px;
+  width: 33%;
   padding: 1px;
   margin-top: 15px;
 
@@ -149,9 +156,19 @@ nav {
     align-items: center;
 }
 
+#infpost {
+
+    width: 581px;
+    height: 780px;
+    /* justify-content: center; */
+    display: flex;
+    justify-content: center;
+
+}
+
 .anotha-one {
   margin: 0;
-  padding: 0;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -255,6 +272,7 @@ body {
 #join {
   text-decoration: none;
   color: white;
+  padding: 10px 30px;
 }
 
 #share {
@@ -267,7 +285,7 @@ body {
     position: absolute;
     border-radius: 30px;
     padding: 10px;
-    cursor: pointer;
+    // cursor: pointer;
     display: flex;
     color: white;
     font-family: Lato, sans-serif;
@@ -298,6 +316,10 @@ body {
     display: flex;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+#join-us:hover{
+  background: #25b6ff
 }
 
 #other-nav {
@@ -384,6 +406,11 @@ div #signup-button {
   cursor: pointer;
   display: flex;
 }
+
+div #signup-button:hover{
+  background: #25b6ff
+}
+
 div #login-button {
   padding: 10px;
   cursor: pointer;
@@ -466,7 +493,7 @@ label {
 }
 
 .user-index-posts{
-  justify-content: left;
+  justify-content: space-between;
 }
 
 
@@ -479,9 +506,35 @@ label {
 justify-content: center;
 }
 
+#user-post-info {
+  display: flex;
+}
+
+#del-button {
+    width: 75px;
+    flex-grow: 0;
+    background: red;
+    color: white;
+    width: 95px;
+    margin-right: 20px;
+}
+#del-button:hover {
+  cursor: pointer;
+  background-color: #f03232
+}
+
 #sub-button {
-  width: 75px;
-  flex-grow: 0;
+    width: 75px;
+    flex-grow: 0;
+    background:#34bf49;
+    color: white;
+    width: 95px;
+    margin-right: 20px;
+}
+
+#sub-button:hover {
+  cursor: pointer;
+  background: #65e278
 }
 
 #selfprofilefeed {

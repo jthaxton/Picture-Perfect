@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import ProfileDetails from './profile_details';
 import  {fetchUser} from '../../actions/user_actions';
 import OtherProfile from './other_profile';
-import {fetchPictures} from '../../actions/picture_actions'
-import {fetchAllUsers} from '../../actions/user_actions'
+import {fetchPictures} from '../../actions/picture_actions';
+import {fetchAllUsers} from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownprops) => {
   
@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownprops) => {
     posts: Object.values(state.entities.pictures),
     session: state.session
 };
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -25,10 +25,10 @@ const mapDispatchToProps = (dispatch) => {
     fetchPosts: () => dispatch(fetchPictures()),
     fetchUser: (id) => {
 
-      return dispatch(fetchUser(id))
+      return dispatch(fetchUser(id));
     }
 
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(OtherProfile);

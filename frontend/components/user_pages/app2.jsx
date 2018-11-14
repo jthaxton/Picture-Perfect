@@ -1,7 +1,7 @@
 import React from 'react';
-import Form from '../welcome/form'
-import PostIndex from './postindex'
-import Profile from './profile'
+import Form from '../welcome/form';
+import PostIndex from './postindex';
+import Profile from './profile';
 
 export default class App2 extends React.Component {
 
