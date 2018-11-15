@@ -793,7 +793,9 @@ function (_React$Component) {
         session: this.props.session
       }), typeof this.props.session.id != "number" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "frontpage"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "bi"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "background-img",
         src: "/background.jpeg"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1332,10 +1334,18 @@ function (_React$Component) {
       this.props.fetchUser(variable);
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevprops) {
+      if (prevprops.userId !== this.props.userId) {
+        this.props.fetchUser(this.props.userId);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       if (!this.props.user) return null;
       if (!this.props.posts) return null;
+      var Posts = this.props.posts;
       var allPosts = this.props.posts.map(function (post) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           class: "index-posts"

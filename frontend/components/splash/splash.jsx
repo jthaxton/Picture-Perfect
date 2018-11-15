@@ -22,7 +22,7 @@ class Splash extends React.Component {
     return <div>
         <Route exact path="/" component={WelcomeContainer} session={this.props.session} />
         {typeof this.props.session.id != "number" ? <div id="frontpage">
-            <div>
+            <div id="bi">
               <img className="background-img" src="/background.jpeg" />
             </div>
             <div id="share">Share photos with artists like you!</div>

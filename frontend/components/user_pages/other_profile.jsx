@@ -7,27 +7,27 @@ import Splash from '../splash/splash';
 export default class OtherProfile extends React.Component {
   constructor(props) {
     super(props);
-
-
   }
-
-
 
   componentDidMount() {
     const variable = this.props.userId;
-
      this.props.fetchUser(variable);
-     
-
   }
 
- 
+  componentDidUpdate(prevprops) {
+    if (prevprops.userId !== this.props.userId) {
+      
+      this.props.fetchUser(this.props.userId);
+    }
+  }
 
   render() {
     if (!this.props.user) return null;
     if (!this.props.posts) return null;
-    const allPosts = this.props.posts.map(post => {
 
+    const Posts = this.props.posts;
+    const allPosts = this.props.posts.map(post => {
+      
       return (
         
         <div>
@@ -42,22 +42,17 @@ export default class OtherProfile extends React.Component {
         </div>
       );
     });
-
     return <div>
-        <Splash session={this.props.session} />
+        <Splash session={this.props.session}/>
         <div id='test'>
         <div>
           <div id="user-post-info">
 
             <h1>{this.props.user.username}</h1>
             </div>
-
             <div id="user-index-posts">
- 
-
                   <div>{allPosts}</div>
-                </div>
-               
+            </div>             
           </div>
         </div>
       </div>;
