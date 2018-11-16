@@ -1345,8 +1345,8 @@ function (_React$Component) {
     value: function render() {
       if (!this.props.user) return null;
       if (!this.props.posts) return null;
-      var Posts = this.props.posts;
-      var allPosts = this.props.posts.map(function (post) {
+      var back = this.props.posts[0];
+      var allPosts = this.props.posts.slice(0, this.props.posts.length).map(function (post) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           class: "index-posts"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
