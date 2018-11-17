@@ -11,6 +11,7 @@ import {withRouter} from 'react-router-dom';
 
 const welcome = ({ currentUser, logout, users }) => {
   
+  
   const sessionLinks = () => (
     <nav class="login-signup">
       <Link to="/login"></Link>

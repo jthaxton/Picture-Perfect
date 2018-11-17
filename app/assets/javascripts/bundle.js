@@ -1347,7 +1347,7 @@ function (_React$Component) {
       if (!this.props.posts) return null;
       var back = this.props.posts[0];
       var allPosts = this.props.posts.slice(0, this.props.posts.length).map(function (post) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, post.photoUrl ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           class: "index-posts"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "infpost"
@@ -1359,7 +1359,7 @@ function (_React$Component) {
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
           class: "nomargin",
           id: "bodypost"
-        }, post.body)))));
+        }, post.body)))) : null);
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_splash__WEBPACK_IMPORTED_MODULE_4__["default"], {
         session: this.props.session
@@ -1464,7 +1464,7 @@ function PostIndex(state) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       id: "user-post-info"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      src: "/userpic.png",
+      src: state.posts[0].photoUrl,
       id: "user-pic"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
       to: "/users/".concat(picture.user_id),

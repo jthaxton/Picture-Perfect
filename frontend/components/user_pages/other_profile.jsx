@@ -29,7 +29,7 @@ export default class OtherProfile extends React.Component {
     const allPosts = this.props.posts.slice(0,this.props.posts.length).map(post => {
       
       return <div>
-
+        {post.photoUrl ? 
           <div class="index-posts">
             <div id="infpost">
               <div id="indexitem">
@@ -39,7 +39,7 @@ export default class OtherProfile extends React.Component {
                 </h2>
               </div>
             </div>
-          </div>
+          </div> : null} 
         </div>;
     });
     return <div>

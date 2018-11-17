@@ -2,7 +2,7 @@ import React from 'react';
 import {createFollow} from '../../util/follow_api_util';
 import {Link} from 'react-router-dom';
 export default function PostIndex(state) {
-
+  
   return (
     
     <div>
@@ -12,7 +12,7 @@ export default function PostIndex(state) {
             <div class="infpost">
               <div class="user-index-posts">
               <div id="user-post-info">
-                <img src="/userpic.png" id="user-pic" />
+                <img src={state.posts[0].photoUrl} id="user-pic" />
                 <Link to={`/users/${picture.user_id}`} username={picture.user.username} follows={state.follows}>
                   <h1 id="link-to-profile">{picture.user.username}</h1>
                 </Link>
