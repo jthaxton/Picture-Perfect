@@ -58,7 +58,7 @@ end
   * Search
 
 Homepage: 
-![Homepage]( ./homepage.png "Homepage")
+![Homepage]( ./homepage1.png "Homepage")
 
 Sample from picture feed:
 ![Index]( ./index.png "Index")
