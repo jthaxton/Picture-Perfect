@@ -821,19 +821,7 @@ function (_React$Component) {
         to: "/"
       }, "Perfect")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "other-nav"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "discover"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
-        to: "/discover"
-      }, "Discover")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "about"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
-        to: "/about"
-      }, "About")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "licensing"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
-        to: "/licensing"
-      }, "Licensing"))), this.props.session.id > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), this.props.session.id > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "logged-nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "search-bar",

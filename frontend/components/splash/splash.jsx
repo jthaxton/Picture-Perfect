@@ -42,15 +42,6 @@ class Splash extends React.Component {
                 <Link to="/">Perfect</Link>
               </div>
               <div id="other-nav">
-                <div id="discover">
-                  <Link to="/discover">Discover</Link>
-                </div>
-                <div id="about">
-                  <Link to="/about">About</Link>
-                </div>
-                <div id="licensing">
-                  <Link to="/licensing">Licensing</Link>
-                </div>
               </div>
               {this.props.session.id > 0 ? <div id="logged-nav">
                   <input id="search-bar" type="text" placeholder="Search for photos, location, or people" />
