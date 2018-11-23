@@ -13,6 +13,10 @@ class User < ApplicationRecord
   foreign_key: :follower_id,
   class_name: :Follow
 
+  has_many :comments,
+  foreign_key: :user_id,
+  class_name: :Comment
+
 
   has_many :affection
 
