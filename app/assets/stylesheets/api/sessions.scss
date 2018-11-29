@@ -7,6 +7,14 @@
   margin-top:-25;
 }
 
+#comment{
+    width: 300px;
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.1);
+    margin-right: 10%;
+    height: 10px;
+}
+
 #sub {
   width: 400px;
   padding-bottom: 20px;
@@ -389,6 +397,7 @@ a {
     height: 50px;
     /* top: 73px; */
     font-size: 24px;
+    margin-top: 125px;
 }
 
 #post-picture:hover {
@@ -494,6 +503,28 @@ div #login-button {
   border: 1px solid #000;
 }
 
+.com-things {
+  
+}
+
+#com-idx {
+  padding: 10px;
+}
+
+.com-item {
+  padding: 5px;
+}
+
+.com-form {
+  padding: 30px;
+}
+
+#infos{
+    display: flex;
+    width: 100%;
+    padding: 25px;
+}
+
 label {
   color: #71767a
 }
@@ -512,6 +543,7 @@ label {
   height: 450px;
   background: white;
   border: 1px solid #eeeff2;
+  margin-top: 8px;
 }
 
 .user-index-posts{
@@ -531,8 +563,11 @@ justify-content: center;
 
 #user-post-info {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 50px;
+  padding-left: 40px;
+  align-items: center;
+  width: 100%;
 }
 
 #del-button {
@@ -541,7 +576,7 @@ justify-content: center;
     background: red;
     color: white;
     width: 95px;
-    margin-right: 20px;
+    margin-right: 40px;
 }
 #del-button:hover {
   cursor: pointer;

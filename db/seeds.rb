@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
     User.delete_all
     Picture.delete_all
+    Comment.delete_all
 
     user1 = User.create!(username: 'Jerry Seinfeld', password: '1234567')
     user2 = User.create!(username: 'George Constanza', password: '23094578')

@@ -8,7 +8,7 @@ import {Route, Redirect, Switch, HashRouter} from 'react-router-dom';
 import WelcomeContainer from '../welcome/welcome_container';
 import {withRouter} from 'react-router-dom';
 import Form from '../welcome/form';
-import About from '../user_pages/about';
+// import About from '../user_pages/about';
 
 class Splash extends React.Component {
   constructor(props) {
@@ -36,10 +36,10 @@ class Splash extends React.Component {
           <div id="banner">
             <nav id="navbar">
               <div id="logo1">
-                <Link to="/">Picture</Link>
+                <a href="/">Picture</a>
               </div>
               <div id="logo2">
-                <Link to="/">Perfect</Link>
+                <a href="/">Perfect</a>
               </div>
               <div id="other-nav">
               </div>

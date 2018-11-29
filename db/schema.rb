@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_15_172732) do
+ActiveRecord::Schema.define(version: 2018_11_23_194506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 2018_10_15_172732) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "comment", null: false
+    t.integer "user_id", null: false
+    t.integer "picture_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "follows", force: :cascade do |t|
     t.string "follower_id", null: false
     t.string "followee_id", null: false
@@ -50,6 +58,7 @@ ActiveRecord::Schema.define(version: 2018_10_15_172732) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "body"
+    t.string "comment"
     t.index ["user_id"], name: "index_pictures_on_user_id"
   end
 

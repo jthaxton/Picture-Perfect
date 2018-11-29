@@ -4,17 +4,15 @@ import { Link } from 'react-router-dom';
 import ProfileDetails from './profile_details';
 import { fetchPictures } from '../../actions/picture_actions';
 import { follow, follows } from '../../actions/follow_actions';
-import PostIndex from './postindex.jsx';
+import CommentForm from "./comment_form.jsx";
 import { comment } from "../../actions/comment_actions";
 
 const mapStateToProps = (state) => {
-    
     return {
         currentUser: state.entities.users[state.session.id],
         pictures: Object.values(state.entities.pictures),
         session: state.session,
-        posts: state.posts,
-        com: state.comments
+        posts: state.posts
     };
 };
 
@@ -27,4 +25,7 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostIndex);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CommentForm);

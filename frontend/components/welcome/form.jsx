@@ -1,6 +1,6 @@
 import React from 'react';
 import SplashContainer from '../splash/splash_container';
-import {Redirect} from 'react-router'
+import {Redirect} from 'react-router';
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ export default class Form extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('picture[body]', this.state.body)
+    formData.append('picture[body]', this.state.body);
     if (this.state.photoFile) {
 
       formData.append('picture[photo]', this.state.photoFile);
@@ -49,7 +49,7 @@ export default class Form extends React.Component {
         console.log(response.responseJSON);
       }
     );
-    this.props.history.push('/')
+    this.props.history.push('/');
 
   }
 
@@ -75,7 +75,7 @@ export default class Form extends React.Component {
 
       </div>
     </div>
-    )
+    );
 
   }
 }
