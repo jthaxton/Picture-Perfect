@@ -1005,6 +1005,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "test"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_postindex__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        fetchposts: this.props.fetchPosts,
         follow: this.props.createFollow,
         follows: this.props.follows,
         posts: this.props.pictures,
@@ -1055,7 +1056,7 @@ var mapStateToProps = function mapStateToProps(state, ownprops) {
     currentUser: state.entities.users[state.session.id],
     pictures: Object.values(state.entities.pictures),
     users: state.entities.users,
-    comments: state.comments
+    comments: state.entities.comments
   };
 };
 
@@ -1161,6 +1162,9 @@ function (_React$Component) {
         return _this2.setState({
           comment: ''
         });
+      });
+      this.props.fetchposts().then(function (pictures) {
+        return _this2.setState(pictures);
       }); // this.props.history.push('/');
     }
   }, {
@@ -1228,6 +1232,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var CommentIndex =
 /*#__PURE__*/
 function (_React$Component) {
@@ -1242,12 +1247,22 @@ function (_React$Component) {
   _createClass(CommentIndex, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "com-idx"
       }, this.props.picture.comments.map(function (com) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          class: "com-posts"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           class: "usrname"
-        }, com.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/users/".concat(com.user.id),
+          username: _this.props.picture.user.username,
+          follows: _this.props.follows
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          class: "usrname"
+        }, com.user.username))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           class: "com-item"
         }, com.comment));
       }));
@@ -1579,7 +1594,8 @@ function (_React$Component) {
           currentUser: _this3.props.currentUser.id,
           picture_id: picture.id,
           comment: _this3.props.comment,
-          comments: _this3.props.com
+          comments: _this3.props.com,
+          fetchposts: _this3.props.fetchposts
         })))));
       }));
     }

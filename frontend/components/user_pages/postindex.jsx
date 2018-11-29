@@ -77,7 +77,7 @@ class PostIndex extends React.Component{
                 <h2 id="bodypost">{picture.body}</h2>
                 <div class="com-things">
               <CommentIndex history={this.props.history} currentUser={this.props.currentUser.id} picture={picture} comments={this.props.com} />
-              <CommentForm history={this.props.history} currentUser={this.props.currentUser.id} picture_id={picture.id} comment={this.props.comment} comments={this.props.com}/>
+              <CommentForm history={this.props.history} currentUser={this.props.currentUser.id} picture_id={picture.id} comment={this.props.comment} comments={this.props.com} fetchposts={this.props.fetchposts}/>
               </div>
               </div>
             </div>

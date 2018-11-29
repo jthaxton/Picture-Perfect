@@ -23,6 +23,7 @@ class CommentForm extends React.Component {
         // formData.append('comment[user_id]', com.currentUser);
         // formData.append('comment[picture_id]', com.picture_id);
         this.props.comment(com).then(() => this.setState({comment: ''}));
+        this.props.fetchposts().then((pictures) => this.setState(pictures));
         // this.props.history.push('/');
     }
 

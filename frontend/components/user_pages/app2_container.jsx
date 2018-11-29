@@ -6,11 +6,12 @@ import {fetchPictures, removePicture} from '../../actions/picture_actions';
 import {fetchFollows, follow} from '../../actions/follows_actions';
 import { comment, comments } from "../../actions/comment_actions";
 const mapStateToProps = (state, ownprops) => {
+  
   return {
     currentUser: state.entities.users[state.session.id],
     pictures: Object.values(state.entities.pictures),
     users: state.entities.users,
-    comments: state.comments
+    comments: state.entities.comments
   };
 };
 

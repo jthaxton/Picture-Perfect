@@ -512,11 +512,23 @@ div #login-button {
 }
 
 .com-item {
-  padding: 5px;
+  padding-left: 5px;
 }
 
 .com-form {
   padding: 30px;
+}
+
+.com-posts {
+  display: flex;
+  align-content: center;
+  color: black;
+  
+}
+
+.usrname {
+  font-weight: bold;
+  color: black;
 }
 
 #infos{

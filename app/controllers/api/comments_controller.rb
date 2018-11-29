@@ -4,7 +4,7 @@ class Api::CommentsController < ApplicationController
         @comment = Comment.new(comment: params[:comment], user_id: params[:user_id], picture_id: params[:picture_id])
         
         if @comment.save
-            render json: {message: "good"}
+            render json: @comment
         else 
             render json: {message: "BAD!"}
         end 

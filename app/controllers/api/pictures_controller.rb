@@ -14,7 +14,7 @@ class Api::PicturesController < ApplicationController
     @picture = Picture.new(user_id: current_user.id, body: params[:picture][:body])
     @picture.photo.attach(io: params[:picture][:photo], filename: "")
     if @picture.save
-      render json: {message: 'good'}
+      render json: @picture
     else
       render json: post.errors.full_messages
     end

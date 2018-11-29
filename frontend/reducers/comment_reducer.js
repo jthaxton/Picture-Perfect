@@ -6,6 +6,7 @@ import { merge } from 'lodash';
 
 
 const commentReducer = (oldstate = {}, action) => {
+  
   Object.freeze(oldstate);
     switch (action.type) {
       case RECEIVE_COMMENT:
