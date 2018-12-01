@@ -12,6 +12,10 @@ class Picture < ApplicationRecord
   foreign_key: :picture_id,
   class_name: :Comment
 
+  has_many :profiles,
+  foreign_key: :picture_id,
+  class_name: :Profile
+
 
   def ensure_photo
     unless self.photo.attached?

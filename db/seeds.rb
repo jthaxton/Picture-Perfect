@@ -122,9 +122,6 @@
     comment9 = Comment.new(user_id: user7.id,picture_id: picture12.id, comment: "Oh, wow, hey! I think I'm on the wrong site!")
     comment9.save!
 
-    comment10 = Comment.new(user_id: user5.id,picture_id: picture12.id, comment: "You're not hip, George")
-    comment10.save!
-
     comment11 = Comment.new(user_id: user3.id,picture_id: picture10.id, comment: "LOL you broke the fence?")
     comment11.save!
 

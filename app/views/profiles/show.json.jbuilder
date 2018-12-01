@@ -1,0 +1,1 @@
+json.extract! @prof_pic :id, :user_id, :picture_id
