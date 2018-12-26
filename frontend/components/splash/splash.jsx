@@ -44,8 +44,6 @@ class Splash extends React.Component {
               <div id="other-nav">
               </div>
               {this.props.session.id > 0 ? <div id="logged-nav">
-                  <input id="search-bar" type="text" placeholder="Search for photos, location, or people" />
-                  <img src="/userpic.png" id="user-pic" className="badge" />
                   <ul className="header-list">
                     <li>
                       <img src="/menu.png" id="user-menu" />

@@ -858,15 +858,7 @@ function (_React$Component) {
         id: "other-nav"
       }), this.props.session.id > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "logged-nav"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "search-bar",
-        type: "text",
-        placeholder: "Search for photos, location, or people"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "/userpic.png",
-        id: "user-pic",
-        className: "badge"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "header-list"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "/menu.png",
@@ -1552,7 +1544,7 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "infos"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: _this3.props.posts[0].photoUrl,
+          src: "/userpic.png",
           id: "user-pic"
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: "/users/".concat(picture.user_id),

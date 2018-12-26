@@ -60,25 +60,25 @@ class PostIndex extends React.Component{
             <div class="infpost">
               <div class="user-index-posts">
                 <div id="user-post-info">
-                <div id="infos">
-                  <img src={this.props.posts[0].photoUrl} id="user-pic" />
-                  <Link to={`/users/${picture.user_id}`} username={picture.user.username} follows={this.props.follows}>
-                    <h1 id="link-to-profile">
-                      {picture.user.username}
-                    </h1>
-                  </Link>
+                  <div id="infos">
+                    <img src="/userpic.png" id="user-pic" />
+                    <Link to={`/users/${picture.user_id}`} username={picture.user.username} follows={this.props.follows}>
+                      <h1 id="link-to-profile">
+                        {picture.user.username}
+                      </h1>
+                    </Link>
+                  </div>
+                  {this.props.currentUser.id === picture.user_id ? <input id="del-button" type="submit" onClick={() => this.props.deletePicture(picture.id)} value="Delete Post" /> : <input id="sub-button" type="submit" onClick={() => createFollow(picture.user)} value="Follow User" />}
                 </div>
-                {this.props.currentUser.id === picture.user_id ? <input id="del-button" type="submit" onClick={() => this.props.deletePicture(picture.id)} value="Delete Post" /> : <input id="sub-button" type="submit" onClick={() => createFollow(picture.user)} value="Follow User" />}
-              </div>
               </div>
               <div id="indexitem" key={picture.id}>
                 <h2>{picture.title}</h2>
                 <img id="careful-pic" src={picture.photoUrl} />
                 <h2 id="bodypost">{picture.body}</h2>
                 <div class="com-things">
-              <CommentIndex history={this.props.history} currentUser={this.props.currentUser.id} picture={picture} comments={this.props.com} />
-              <CommentForm history={this.props.history} currentUser={this.props.currentUser.id} picture_id={picture.id} comment={this.props.comment} comments={this.props.com} fetchposts={this.props.fetchposts}/>
-              </div>
+                  <CommentIndex history={this.props.history} currentUser={this.props.currentUser.id} picture={picture} comments={this.props.com} />
+                  <CommentForm history={this.props.history} currentUser={this.props.currentUser.id} picture_id={picture.id} comment={this.props.comment} comments={this.props.com} fetchposts={this.props.fetchposts} />
+                </div>
               </div>
             </div>
           </div>;
