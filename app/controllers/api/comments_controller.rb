@@ -12,7 +12,7 @@ class Api::CommentsController < ApplicationController
     end 
 
     def index
-        @comments = Comment.all 
+        @comments = Comment.all
     end 
 
     def show 

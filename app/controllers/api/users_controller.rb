@@ -1,8 +1,6 @@
 class Api::UsersController < ApplicationController
   def create
-
     @user = User.new(user_params)
-
     if @user.save
       signin(@user)
       render '/api/users/show'
@@ -12,7 +10,7 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.includes(:pictures, :follows, :comments)
   end
 
   def show

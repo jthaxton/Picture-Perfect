@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-  validates :comment, null: false, length: {maximum: 140}
+  validates :comment, null: false, length: {maximum: 140, minimum: 1}
   
   belongs_to :user,
   foreign_key: :user_id,

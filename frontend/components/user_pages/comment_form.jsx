@@ -30,7 +30,7 @@ class CommentForm extends React.Component {
     render() {
         
         return (
-            <form onSubmit={this.handleComment} class="com-form">
+            <form onSubmit={this.handleComment} className="com-form">
                 <input type="text" name="comment" id="comment" placeholder="Write a comment..." value={this.state.comment} onChange={(e) => this.setState({comment: e.currentTarget.value})} />
             </form>
         );

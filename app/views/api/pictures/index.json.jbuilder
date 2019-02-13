@@ -4,8 +4,8 @@
 #     json.photoUrl post.photo.service_url
 #   end
 # end
-
-@pictures.each do |post|
+@pictures.with_attached_photo.each do |post|
+  # Comment.includes(:user)
   if post.photo.attached?
     json.set! post.id do
       json.extract! post, :id, :body, :user_id, :user

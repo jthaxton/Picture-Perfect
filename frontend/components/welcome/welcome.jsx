@@ -13,7 +13,7 @@ const welcome = ({ currentUser, logout, users }) => {
   
   
   const sessionLinks = () => (
-    <nav class="login-signup">
+    <nav className="login-signup">
       <Link to="/login"></Link>
       <Link to="/signup"></Link>
     </nav>
@@ -22,9 +22,9 @@ const welcome = ({ currentUser, logout, users }) => {
     <div>
       <div id="page-content">
 
-    <h1 class="header-group">
-      <h1 class="header-name">Welcome, {users[currentUser].username}!</h1>
-    </h1>
+    <div className="header-group">
+      <h1 className="header-name">Welcome, {users[currentUser].username}!</h1>
+    </div>
     <App2Container />
     </div>
 

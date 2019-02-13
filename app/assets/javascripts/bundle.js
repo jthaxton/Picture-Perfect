@@ -1200,7 +1200,7 @@ function (_React$Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleComment,
-        class: "com-form"
+        className: "com-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         name: "comment",
@@ -1279,17 +1279,18 @@ function (_React$Component) {
         id: "com-idx"
       }, this.props.picture.comments.map(function (com) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          class: "com-posts"
+          key: com.id,
+          className: "com-posts"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          class: "usrname"
+          className: "usrname"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/users/".concat(com.user.id),
           username: _this.props.picture.user.username,
           follows: _this.props.follows
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          class: "usrname"
+          className: "usrname"
         }, com.user.username))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          class: "com-item"
+          className: "com-item"
         }, com.comment));
       }));
     }
@@ -1373,8 +1374,10 @@ function (_React$Component) {
       if (!this.props.posts) return null;
       var back = this.props.posts[0];
       var allPosts = this.props.posts.slice(0, this.props.posts.length).map(function (post) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, post.photoUrl ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          class: "index-posts"
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: post.id
+        }, post.photoUrl ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "index-posts"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "infpost"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1383,7 +1386,7 @@ function (_React$Component) {
           id: "careful-pic",
           src: post.photoUrl
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-          class: "nomargin",
+          className: "nomargin",
           id: "bodypost"
         }, post.body)))) : null);
       });
@@ -1578,12 +1581,13 @@ function (_React$Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.posts.reverse().map(function (picture) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          class: "index-posts",
+          key: picture.id,
+          className: "index-posts",
           "data-infinite-scroll": "{ \"path\": \".pagination__next\", \"append\": \".infpost\", \"history\": false }"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          class: "infpost"
+          className: "infpost"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          class: "user-index-posts"
+          className: "user-index-posts"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "user-post-info"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1627,7 +1631,7 @@ function (_React$Component) {
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
           id: "bodypost"
         }, picture.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          class: "com-things"
+          className: "com-things"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_index__WEBPACK_IMPORTED_MODULE_3__["default"], {
           history: _this3.props.history,
           currentUser: _this3.props.currentUser.id,
@@ -2023,7 +2027,7 @@ var welcome = function welcome(_ref) {
 
   var sessionLinks = function sessionLinks() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-      class: "login-signup"
+      className: "login-signup"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/login"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -2034,10 +2038,10 @@ var welcome = function welcome(_ref) {
   var personalWelcome = function personalWelcome() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       id: "page-content"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "header-group"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-      class: "header-group"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-      class: "header-name"
+      className: "header-name"
     }, "Welcome, ", users[currentUser].username, "!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_pages_app2_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
   };
 

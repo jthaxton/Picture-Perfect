@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   has_one :prof_pic,
   foreign_key: :user_id,
-  class_name: :Prof 
+  class_name: :Picture 
 
 
   has_many :affection

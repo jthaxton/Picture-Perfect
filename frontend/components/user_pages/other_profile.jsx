@@ -28,13 +28,13 @@ export default class OtherProfile extends React.Component {
     const back = this.props.posts[0];
     const allPosts = this.props.posts.slice(0,this.props.posts.length).map(post => {
       
-      return <div>
+      return <div key={post.id}>
         {post.photoUrl ? 
-          <div class="index-posts">
+          <div className="index-posts">
             <div id="infpost">
               <div id="indexitem">
                 <img id="careful-pic" src={post.photoUrl} />
-                <h2 class="nomargin" id="bodypost">
+                <h2 className="nomargin" id="bodypost">
                   {post.body}
                 </h2>
               </div>

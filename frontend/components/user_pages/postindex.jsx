@@ -62,9 +62,9 @@ class PostIndex extends React.Component{
     
     <div>
       {this.props.posts.reverse().map(picture => {
-        return <div class="index-posts" data-infinite-scroll='{ "path": ".pagination__next", "append": ".infpost", "history": false }'>
-            <div class="infpost">
-              <div class="user-index-posts">
+        return <div key={picture.id} className="index-posts" data-infinite-scroll='{ "path": ".pagination__next", "append": ".infpost", "history": false }'>
+            <div className="infpost">
+              <div className="user-index-posts">
                 <div id="user-post-info">
                   <div id="infos">
                     <img src="/userpic.png" id="user-pic" />
@@ -88,7 +88,7 @@ class PostIndex extends React.Component{
                 <h2>{picture.title}</h2>
                 <img id="careful-pic" src={picture.photoUrl} />
                 <h2 id="bodypost">{picture.body}</h2>
-                <div class="com-things">
+                <div className="com-things">
                   <CommentIndex history={this.props.history} currentUser={this.props.currentUser.id} picture={picture} comments={this.props.com} />
                   <CommentForm history={this.props.history} currentUser={this.props.currentUser.id} picture_id={picture.id} comment={this.props.comment} comments={this.props.com} fetchposts={this.props.fetchposts} />
                 </div>
