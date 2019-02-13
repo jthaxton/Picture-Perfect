@@ -31,23 +31,23 @@ const receiveCurrentUser = (current_user) => {
   return {
     type: RECEIVE_CURRENT_USER,
     current_user
-  }
-}
+  };
+};
 
 const logoutCurrentUser = () => {
   return {
     type: LOGOUT_CURRENT_USER,
 
-  }
-}
+  };
+};
 
 // args: array of errors
 const receiveErrors = (errors) => {
   return {
     type: RECEIVE_SESSION_ERRORS,
     errors
-  }
-}
+  };
+};
 
 export const receiveNoErrors = () => {
   return {

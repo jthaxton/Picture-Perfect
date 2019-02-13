@@ -13,6 +13,7 @@ export default class App2 extends React.Component {
   componentDidMount() {
   this.props.fetchPosts();
   this.props.fetchComments();
+  this.props.fetchFollows();
 }
 
 
@@ -20,7 +21,7 @@ render() {
   
   return (
     <div id="test">
-      <PostIndex fetchposts={this.props.fetchPosts} follow={this.props.createFollow} follows={this.props.follows} posts={this.props.pictures} currentUser={this.props.currentUser} deletePicture={this.props.deletePicture} users={this.props.users} comment={this.props.createComment} comments={this.props.fetchComments} com={this.props.comments}/>
+      <PostIndex deleteFollow={this.props.deleteFollow} fetchposts={this.props.fetchPosts} makeFollow={this.props.makeFollow} myFollows={this.props.myFollows} follows={this.props.follows} fetchFollows={this.props.fetchFollows} posts={this.props.pictures} currentUser={this.props.currentUser} deletePicture={this.props.deletePicture} users={this.props.users} comment={this.props.createComment} comments={this.props.fetchComments} com={this.props.comments}/>
     </div>
   );
 }

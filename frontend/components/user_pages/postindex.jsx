@@ -1,5 +1,5 @@
 import React from 'react';
-import {createFollow} from '../../util/follow_api_util';
+// import {createFollow} from '../../util/follow_api_util';
 import {Link} from 'react-router-dom';
 // import { createComment } from '../../util/comment_api_util';
 // import { createComment } from '../../util/comment_api_util';
@@ -18,6 +18,8 @@ class PostIndex extends React.Component{
       comment: '',
       picture_id: ''
     };
+    this.listFollows.bind(this);
+    this.store = {};
   }
 
   handleSubmit(e) {
@@ -36,7 +38,13 @@ class PostIndex extends React.Component{
 ); this.props.history.push('/');
 }
 
+  componentWillUpdate() {
+    this.listFollows();
+  }
 
+  listFollows() {
+
+  }
 
   update(field) {
     return e => this.setState({
@@ -50,12 +58,10 @@ class PostIndex extends React.Component{
 
 
   render() {
-    
   return (
     
     <div>
       {this.props.posts.reverse().map(picture => {
-        
         return <div class="index-posts" data-infinite-scroll='{ "path": ".pagination__next", "append": ".infpost", "history": false }'>
             <div class="infpost">
               <div class="user-index-posts">
@@ -68,7 +74,14 @@ class PostIndex extends React.Component{
                       </h1>
                     </Link>
                   </div>
-                  {this.props.currentUser.id === picture.user_id ? <input id="del-button" type="submit" onClick={() => this.props.deletePicture(picture.id)} value="Delete Post" /> : <input id="sub-button" type="submit" onClick={() => createFollow(picture.user)} value="Follow User" />}
+                  {this.props.currentUser.id === picture.user_id ? <input id="del-button" type="submit"
+                   onClick={() => this.props.deletePicture(picture.id)} value="Delete Post" /> : 
+                  
+                  this.props.myFollows[picture.user_id] && this.props.follows[this.props.myFollows[picture.user_id]] ? <input id="sub-button" type="submit" onClick={() => this.props.deleteFollow(this.props.myFollows[picture.user_id])} value="Unfollow" /> :
+                  <input id="sub-button" type="submit" onClick={() => this.props.makeFollow(picture.user)} value="Follow" />
+                     
+                  
+                   }
                 </div>
               </div>
               <div id="indexitem" key={picture.id}>
