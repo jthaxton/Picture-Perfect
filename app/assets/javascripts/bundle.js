@@ -589,7 +589,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "login-container"
+        className: "login-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "stick"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -634,21 +634,21 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "login-form"
+        className: "login-form"
       }, this.props.formType === "Login" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        class: "modals"
+        className: "modals"
       }, "Log into PicturePerfect") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        class: "modals"
+        className: "modals"
       }, "Sign up for PicturePerfect"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "login-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "anotha-one"
+        className: "anotha-one"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.username,
         onChange: this.update("username")
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "anotha-one"
+        className: "anotha-one"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Password:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
         value: this.state.password,

@@ -56,7 +56,7 @@ class SessionForm extends React.Component {
   render() {
 
 
-    return <div class="login-container">
+    return <div className="login-container">
         <div id="stick">
           <div id="banner">
             <nav id="navbar">
@@ -94,16 +94,16 @@ class SessionForm extends React.Component {
         {this.renderErrors()}
         <div id="modalform">
           <form onSubmit={this.handleSubmit}>
-            <div class="login-form">
-              {this.props.formType === "Login" ? <h2 class="modals">
+            <div className="login-form">
+              {this.props.formType === "Login" ? <h2 className="modals">
                   Log into PicturePerfect
-                </h2> : <h2 class="modals">Sign up for PicturePerfect</h2>}
+                </h2> : <h2 className="modals">Sign up for PicturePerfect</h2>}
               <div id="login-center">
-                <div class="anotha-one">
+                <div className="anotha-one">
                   <label>Username:</label>
                   <input type="text" value={this.state.username} onChange={this.update("username")} />
                 </div>
-                <div class="anotha-one">
+                <div className="anotha-one">
                   <label>Password:</label>
                   <input type="password" value={this.state.password} onChange={this.update("password")} />
                 </div>

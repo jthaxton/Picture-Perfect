@@ -2,6 +2,7 @@ class Api::PicturesController < ApplicationController
 
   def index
     @pictures = Picture.with_attached_photo.includes(:user, :comments, :photo_attachment)
+    @comments = Comment.includes(:user)
     render :index
   end
 
@@ -20,6 +21,8 @@ class Api::PicturesController < ApplicationController
     end
 
   end
+
+
 
   def destroy
     @picture = Picture.find_by_id(params[:id])

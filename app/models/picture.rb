@@ -5,6 +5,7 @@ class Picture < ApplicationRecord
   has_one_attached :photo
 
   belongs_to :user,
+  optional: true,
   foreign_key: :user_id,
   class_name: :User
 
