@@ -17,9 +17,9 @@ class User < ApplicationRecord
   foreign_key: :user_id,
   class_name: :Comment
 
-  has_one :prof_pic,
-  foreign_key: :user_id,
-  class_name: :Picture 
+  # has_one :prof_pic,
+  # foreign_key: :user_id,
+  # class_name: :Picture 
 
 
   has_many :affection
