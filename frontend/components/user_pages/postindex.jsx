@@ -58,8 +58,9 @@ class PostIndex extends React.Component{
 
 
   render() {
+
   return (
-    
+            
     <div>
       {this.props.posts.reverse().map(picture => {
         return <div key={picture.id} className="index-posts" data-infinite-scroll='{ "path": ".pagination__next", "append": ".infpost", "history": false }'>
@@ -67,21 +68,22 @@ class PostIndex extends React.Component{
               <div className="user-index-posts">
                 <div id="user-post-info">
                   <div id="infos">
-                    <img src="/userpic.png" id="user-pic" />
+                  {picture.user.prof_pic_id ? <img src={this.props.pics[picture.user.prof_pic_id].photoUrl} id="user-pic" /> :<img src= "/userpic.png" id="user-pic" />}
                     <Link to={`/users/${picture.user_id}`} username={picture.user.username} follows={this.props.follows}>
                       <h1 id="link-to-profile">
                         {picture.user.username}
                       </h1>
                     </Link>
                   </div>
-                  {this.props.currentUser.id === picture.user_id ? <input id="del-button" type="submit"
-                   onClick={() => this.props.deletePicture(picture.id)} value="Delete Post" /> : 
+                  {this.props.currentUser.id === picture.user_id ? <div><input id="del-button" type="submit"
+                  onClick={() => this.props.deletePicture(picture.id)} value="Delete Post" /> 
+                  {/* <input type="submit" onClick={() => this.props.updateProfPic(this.props.currentUser, picture)} value="Make Profile Pic" /> */}
+</div> : 
                   
                   this.props.myFollows[picture.user_id] && this.props.follows[this.props.myFollows[picture.user_id]] ? <input id="sub-button" type="submit" onClick={() => this.props.deleteFollow(this.props.myFollows[picture.user_id])} value="Unfollow" /> :
                   <input id="sub-button" type="submit" onClick={() => this.props.makeFollow(picture.user)} value="Follow" />
-                     
-                  
                    }
+
                 </div>
               </div>
               <div id="indexitem" key={picture.id}>

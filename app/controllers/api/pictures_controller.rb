@@ -26,8 +26,10 @@ class Api::PicturesController < ApplicationController
 
   def destroy
     @picture = Picture.find_by_id(params[:id])
-    @picture.photo.destroy
-    render :show
+    if current_user.prof_pic_id != @picture.id
+      @picture.photo.destroy
+      render :show
+    end
   end
 
   private

@@ -9,7 +9,7 @@ const pictureReducer = (state = {},action) => {
     case RECEIVE_PICTURES:
       return action.pictures;
     case RECEIVE_USER:
-      return action.pictures;
+      return action.user.pictures;
     case REMOVE_PICTURE:
       let newstate = merge({}, state);
       delete newstate[action.picture.id];
@@ -17,5 +17,5 @@ const pictureReducer = (state = {},action) => {
     default:
       return state;
   }
-}
+};
 export default pictureReducer;

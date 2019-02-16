@@ -112,6 +112,17 @@ li:hover .header-notifications {
   justify-content: center; 
 }
 
+#page-content {
+    background-image: url(/background1.jpg), linear-gradient(to bottom, #ADB2B6, #ABAEB3);
+    background-size: cover;
+}
+
+
+
+
+
+
+
 #frontpage{
   display: flex;
   // position: absolute;
@@ -201,7 +212,7 @@ body {
     margin: 0;
     /* background-color: aliceblue; */
     font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
-    background: linear-gradient(#cc2b5e , #753a88);
+    // background: linear-gradient(#cc2b5e , #753a88);
     height: 100%;
     background-repeat: no-repeat;
     margin: 0;
@@ -252,10 +263,11 @@ body {
 }
 
 #stick{
-  position: fixed;
-  top: 0;
-  width: 100%;
-  left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 10;
 }
 
 .modals{
@@ -265,6 +277,14 @@ body {
 #modalform {
     display: flex;
     justify-content: center;
+    position: fixed;
+    background-image: url(/background1.jpg);
+    background-size: cover;
+    margin: 0;
+    top: 0;
+    /* left: 0; */
+    width: 100%;
+    height: 100%;
 }
 
 #banner {
@@ -570,7 +590,9 @@ label {
 
 #test {
   display: flex;
-justify-content: center;
+  justify-content: center;
+  background-image: url(/background1.jpg);
+  background-size: cover;
 }
 
 #user-post-info {
@@ -634,7 +656,7 @@ li {
 }
 
 .background-img {
-    width: 100%;
-    height: 100%;
-    background-attachment: fixed;
+    // width: 100%;
+    // height: 100%;
+    // background-attachment: fixed;
 }

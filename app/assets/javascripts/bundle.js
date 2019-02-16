@@ -332,19 +332,22 @@ var receiveNoErrors = function receiveNoErrors() {
 /*!******************************************!*\
   !*** ./frontend/actions/user_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_USER, RECEIVE_ALL_USERS, fetchUser, fetchAllUsers */
+/*! exports provided: RECEIVE_USER, RECEIVE_ALL_USERS, UPDATE_USER, fetchUser, fetchAllUsers, updateProfpic */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_USER", function() { return RECEIVE_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_USERS", function() { return RECEIVE_ALL_USERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_USER", function() { return UPDATE_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllUsers", function() { return fetchAllUsers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateProfpic", function() { return updateProfpic; });
 /* harmony import */ var _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/user_api_util */ "./frontend/util/user_api_util.js");
 
 var RECEIVE_USER = 'RECEIVE_USER';
 var RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
+var UPDATE_USER = 'UPDATE_USER';
 var fetchUser = function fetchUser(id) {
   return function (dispatch) {
     return _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchUser"](id).then(function (user) {
@@ -359,16 +362,28 @@ var fetchAllUsers = function fetchAllUsers() {
     });
   };
 };
+var updateProfpic = function updateProfpic(user, picture) {
+  return function (dispatch) {
+    return _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__["updateProfPic"](user.id, picture).then(function () {
+      return dispatch(updateUser(user, picture));
+    });
+  };
+};
 
-var receiveUser = function receiveUser(_ref) {
-  var follows = _ref.follows,
-      pictures = _ref.pictures,
-      user = _ref.user;
+var updateUser = function updateUser(user, picture) {
+  return {
+    type: UPDATE_USER,
+    data: {
+      user: user,
+      picture: picture
+    }
+  };
+};
+
+var receiveUser = function receiveUser(user) {
   return {
     type: RECEIVE_USER,
-    user: user,
-    pictures: pictures,
-    follows: follows
+    user: user
   };
 };
 
@@ -1017,6 +1032,8 @@ function (_React$Component) {
         id: "test"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_postindex__WEBPACK_IMPORTED_MODULE_2__["default"], {
         deleteFollow: this.props.deleteFollow,
+        pics: this.props.pics,
+        updateProfPic: this.props.updateProfPic,
         fetchposts: this.props.fetchPosts,
         makeFollow: this.props.makeFollow,
         myFollows: this.props.myFollows,
@@ -1057,6 +1074,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_picture_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/picture_actions */ "./frontend/actions/picture_actions.js");
 /* harmony import */ var _actions_follows_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/follows_actions */ "./frontend/actions/follows_actions.js");
 /* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+
 
 
 
@@ -1076,13 +1095,16 @@ var mapStateToProps = function mapStateToProps(state, ownprops) {
     }
   }
 
+  var posts;
+  posts = state.entities.pictures;
   return {
     currentUser: state.entities.users[state.session.id],
-    pictures: Object.values(state.entities.pictures),
+    pictures: Object.values(posts),
     users: state.entities.users,
     comments: state.entities.comments,
     follows: state.entities.follows,
-    myFollows: result
+    myFollows: result,
+    pics: posts
   };
 };
 
@@ -1108,6 +1130,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deleteFollow: function deleteFollow(follow) {
       return dispatch(Object(_actions_follows_actions__WEBPACK_IMPORTED_MODULE_5__["deleteFollow"])(follow));
+    },
+    updateProfPic: function updateProfPic(user, pic) {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_7__["updateProfpic"])(user, pic));
     }
   };
 };
@@ -1592,7 +1617,10 @@ function (_React$Component) {
           id: "user-post-info"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "infos"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        }, picture.user.prof_pic_id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: _this3.props.pics[picture.user.prof_pic_id].photoUrl,
+          id: "user-pic"
+        }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: "/userpic.png",
           id: "user-pic"
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -1601,14 +1629,14 @@ function (_React$Component) {
           follows: _this3.props.follows
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
           id: "link-to-profile"
-        }, picture.user.username))), _this3.props.currentUser.id === picture.user_id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, picture.user.username))), _this3.props.currentUser.id === picture.user_id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           id: "del-button",
           type: "submit",
           onClick: function onClick() {
             return _this3.props.deletePicture(picture.id);
           },
           value: "Delete Post"
-        }) : _this3.props.myFollows[picture.user_id] && _this3.props.follows[_this3.props.myFollows[picture.user_id]] ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        })) : _this3.props.myFollows[picture.user_id] && _this3.props.follows[_this3.props.myFollows[picture.user_id]] ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           id: "sub-button",
           type: "submit",
           onClick: function onClick() {
@@ -2294,7 +2322,7 @@ var pictureReducer = function pictureReducer() {
       return action.pictures;
 
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_USER"]:
-      return action.pictures;
+      return action.user.pictures;
 
     case _actions_picture_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_PICTURE"]:
       var newstate = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["merge"])({}, state);
@@ -2442,7 +2470,13 @@ var usersReducer = function usersReducer() {
       return {};
 
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_USER"]:
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, oldstate, _defineProperty({}, actions.user.id, actions.user));
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, oldstate, _defineProperty({}, actions.user.id, actions.user.pictures));
+
+    case _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["UPDATE_USER"]:
+      var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, oldstate);
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])(newState[actions.data.user.id], {
+        prof_pic_id: actions.data.picture.prof_pic_id
+      });
 
     default:
       return oldstate;
@@ -2680,13 +2714,14 @@ var logout = function logout() {
 /*!****************************************!*\
   !*** ./frontend/util/user_api_util.js ***!
   \****************************************/
-/*! exports provided: fetchUser, fetchAllUsers */
+/*! exports provided: fetchUser, fetchAllUsers, updateProfPic */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllUsers", function() { return fetchAllUsers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateProfPic", function() { return updateProfPic; });
 var fetchUser = function fetchUser(id) {
   return $.ajax({
     url: "/api/users/".concat(id),
@@ -2697,6 +2732,12 @@ var fetchAllUsers = function fetchAllUsers() {
   return $.ajax({
     url: '/api/users',
     method: 'GET'
+  });
+};
+var updateProfPic = function updateProfPic(user, picture) {
+  return $.ajax({
+    url: "/api/users/".concat(user, "?picture=").concat(picture.id),
+    method: 'PATCH'
   });
 };
 
