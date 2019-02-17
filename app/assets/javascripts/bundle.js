@@ -1639,7 +1639,7 @@ function (_React$Component) {
           id: "user-post-info"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "infos"
-        }, picture.user.id === that.props.currentUser.id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        }, picture.user.id === that.props.currentUser.id && that.props.pics[that.props.currentUser.prof_pic_id] ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: that.props.pics[that.props.currentUser.prof_pic_id].photoUrl,
           id: "user-pic"
         }) : picture.user.prof_pic_id !== null ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {

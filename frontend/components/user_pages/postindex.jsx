@@ -71,7 +71,7 @@ class PostIndex extends React.Component{
               <div className="user-index-posts">
                 <div id="user-post-info">
                   <div id="infos">
-                  {picture.user.id === that.props.currentUser.id ? <img src={that.props.pics[that.props.currentUser.prof_pic_id].photoUrl} id="user-pic"/> : picture.user.prof_pic_id !== null ? <img src={that.props.pics[picture.user.prof_pic_id].photoUrl} id="user-pic" /> : <img src= "/userpic.png" id="user-pic" />}
+                  {picture.user.id === that.props.currentUser.id && that.props.pics[that.props.currentUser.prof_pic_id] ? <img src={that.props.pics[that.props.currentUser.prof_pic_id].photoUrl} id="user-pic"/> : picture.user.prof_pic_id !== null ? <img src={that.props.pics[picture.user.prof_pic_id].photoUrl} id="user-pic" /> : <img src= "/userpic.png" id="user-pic" />}
                     <Link to={`/users/${picture.user_id}`} username={picture.user.username} follows={this.props.follows}>
                       <h1 id="link-to-profile">
                         {picture.user.username}
