@@ -6,6 +6,7 @@ import {fetchPictures, removePicture} from '../../actions/picture_actions';
 import {getFollows, makeFollow, deleteFollow} from '../../actions/follows_actions';
 import { comment, comments } from "../../actions/comment_actions";
 import {updateProfpic} from "../../actions/user_actions";
+import { fetchAllUsers } from '../../util/user_api_util';
 
 const mapStateToProps = (state, ownprops) => {
   let result = {};
@@ -40,7 +41,8 @@ const mapDispatchToProps = (dispatch) => {
     createComment: (com) => dispatch(comment(com)),
     fetchComments: () => dispatch(comments()),
     deleteFollow: (follow) => dispatch(deleteFollow(follow)),
-    updateProfPic: (user, pic) => dispatch(updateProfpic(user, pic))
+    updateProfPic: (user, pic) => dispatch(updateProfpic(user, pic)),
+    // fetchUsers: () => dispatch(fetchAllUsers())
 
   };
 };

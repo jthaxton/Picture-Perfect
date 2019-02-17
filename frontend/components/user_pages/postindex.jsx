@@ -1,11 +1,5 @@
 import React from 'react';
-// import {createFollow} from '../../util/follow_api_util';
 import {Link} from 'react-router-dom';
-// import { createComment } from '../../util/comment_api_util';
-// import { createComment } from '../../util/comment_api_util';
-// import { createComment } from '../../util/comment_api_util';
-// import { comment } from '../../actions/comment_actions';
-// import { createComment } from '../../util/comment_api_util';
 import CommentForm from './comment_form';
 import CommentIndex from './comment_index';
 import { withRouter } from 'react-router-dom';
@@ -46,6 +40,8 @@ class PostIndex extends React.Component{
 
   }
 
+
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -56,29 +52,43 @@ class PostIndex extends React.Component{
     this.setState({ comment: e.currentTarget.value });
   }
 
+  componentDidMount() {
+    this.props.fetchposts();
+    // this.props.fetchUsers();
+  }
 
   render() {
-
+    
+    let that;
   return (
-            
     <div>
       {this.props.posts.reverse().map(picture => {
+        that = this;
+        
+        
         return <div key={picture.id} className="index-posts" data-infinite-scroll='{ "path": ".pagination__next", "append": ".infpost", "history": false }'>
             <div className="infpost">
               <div className="user-index-posts">
                 <div id="user-post-info">
                   <div id="infos">
-                  {picture.user.prof_pic_id ? <img src={this.props.pics[picture.user.prof_pic_id].photoUrl} id="user-pic" /> :<img src= "/userpic.png" id="user-pic" />}
+                  {picture.user.id === that.props.currentUser.id ? <img src={that.props.pics[that.props.currentUser.prof_pic_id].photoUrl} id="user-pic"/> : picture.user.prof_pic_id !== null ? <img src={that.props.pics[picture.user.prof_pic_id].photoUrl} id="user-pic" /> : <img src= "/userpic.png" id="user-pic" />}
                     <Link to={`/users/${picture.user_id}`} username={picture.user.username} follows={this.props.follows}>
                       <h1 id="link-to-profile">
                         {picture.user.username}
                       </h1>
                     </Link>
                   </div>
-                  {this.props.currentUser.id === picture.user_id ? <div><input id="del-button" type="submit"
-                  onClick={() => this.props.deletePicture(picture.id)} value="Delete Post" /> 
-                  {/* <input type="submit" onClick={() => this.props.updateProfPic(this.props.currentUser, picture)} value="Make Profile Pic" /> */}
-</div> : 
+                  {this.props.currentUser.id === picture.user_id ? 
+                  <div>
+                    <ul className="header-list" id="hlist">
+                    <img src="/menu.png" id="user-menu"></img>
+                    <ul className="header-notifications" id="head-note">
+                    <li className="item"><div className="itemdiv"
+                          onClick={() => this.props.deletePicture(picture.id)} >  Delete Post </div></li>
+                        <li className="item"><div className="itemdiv" onClick={() => this.props.updateProfPic(this.props.currentUser, picture)} >Make Prof Pic</div></li>
+                    </ul>
+                    </ul>
+                  </div> : 
                   
                   this.props.myFollows[picture.user_id] && this.props.follows[this.props.myFollows[picture.user_id]] ? <input id="sub-button" type="submit" onClick={() => this.props.deleteFollow(this.props.myFollows[picture.user_id])} value="Unfollow" /> :
                   <input id="sub-button" type="submit" onClick={() => this.props.makeFollow(picture.user)} value="Follow" />

@@ -206,7 +206,7 @@ var deleteFollow = function deleteFollow(follow) {
 /*!*********************************************!*\
   !*** ./frontend/actions/picture_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_PICTURES, REMOVE_PICTURE, receivePictures, deletePicture, fetchPictures, removePicture */
+/*! exports provided: RECEIVE_PICTURES, REMOVE_PICTURE, receivePictures, receivePicture, deletePicture, fetchPictures, removePicture, getPicture */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -214,9 +214,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_PICTURES", function() { return RECEIVE_PICTURES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_PICTURE", function() { return REMOVE_PICTURE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePictures", function() { return receivePictures; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePicture", function() { return receivePicture; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePicture", function() { return deletePicture; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPictures", function() { return fetchPictures; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removePicture", function() { return removePicture; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPicture", function() { return getPicture; });
 /* harmony import */ var _util_picture_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/picture_api */ "./frontend/util/picture_api.js");
 
 var RECEIVE_PICTURES = "RECEIVE_PICTURES";
@@ -225,6 +227,12 @@ var receivePictures = function receivePictures(pictures) {
   return {
     type: RECEIVE_PICTURES,
     pictures: pictures
+  };
+};
+var receivePicture = function receivePicture(picture) {
+  return {
+    type: RECEIVE_PICTURES,
+    picture: picture
   };
 };
 var deletePicture = function deletePicture(picture) {
@@ -245,6 +253,11 @@ var removePicture = function removePicture(picture) {
     return _util_picture_api__WEBPACK_IMPORTED_MODULE_0__["deletePicture"](picture).then(function (picture) {
       return dispatch(deletePicture(picture));
     });
+  };
+};
+var getPicture = function getPicture(picture) {
+  return function (dispatch) {
+    return _util_picture_api__WEBPACK_IMPORTED_MODULE_0__["getPicture"](picture).then(picture.dispatch(receivePicture(picture)));
   };
 };
 
@@ -344,6 +357,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllUsers", function() { return fetchAllUsers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateProfpic", function() { return updateProfpic; });
 /* harmony import */ var _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/user_api_util */ "./frontend/util/user_api_util.js");
+/* harmony import */ var _picture_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./picture_actions */ "./frontend/actions/picture_actions.js");
+
 
 var RECEIVE_USER = 'RECEIVE_USER';
 var RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
@@ -364,8 +379,10 @@ var fetchAllUsers = function fetchAllUsers() {
 };
 var updateProfpic = function updateProfpic(user, picture) {
   return function (dispatch) {
-    return _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__["updateProfPic"](user.id, picture).then(function () {
+    return _util_user_api_util__WEBPACK_IMPORTED_MODULE_0__["updateProfPic"](user, picture).then(function () {
       return dispatch(updateUser(user, picture));
+    }).then(function () {
+      return dispatch(_picture_actions__WEBPACK_IMPORTED_MODULE_1__["receivePictures"]());
     });
   };
 };
@@ -1023,7 +1040,7 @@ function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchPosts();
       this.props.fetchComments();
-      this.props.fetchFollows();
+      this.props.fetchFollows(); // this.props.fetchUsers();
     }
   }, {
     key: "render",
@@ -1045,7 +1062,8 @@ function (_React$Component) {
         users: this.props.users,
         comment: this.props.createComment,
         comments: this.props.fetchComments,
-        com: this.props.comments
+        com: this.props.comments,
+        fetchUsers: this.props.fetchUsers
       }));
     }
   }]);
@@ -1075,6 +1093,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_follows_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/follows_actions */ "./frontend/actions/follows_actions.js");
 /* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _util_user_api_util__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../util/user_api_util */ "./frontend/util/user_api_util.js");
+
 
 
 
@@ -1133,7 +1153,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     updateProfPic: function updateProfPic(user, pic) {
       return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_7__["updateProfpic"])(user, pic));
-    }
+    } // fetchUsers: () => dispatch(fetchAllUsers())
+
   };
 };
 
@@ -1523,13 +1544,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
- // import {createFollow} from '../../util/follow_api_util';
 
- // import { createComment } from '../../util/comment_api_util';
-// import { createComment } from '../../util/comment_api_util';
-// import { createComment } from '../../util/comment_api_util';
-// import { comment } from '../../actions/comment_actions';
-// import { createComment } from '../../util/comment_api_util';
 
 
 
@@ -1600,11 +1615,18 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchposts(); // this.props.fetchUsers();
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this3 = this;
 
+      var that;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.posts.reverse().map(function (picture) {
+        that = _this3;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: picture.id,
           className: "index-posts",
@@ -1617,8 +1639,11 @@ function (_React$Component) {
           id: "user-post-info"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "infos"
-        }, picture.user.prof_pic_id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: _this3.props.pics[picture.user.prof_pic_id].photoUrl,
+        }, picture.user.id === that.props.currentUser.id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: that.props.pics[that.props.currentUser.prof_pic_id].photoUrl,
+          id: "user-pic"
+        }) : picture.user.prof_pic_id !== null ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: that.props.pics[picture.user.prof_pic_id].photoUrl,
           id: "user-pic"
         }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: "/userpic.png",
@@ -1629,14 +1654,30 @@ function (_React$Component) {
           follows: _this3.props.follows
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
           id: "link-to-profile"
-        }, picture.user.username))), _this3.props.currentUser.id === picture.user_id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          id: "del-button",
-          type: "submit",
+        }, picture.user.username))), _this3.props.currentUser.id === picture.user_id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "header-list",
+          id: "hlist"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "/menu.png",
+          id: "user-menu"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "header-notifications",
+          id: "head-note"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "item"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "itemdiv",
           onClick: function onClick() {
             return _this3.props.deletePicture(picture.id);
-          },
-          value: "Delete Post"
-        })) : _this3.props.myFollows[picture.user_id] && _this3.props.follows[_this3.props.myFollows[picture.user_id]] ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          }
+        }, "  Delete Post ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "item"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "itemdiv",
+          onClick: function onClick() {
+            return _this3.props.updateProfPic(_this3.props.currentUser, picture);
+          }
+        }, "Make Prof Pic"))))) : _this3.props.myFollows[picture.user_id] && _this3.props.follows[_this3.props.myFollows[picture.user_id]] ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           id: "sub-button",
           type: "submit",
           onClick: function onClick() {
@@ -2319,7 +2360,7 @@ var pictureReducer = function pictureReducer() {
 
   switch (action.type) {
     case _actions_picture_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_PICTURES"]:
-      return action.pictures;
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_2__["merge"])({}, state, action.pictures);
 
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_USER"]:
       return action.user.pictures;
@@ -2473,10 +2514,9 @@ var usersReducer = function usersReducer() {
       return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, oldstate, _defineProperty({}, actions.user.id, actions.user.pictures));
 
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["UPDATE_USER"]:
-      var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, oldstate);
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])(newState[actions.data.user.id], {
-        prof_pic_id: actions.data.picture.prof_pic_id
-      });
+      var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, oldstate, _defineProperty({}, actions.data.user.id, _defineProperty({}, 'prof_pic_id', actions.data.picture.id))); // const hi = merge(newState[actions.data.], {prof_pic_id: actions.data.picture.id});
+
+      return newState;
 
     default:
       return oldstate;
@@ -2587,13 +2627,14 @@ var unFollow = function unFollow(follow) {
 /*!**************************************!*\
   !*** ./frontend/util/picture_api.js ***!
   \**************************************/
-/*! exports provided: deletePicture, fetchPosts */
+/*! exports provided: deletePicture, fetchPosts, getPicture */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePicture", function() { return deletePicture; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPosts", function() { return fetchPosts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPicture", function() { return getPicture; });
 var deletePicture = function deletePicture(picture) {
   return $.ajax({
     url: "/api/pictures/".concat(picture),
@@ -2603,6 +2644,12 @@ var deletePicture = function deletePicture(picture) {
 var fetchPosts = function fetchPosts() {
   return $.ajax({
     url: "/api/pictures",
+    method: "GET"
+  });
+};
+var getPicture = function getPicture(picture) {
+  return $.ajax({
+    url: "/api/pictures/".concat(picture.id),
     method: "GET"
   });
 };
@@ -2736,7 +2783,7 @@ var fetchAllUsers = function fetchAllUsers() {
 };
 var updateProfPic = function updateProfPic(user, picture) {
   return $.ajax({
-    url: "/api/users/".concat(user, "?picture=").concat(picture.id),
+    url: "/api/users/".concat(user.id, "?picture=").concat(picture.id),
     method: 'PATCH'
   });
 };

@@ -14,7 +14,7 @@ export const fetchAllUsers = () => {
 
 export const updateProfPic = (user, picture) => {
   return $.ajax({
-    url:`/api/users/${user}?picture=${picture.id}`,
+    url:`/api/users/${user.id}?picture=${picture.id}`,
     method: 'PATCH',
   });
 };

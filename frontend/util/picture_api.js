@@ -11,3 +11,10 @@ export const fetchPosts = () => {
    method: "GET"
  });
 };
+
+export const getPicture =  (picture) => {
+  return $.ajax({
+    url: `/api/pictures/${picture.id}`,
+    method: "GET"
+  });
+};

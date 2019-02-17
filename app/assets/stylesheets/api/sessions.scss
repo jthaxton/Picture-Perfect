@@ -85,6 +85,7 @@
   background: #34bf49;
   color: white;
   padding: 10px;
+  border-radius: 5px;
 }
 
 #upload-link:hover {
@@ -216,6 +217,7 @@ body {
     height: 100%;
     background-repeat: no-repeat;
     margin: 0;
+    font-family: open sans-serif;
 }
 
 #login-center {
@@ -553,8 +555,9 @@ div #login-button {
 
 #infos{
     display: flex;
+    align-items: center;
     width: 100%;
-    padding: 25px;
+    // padding: 25px;
 }
 
 label {
@@ -638,7 +641,7 @@ label {
 
 #link-to-profile{
   color: black;
-  margin-bottom: 40px;
+  // margin-bottom: 40px;
 }
 
 li {
@@ -659,4 +662,39 @@ li {
     // width: 100%;
     // height: 100%;
     // background-attachment: fixed;
+}
+
+#head-note {
+    top: 25px;
+    left: -20px;
+}
+
+ul:hover #head-note {
+    display: block;
+    position: absolute;
+    left: -20px;
+    top: 25px;
+}
+
+ul:hover #hlist {
+  position: relative;
+}
+
+#hlist {
+  position: relative;
+}
+
+.item:hover {
+  cursor: pointer;
+
+}
+
+.item {
+    text-decoration: none;
+    color: white;
+}
+
+.itemdiv {
+        text-decoration: none;
+    color: white;
 }

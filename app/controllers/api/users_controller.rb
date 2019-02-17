@@ -16,6 +16,8 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find_by_id(current_user.id)
     @user.update(prof_pic_id: params[:picture])
+    # @users = User.includes(:picture, :follows, :comments)
+    render :update
   end 
 
   # def update_background

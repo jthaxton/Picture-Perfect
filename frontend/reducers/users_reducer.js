@@ -14,8 +14,10 @@ const usersReducer = (oldstate ={}, actions) => {
     case RECEIVE_USER:
       return merge({}, oldstate, {[actions.user.id]:actions.user.pictures});
     case UPDATE_USER:
-      const newState = merge({}, oldstate);
-      return merge(newState[actions.data.user.id], {prof_pic_id: actions.data.picture.prof_pic_id});
+      
+      const newState = merge({}, oldstate, {[actions.data.user.id]:{['prof_pic_id']:actions.data.picture.id}});
+      // const hi = merge(newState[actions.data.], {prof_pic_id: actions.data.picture.id});
+      return newState;
     default:
       return oldstate;
 

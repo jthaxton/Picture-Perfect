@@ -9,6 +9,13 @@ export const receivePictures = (pictures) => {
     };
 };
 
+export const receivePicture = (picture) => {
+  return {
+    type: RECEIVE_PICTURES,
+    picture
+  };
+};
+
 export const deletePicture = (picture) => {
   return {
     type: REMOVE_PICTURE,
@@ -23,4 +30,8 @@ export const fetchPictures = () => dispatch => {
 
 export const removePicture = (picture) => dispatch => {
   return APIUtil.deletePicture(picture).then((picture) => dispatch(deletePicture(picture)));
+};
+
+export const getPicture = (picture) => dispatch => {
+  return APIUtil.getPicture(picture).then((picture).dispatch(receivePicture(picture)));
 };
