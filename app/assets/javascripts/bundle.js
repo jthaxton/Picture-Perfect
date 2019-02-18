@@ -1409,7 +1409,8 @@ function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevprops) {
-      if (prevprops.userId !== this.props.userId) {
+      // if (prevprops.userId !== this.props.userId) {
+      if (!this.props.user) {
         this.props.fetchUser(this.props.userId);
       }
     }
@@ -1649,9 +1650,14 @@ function (_React$Component) {
           src: "/userpic.png",
           id: "user-pic"
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-          to: "/users/".concat(picture.user_id),
+          to: {
+            pathname: "/users/".concat(picture.user_id),
+            state: {
+              user: picture.user
+            }
+          },
           username: picture.user.username,
-          follows: _this3.props.follows
+          user: picture.user
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
           id: "link-to-profile"
         }, picture.user.username))), _this3.props.currentUser.id === picture.user_id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -2511,7 +2517,7 @@ var usersReducer = function usersReducer() {
       return {};
 
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_USER"]:
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, oldstate, _defineProperty({}, actions.user.id, actions.user.pictures));
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, oldstate, _defineProperty({}, actions.user.user.id, actions.user));
 
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["UPDATE_USER"]:
       var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, oldstate, _defineProperty({}, actions.data.user.id, _defineProperty({}, 'prof_pic_id', actions.data.picture.id))); // const hi = merge(newState[actions.data.], {prof_pic_id: actions.data.picture.id});

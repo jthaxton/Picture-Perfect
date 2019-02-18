@@ -65,14 +65,13 @@ class PostIndex extends React.Component{
       {this.props.posts.reverse().map(picture => {
         that = this;
         
-        
         return <div key={picture.id} className="index-posts" data-infinite-scroll='{ "path": ".pagination__next", "append": ".infpost", "history": false }'>
             <div className="infpost">
               <div className="user-index-posts">
                 <div id="user-post-info">
                   <div id="infos">
                   {picture.user.id === that.props.currentUser.id && that.props.pics[that.props.currentUser.prof_pic_id] ? <img src={that.props.pics[that.props.currentUser.prof_pic_id].photoUrl} id="user-pic"/> : picture.user.prof_pic_id !== null ? <img src={that.props.pics[picture.user.prof_pic_id].photoUrl} id="user-pic" /> : <img src= "/userpic.png" id="user-pic" />}
-                    <Link to={`/users/${picture.user_id}`} username={picture.user.username} follows={this.props.follows}>
+                    <Link to={{pathname: `/users/${picture.user_id}`, state: {user: picture.user}}} username={picture.user.username} user={picture.user}>
                       <h1 id="link-to-profile">
                         {picture.user.username}
                       </h1>

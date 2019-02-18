@@ -15,8 +15,8 @@ export default class OtherProfile extends React.Component {
   }
 
   componentDidUpdate(prevprops) {
-    if (prevprops.userId !== this.props.userId) {
-      
+    // if (prevprops.userId !== this.props.userId) {
+    if (!this.props.user) {
       this.props.fetchUser(this.props.userId);
     }
   }
@@ -24,7 +24,6 @@ export default class OtherProfile extends React.Component {
   render() {
     if (!this.props.user) return null;
     if (!this.props.posts) return null;
-
     const back = this.props.posts[0];
     const allPosts = this.props.posts.slice(0,this.props.posts.length).map(post => {
       

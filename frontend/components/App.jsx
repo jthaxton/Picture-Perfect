@@ -16,7 +16,6 @@ import ProfileContainer from './user_pages/profile_container';
 import OtherProfileContainer from './user_pages/other_profile_container';
 import FormContainer from './welcome/form_container';
 const App = ({currentUser}) => {
-
   return (
     <div>
       <Route path="/profile" component={ProfileContainer}/>

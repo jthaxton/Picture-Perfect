@@ -5,7 +5,6 @@ export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 export const UPDATE_USER = 'UPDATE_USER';
 
 export const fetchUser = id => dispatch => {
-
   return APIUtil.fetchUser(id).then(user => (
     dispatch(receiveUser(user))
   )

@@ -18,6 +18,7 @@ export default class ProfileDetails extends React.Component {
 
 
     if (this.props.pictures.length > 0) {
+      
       return (
         <div>
           <h1 class="header-name">{this.props.currentUser.username}s Profile</h1>

@@ -12,7 +12,8 @@ const usersReducer = (oldstate ={}, actions) => {
     case LOGOUT_CURRENT_USER:
       return {};
     case RECEIVE_USER:
-      return merge({}, oldstate, {[actions.user.id]:actions.user.pictures});
+      
+      return merge({}, oldstate, {[actions.user.user.id]:actions.user});
     case UPDATE_USER:
       
       const newState = merge({}, oldstate, {[actions.data.user.id]:{['prof_pic_id']:actions.data.picture.id}});
