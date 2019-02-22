@@ -1,6 +1,5 @@
 class Picture < ApplicationRecord
   validate :ensure_photo
-  # before_save :strip_exif_data
   validates :body, length: {maximum: 140}
 
   has_one_attached :photo
@@ -18,13 +17,10 @@ class Picture < ApplicationRecord
   foreign_key: :picture_id,
   class_name: :Profile
 
-  # def strip_exif_data
-  # end 
-
 
   def ensure_photo
     unless self.photo.attached?
       errors[:photo] << "must be attached"
     end
   end
-end
+  end
