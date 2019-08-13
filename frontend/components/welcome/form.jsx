@@ -1,6 +1,5 @@
 import React from 'react';
 import SplashContainer from '../splash/splash_container';
-import {Redirect} from 'react-router';
 
 export default class Form extends React.Component {
   constructor(props) {

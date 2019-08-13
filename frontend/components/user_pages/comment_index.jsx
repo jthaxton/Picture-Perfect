@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from "react-router-dom";
-import { comment } from "../../actions/comment_actions";
 import { Link } from 'react-router-dom';
 
 class CommentIndex extends React.Component {
@@ -21,7 +20,6 @@ class CommentIndex extends React.Component {
                 <div className="usrname">{com.user.username}</div>
               </Link>
             </div>
-            {/* <div className="usrname">{com.user.username}</div> */}
             <div className="com-item">{com.comment}</div>
           </div>;
     })

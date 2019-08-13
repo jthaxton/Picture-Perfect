@@ -1,6 +1,4 @@
 import { connect } from 'react-redux';
-import React from 'react';
-import { Link } from 'react-router-dom';
 import App2 from './app2';
 import {fetchPictures, removePicture} from '../../actions/picture_actions';
 import {getFollows, makeFollow, deleteFollow} from '../../actions/follows_actions';
@@ -42,7 +40,6 @@ const mapDispatchToProps = (dispatch) => {
     fetchComments: () => dispatch(comments()),
     deleteFollow: (follow) => dispatch(deleteFollow(follow)),
     updateProfPic: (user, pic) => dispatch(updateProfpic(user, pic)),
-    // fetchUsers: () => dispatch(fetchAllUsers())
 
   };
 };

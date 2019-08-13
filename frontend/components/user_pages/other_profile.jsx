@@ -15,7 +15,6 @@ export default class OtherProfile extends React.Component {
   }
 
   componentDidUpdate(prevprops) {
-    // if (prevprops.userId !== this.props.userId) {
     if (!this.props.user) {
       this.props.fetchUser(this.props.userId);
     }
@@ -43,9 +42,6 @@ export default class OtherProfile extends React.Component {
     });
     return <div>
         <Splash session={this.props.session}/>
-      {/* <div id="profback">
-        <img src={back.photoUrl} />
-      </div> */}
         <div id='test'>
         <div>
           <div id="user-post-info">

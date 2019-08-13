@@ -8,7 +8,6 @@ class Api::FollowsController < ApplicationController
 
   def index
     @follows = Follow.all
-    # @count = Follow.group(:followee_id).count
   end
 
   def destroy 
