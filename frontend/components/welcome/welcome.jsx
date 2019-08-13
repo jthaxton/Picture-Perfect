@@ -2,12 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Form from './form';
 import App2Container from '../user_pages/app2_container';
-import {withRouter} from 'react-router-dom';
-
-
-
-
-
 
 const welcome = ({ currentUser, logout, users }) => {
   

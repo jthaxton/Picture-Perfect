@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+  before_action :require_login, only: [:index, :update, :show]
   def create
     @user = User.new(user_params)
     if @user.save
@@ -16,13 +17,8 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find_by_id(current_user.id)
     @user.update(prof_pic_id: params[:picture])
-    # @users = User.includes(:picture, :follows, :comments)
     render :update
   end 
-
-  # def update_background
-  #   @user = User.find_by_id(currentUser.id)
-  # end 
 
   def show
     @user = User.find_by_id(params[:id])

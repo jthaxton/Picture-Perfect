@@ -3,12 +3,8 @@ import LogInFormContainer from '../session_form/signin_form_container';
 import SignUpFormContainer from '../session_form/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import { Link } from 'react-router-dom';
-import Welcome from '../welcome/welcome';
 import {Route, Redirect, Switch, HashRouter} from 'react-router-dom';
 import WelcomeContainer from '../welcome/welcome_container';
-import {withRouter} from 'react-router-dom';
-import Form from '../welcome/form';
-// import About from '../user_pages/about';
 
 class Splash extends React.Component {
   constructor(props) {

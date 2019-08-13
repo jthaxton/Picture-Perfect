@@ -1,7 +1,4 @@
 import { connect } from 'react-redux';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ProfileDetails from './profile_details';
 import { fetchPictures } from '../../actions/picture_actions';
 import { makeFollow, getFollows, deleteFollow } from '../../actions/follow_actions';
 import PostIndex from './postindex.jsx';

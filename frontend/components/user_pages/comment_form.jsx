@@ -1,6 +1,5 @@
 import React from 'react';
-import { withRouter } from "react-router-dom";
-import { comment } from "../../actions/comment_actions";
+
 class CommentForm extends React.Component {
     constructor(props){
     super(props);
@@ -19,12 +18,8 @@ class CommentForm extends React.Component {
             user_id: this.props.currentUser
         });
 
-        // formData.append('comment[comment]', com.comment);
-        // formData.append('comment[user_id]', com.currentUser);
-        // formData.append('comment[picture_id]', com.picture_id);
         this.props.comment(com).then(() => this.setState({comment: ''}));
         this.props.fetchposts().then((pictures) => this.setState(pictures));
-        // this.props.history.push('/');
     }
 
     render() {

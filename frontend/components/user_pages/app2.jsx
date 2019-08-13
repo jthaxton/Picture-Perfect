@@ -14,7 +14,6 @@ export default class App2 extends React.Component {
   this.props.fetchPosts();
   this.props.fetchComments();
   this.props.fetchFollows();
-  // this.props.fetchUsers();
 }
 
 
