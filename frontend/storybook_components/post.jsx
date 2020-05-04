@@ -1,11 +1,7 @@
 import React from 'react';
 
-export const Post = () => {
-
-  
-  return (
-    <div>
+export const Post = () => (
+  <div>
     test
-    </div>
-  )
-}
+  </div>
+);

@@ -1,8 +1,8 @@
-import {RECEIVE_PICTURES, REMOVE_PICTURE} from '../actions/picture_actions';
-import {RECEIVE_USER} from '../actions/user_actions';
-import {merge} from 'lodash';
+import { merge } from 'lodash';
+import { RECEIVE_PICTURES, REMOVE_PICTURE } from '../actions/picture_actions';
+import { RECEIVE_USER } from '../actions/user_actions';
 
-const pictureReducer = (state = {},action) => {
+const pictureReducer = (state = {}, action) => {
   Object.freeze(state);
 
   switch (action.type) {
@@ -11,7 +11,7 @@ const pictureReducer = (state = {},action) => {
     case RECEIVE_USER:
       return action.user.pictures;
     case REMOVE_PICTURE:
-      let newstate = merge({}, state);
+      const newstate = merge({}, state);
       delete newstate[action.picture.id];
       return newstate;
     default:

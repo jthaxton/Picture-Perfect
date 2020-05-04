@@ -1,6 +1,7 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
-import {Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
+import {
+  withRouter, Route, Redirect, Switch, Link, HashRouter,
+} from 'react-router-dom';
 
 
 class SessionForm extends React.Component {
@@ -10,27 +11,25 @@ class SessionForm extends React.Component {
     this.handleDemo = this.handleDemo.bind(this);
     this.state = {
       username: '',
-      password: ''
+      password: '',
     };
   }
 
   handleDemo(e) {
     e.preventDefault();
-    const demo = Object.assign({},{username: 'joe', password: '123456'});
-    this.props.processDemo(demo).then( test =>
-    this.props.history.push('/'));
+    const demo = { username: 'joe', password: '123456' };
+    this.props.processDemo(demo).then((test) => this.props.history.push('/'));
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user).then( () =>
-    this.props.history.push('/'));
+    const user = { ...this.state };
+    this.props.processForm(user).then(() => this.props.history.push('/'));
   }
 
   update(field) {
-    return e=> this.setState ({
-      [field]: e.currentTarget.value
+    return (e) => this.setState({
+      [field]: e.currentTarget.value,
     });
   }
 
@@ -39,10 +38,8 @@ class SessionForm extends React.Component {
   }
 
 
-
   renderErrors() {
-
-    return(
+    return (
       <ul>
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
@@ -54,9 +51,8 @@ class SessionForm extends React.Component {
   }
 
   render() {
-
-
-    return <div className="login-container">
+    return (
+      <div className="login-container">
         <div id="stick">
           <div id="banner">
             <nav id="navbar">
@@ -95,19 +91,21 @@ class SessionForm extends React.Component {
         <div id="modalform">
           <form onSubmit={this.handleSubmit}>
             <div className="login-form">
-              {this.props.formType === "Login" ? <h2 className="modals">
+              {this.props.formType === 'Login' ? (
+                <h2 className="modals">
                   Log into PicturePerfect
-                </h2> : <h2 className="modals">Sign up for PicturePerfect</h2>}
+                </h2>
+              ) : <h2 className="modals">Sign up for PicturePerfect</h2>}
               <div id="login-center">
                 <div className="anotha-one">
                   <label>Username:</label>
-                  <input type="text" value={this.state.username} onChange={this.update("username")} />
+                  <input type="text" value={this.state.username} onChange={this.update('username')} />
                 </div>
                 <div className="anotha-one">
                   <label>Password:</label>
-                  <input type="password" value={this.state.password} onChange={this.update("password")} />
+                  <input type="password" value={this.state.password} onChange={this.update('password')} />
                 </div>
-              <div id="sub"><input id="submit" type="submit" value={this.props.formType} /></div>
+                <div id="sub"><input id="submit" type="submit" value={this.props.formType} /></div>
               </div>
               <form onSubmit={this.handleDemo}>
                 <input id="demo-button" type="submit" value="Demo Login" />
@@ -115,9 +113,8 @@ class SessionForm extends React.Component {
             </div>
           </form>
         </div>
-      </div>;
+      </div>
+    );
   }
-
-
 }
 export default withRouter(SessionForm);

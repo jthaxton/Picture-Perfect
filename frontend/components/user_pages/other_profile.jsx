@@ -1,6 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Profile from './profile';
-import {withRouter} from 'react-router-dom';
 import Form from '../welcome/form';
 import Splash from '../splash/splash';
 
@@ -11,7 +11,7 @@ export default class OtherProfile extends React.Component {
 
   componentDidMount() {
     const variable = this.props.userId;
-     this.props.fetchUser(variable);
+    this.props.fetchUser(variable);
   }
 
   componentDidUpdate(prevprops) {
@@ -24,36 +24,38 @@ export default class OtherProfile extends React.Component {
     if (!this.props.user) return null;
     if (!this.props.posts) return null;
     const back = this.props.posts[0];
-    const allPosts = this.props.posts.slice(0,this.props.posts.length).map(post => {
-      
-      return <div key={post.id}>
-        {post.photoUrl ? 
-          <div className="index-posts">
-            <div id="infpost">
-              <div id="indexitem">
-                <img id="careful-pic" src={post.photoUrl} />
-                <h2 className="nomargin" id="bodypost">
-                  {post.body}
-                </h2>
+    const allPosts = this.props.posts.slice(0, this.props.posts.length).map((post) => (
+      <div key={post.id}>
+        {post.photoUrl
+          ? (
+            <div className="index-posts">
+              <div id="infpost">
+                <div id="indexitem">
+                  <img id="careful-pic" src={post.photoUrl} />
+                  <h2 className="nomargin" id="bodypost">
+                    {post.body}
+                  </h2>
+                </div>
               </div>
             </div>
-          </div> : null} 
-        </div>;
-    });
-    return <div>
-        <Splash session={this.props.session}/>
-        <div id='test'>
-        <div>
-          <div id="user-post-info">
+          ) : null}
+      </div>
+    ));
+    return (
+      <div>
+        <Splash session={this.props.session} />
+        <div id="test">
+          <div>
+            <div id="user-post-info">
 
-            <h1>{this.props.user.username}</h1>
+              <h1>{this.props.user.username}</h1>
             </div>
             <div id="user-index-posts">
-                  <div>{allPosts}</div>
-            </div>             
+              <div>{allPosts}</div>
+            </div>
           </div>
         </div>
-      </div>;
-
+      </div>
+    );
   }
 }

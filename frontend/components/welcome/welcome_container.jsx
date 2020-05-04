@@ -1,23 +1,20 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import welcome from './welcome';
-import { comment } from  "../../actions/comment_actions";
+import { comment } from '../../actions/comment_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => ({
+  currentUser: state.session.id,
+  users: state.entities.users,
+});
 
-  return {
-    currentUser: state["session"].id,
-    users: state.entities.users
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
-  createComment: () => dispatch(comment())
-  
+  createComment: () => dispatch(comment()),
+
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(welcome);

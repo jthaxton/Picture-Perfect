@@ -1,6 +1,6 @@
 import React from 'react';
-import Profile from './profile'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import Profile from './profile';
 import Form from '../welcome/form';
 
 export default class ProfileDetails extends React.Component {
@@ -9,25 +9,23 @@ export default class ProfileDetails extends React.Component {
   }
 
 
-
   componentDidMount() {
     this.props.fetchPosts();
   }
 
   render() {
-
-
     if (this.props.pictures.length > 0) {
-      
       return (
         <div>
-          <h1 class="header-name">{this.props.currentUser.username}s Profile</h1>
+          <h1 className="header-name">
+            {this.props.currentUser.username}
+            s Profile
+          </h1>
 
-          <Profile posts={this.props.pictures} currentUser={this.props.currentUser}/>
+          <Profile posts={this.props.pictures} currentUser={this.props.currentUser} />
         </div>
       );
-    } else {
-      return null
     }
+    return null;
   }
 }
