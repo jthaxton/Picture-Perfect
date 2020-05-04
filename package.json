@@ -2,14 +2,12 @@
   "name": "PicturePerfect",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.4",
     "infinite-scroll": "^3.0.5",
     "lodash": "^4.17.11",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-waypoint": "^8.0.3",
@@ -33,7 +31,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch --mode=development",
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "storybook": "start-storybook"
   },
   "repository": {
     "type": "git",
@@ -45,5 +44,10 @@
   "bugs": {
     "url": "https://github.com/jthaxton/Fullstack/issues"
   },
-  "homepage": "https://github.com/jthaxton/Fullstack#readme"
+  "homepage": "https://github.com/jthaxton/Fullstack#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@storybook/react": "^5.3.18",
+    "babel-loader": "^8.1.0"
+  }
 }
