@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
     if @user.save
       signin(@user)
       render '/api/users/show'
-    elsed
+      elsed
       render json: ['Choose different credentials'], status: 404
     end
   end
@@ -18,7 +18,7 @@ class Api::UsersController < ApplicationController
     @user = User.find_by_id(current_user.id)
     @user.update(prof_pic_id: params[:picture])
     render :update
-  end 
+  end
 
   def show
     @user = User.find_by_id(params[:id])

@@ -1,8 +1,9 @@
 class Api::SessionsController < ApplicationController
-    def create
+  def create
     @user = User.find_by_credentials(
       params[:user][:username],
-      params[:user][:password])
+      params[:user][:password]
+    )
 
     if @user
       signin(@user)
@@ -10,7 +11,7 @@ class Api::SessionsController < ApplicationController
     else
       render json: ['Invalid Credentials'], status: 402
     end
-  end
+end
 
   def destroy
     if current_user

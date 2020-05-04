@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class Api::ProfilesControllerTest < ActionDispatch::IntegrationTest
-  def show 
+  def show
     @prof_pic = Picture.find_by_id(params[:profile][:picture_id])
-  end 
+  end
 
-  def prof_params 
+  def prof_params
     params.require(:profile).permit(:user_id, :picture_id)
-  end 
+  end
 end

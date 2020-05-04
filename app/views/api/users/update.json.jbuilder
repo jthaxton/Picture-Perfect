@@ -15,6 +15,4 @@ end
 
 json.follows do
   json.extract! @user.follows.count
-    
-  
-end 
+end

@@ -6,14 +6,18 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg'
 gem 'jquery-rails'
 gem 'bcrypt'
-gem "aws-sdk-s3" 
+gem "aws-sdk-s3"
 gem 'ez_download'
 gem "bullet", group: "development"
+gem "mini_magick"
+gem 'pry-remote'
+gem 'pry-nav'
+gem 'rubocop', require: false
 
-
+gem 'activestorage'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -34,7 +38,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -59,7 +62,6 @@ group :development do
   gem 'pry-rails'
   gem 'annotate'
   gem 'rails_12factor'
-
 end
 
 group :test do

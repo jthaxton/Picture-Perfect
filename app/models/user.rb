@@ -1,34 +1,33 @@
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :session_token, presence: true, uniqueness: true
-  validates :password, length: {minimum: 6, allow_nil: true}
+  validates :password, length: { minimum: 6, allow_nil: true }
   after_initialize :ensure_session_token
   attr_reader :password
 
   has_many :pictures,
-  foreign_key: :user_id,
-  class_name: :Picture
+           foreign_key: :user_id,
+           class_name: :Picture
 
   has_many :follows,
-  foreign_key: :follower_id,
-  class_name: :Follow
+           foreign_key: :follower_id,
+           class_name: :Follow
 
   has_many :comments,
-  foreign_key: :user_id,
-  class_name: :Comment
+           foreign_key: :user_id,
+           class_name: :Comment
 
   has_one :prof_pic,
-  foreign_key: :prof_pic_id,
-  class_name: :Picture
+          foreign_key: :prof_pic_id,
+          class_name: :Picture
 
   has_one :background_pic,
-  foreign_key: :background_pic_id,
-  class_name: :Picture
+          foreign_key: :background_pic_id,
+          class_name: :Picture
 
   # has_one :prof_pic,
   # foreign_key: :user_id,
-  # class_name: :Picture 
-
+  # class_name: :Picture
 
   has_many :affection
 
@@ -59,6 +58,4 @@ class User < ApplicationRecord
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
   end
-
-
 end
