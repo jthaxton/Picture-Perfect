@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
+import {Post} from '../../storybook_components/post';
 import CommentForm from './comment_form';
 import CommentIndex from './comment_index';
+import { Dropdown } from '../../storybook_components/dropdown';
 
 class PostIndex extends React.Component {
   constructor(props) {
@@ -12,7 +13,6 @@ class PostIndex extends React.Component {
       comment: '',
       picture_id: '',
     };
-    this.listFollows.bind(this);
     this.store = {};
   }
 
@@ -31,15 +31,6 @@ class PostIndex extends React.Component {
     }); this.props.history.push('/');
   }
 
-  componentWillUpdate() {
-    this.listFollows();
-  }
-
-  listFollows() {
-
-  }
-
-
   update(field) {
     return (e) => this.setState({
       [field]: e.currentTarget.value,
@@ -52,16 +43,28 @@ class PostIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchposts();
-    // this.props.fetchUsers();
   }
 
   render() {
+    console.log("PROPS", this.props)
+
     let that;
+
+    const buttons = [
+      {
+        onClick: this.props.deletePicture,
+        text: "Delete Post"
+      },
+      {
+        onClick: this.props.deletePicture,
+        text: "Update Profile Picture"
+      }
+    ]
     return (
       <div>
-        {this.props.posts.reverse().map((picture) => {
+        {this.props.pictures.followedPictures && this.props.pictures.followedPictures.map((picture) => {
           that = this;
-
+          // <Post picture={picture}/>
           return (
             <div key={picture.id} className="index-posts" data-infinite-scroll='{ "path": ".pagination__next", "append": ".infpost", "history": false }'>
               <div className="infpost">
@@ -77,24 +80,7 @@ class PostIndex extends React.Component {
                     </div>
                     {this.props.currentUser.id === picture.user_id
                       ? (
-                      <div>
-                        <ul className="header-list" id="hlist">
-                          <img src="/menu.png" id="user-menu" />
-                          <ul className="header-notifications" id="head-note">
-                  <li className="item">
-                              <div
-                                className="itemdiv"
-                                onClick={() => this.props.deletePicture(picture.id)}
-                              >
-                                {' '}
-                                Delete Post
-                                {' '}
-                              </div>
-                            </li>
-                  <li className="item"><div className="itemdiv" onClick={() => this.props.updateProfPic(this.props.currentUser, picture)}>Make Prof Pic</div></li>
-                </ul>
-                        </ul>
-                      </div>
+                        <Dropdown id={picture.id} buttons={buttons}/>
                       )
 
                       : this.props.myFollows[picture.user_id] && this.props.follows[this.props.myFollows[picture.user_id]] ? <input id="sub-button" type="submit" onClick={() => this.props.deleteFollow(this.props.myFollows[picture.user_id])} value="Unfollow" />

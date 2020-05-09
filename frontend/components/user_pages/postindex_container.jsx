@@ -8,6 +8,7 @@ const mapStateToProps = (state) => {
   const result = {};
   const keys = Object.keys(state.entities.follows);
   const currentUser = state.entities.users[state.session.id];
+  console.log("HERE")
   for (let index = 0; index < keys.length; index++) {
     if (state.entities.follows[keys[index]].follower_id == currentUser.id) {
       result[state.entities.follows[keys[index]].followee_id] = keys[index];

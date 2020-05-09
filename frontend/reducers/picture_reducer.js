@@ -7,6 +7,7 @@ const pictureReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_PICTURES:
+      console.log(action.pictures)
       return merge({}, state, action.pictures);
     case RECEIVE_USER:
       return action.user.pictures;

@@ -3,7 +3,8 @@ class Api::PicturesController < ApplicationController
   def index
     @pictures = Picture.with_attached_photo.includes(:user, :comments, :photo_attachment)
     @comments = Comment.includes(:user)
-    render :index
+    
+    render json: current_user, serializer: FeedSerializer
   end
 
   def show

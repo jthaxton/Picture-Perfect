@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from '../components/root';
-import configureStore from '../store/store';
+import Root from './components/root';
+import configureStore from './store/store';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
       session: { id: window.currentUser.id },
       entities: {
         users: { [window.currentUser.id]: window.currentUser },
+        pictures: {},
       },
     };
     store = configureStore(preloadedState);

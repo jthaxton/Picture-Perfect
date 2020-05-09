@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   attr_accessor :prof_pic
   def current_user
     @current_user ||= User.find_by_session_token(session[:session_token])
-end
+  end
 
   def signin(user)
     session[:session_token] = user.reset_session_token
