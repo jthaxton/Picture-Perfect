@@ -1,9 +1,6 @@
 require "aws-sdk-s3"
 class Api::PicturesController < ApplicationController
   def index
-    @pictures = Picture.with_attached_photo.includes(:user, :comments, :photo_attachment)
-    @comments = Comment.includes(:user)
-
     render json: current_user, serializer: FeedSerializer
   end
 
@@ -20,6 +17,10 @@ class Api::PicturesController < ApplicationController
     else
       render json: @picture.errors.full_messages
     end
+  end
+
+  def discover_posts
+    render json: current_user, serializer: DiscoverFeedSerializer
   end
 
   def destroy

@@ -1,6 +1,14 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import SplashContainer from '../components/splash/splash_container';
+import styled from 'styled-components';
+
+const StyledFeedLinks = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 10%;
+  white-space: pre;
+`;
 
 export const NavigationBar = ({ currentUser, logout }) => (
   <div id="stick">
@@ -14,6 +22,15 @@ export const NavigationBar = ({ currentUser, logout }) => (
         </div>
         <div id="other-nav" />
         {currentUser ? (
+          <>
+          <StyledFeedLinks>
+            <Link replace to="/discover">
+              Discover
+            </Link>
+            <Link replace to="/">
+              My Feed
+            </Link>
+          </StyledFeedLinks>
           <div id="logged-nav">
             <ul className="header-list">
               <li>
@@ -35,6 +52,7 @@ export const NavigationBar = ({ currentUser, logout }) => (
               <Link to="/upload">Upload</Link>
             </div>
           </div>
+          </>
         ) : (
           <div id="auth-buttons">
             <div id="login-button">

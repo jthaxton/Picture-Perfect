@@ -49,7 +49,7 @@ export const CommentSection = ({ comments, submit, pictureId }) => {
           <StyledCommentBody>{comment.comment}</StyledCommentBody>
         </StyledComment>
       ))}
-      <StyledInput value={body} onChange={(e) => handleChange(e)} onKeyDown={(e) => handleKeyDown(e)} />
+      <StyledInput placeholder={"Write a comment..."} value={body} onChange={(e) => handleChange(e)} onKeyDown={(e) => handleKeyDown(e)} />
     </>
   );
 };

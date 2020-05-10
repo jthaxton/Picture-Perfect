@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchPictures, removePicture } from '../../actions/picture_actions';
+import { fetchPictures, fetchDiscoverPictures, removePicture } from '../../actions/picture_actions';
 // import { makeFollow, getFollows, deleteFollow } from '../../actions/follow_actions';
-import { PostIndex } from './postindex.jsx';
+import { Discover } from './discover.jsx';
 import { comment } from '../../actions/comment_actions';
 import { updateProfpic } from '../../actions/user_actions';
 
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchPosts: () => dispatch(fetchPictures()),
+  fetchDiscoverPosts: () => dispatch(fetchDiscoverPictures()),
   // fetchFollows: () => dispatch(getFollows()),
   makeFollow: (followee) => dispatch(makeFollow(followee)),
   createComment: (com) => dispatch(comment(com)),
@@ -21,4 +21,4 @@ const mapDispatchToProps = (dispatch) => ({
   updateProfPic: (user, picture) => dispatch(updateProfpic(user, picture)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostIndex);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Discover));

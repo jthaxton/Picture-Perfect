@@ -12,20 +12,29 @@ import App2 from './user_pages/app2';
 import PostIndexContainer from './user_pages/postindex_container';
 import { NavigationBar } from '../storybook_components/navigation_bar';
 import { logout } from '../actions/session_actions';
+import styled from 'styled-components';
+import DiscoverContainer from '../components/user_pages/discover_container'
+
+const StyledDiv = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 
 const App = ({ currentUser, logout }) => (
-  <div>
+  <StyledDiv>
     <NavigationBar currentUser={currentUser} logout={logout} />
     <Switch>
       <Route exact path="/profile" component={ProfileContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <ProtectedRoute exact path="/" loggedIn={currentUser} component={PostIndexContainer} />
+      <ProtectedRoute exact path="/discover" loggedIn={currentUser} component={DiscoverContainer} />
       <Route exact path="/" component={SplashContainer} />
       <ProtectedRoute exact path="/users/:userId" component={OtherProfileContainer} />
       <Route exact path="/upload" component={FormContainer} />
     </Switch>
-  </div>
+  </StyledDiv>
 );
 
 const mapStateToProps = (state) => {

@@ -6,7 +6,6 @@ import { theme } from '../theme';
 const UnorderedList = styled.ul`
 margin: 0;
 list-style-type: none;
-position: absolute;
     white-space: nowrap;
     padding: 0;
     max-width: fit-content;
@@ -26,24 +25,14 @@ const ListItem = styled.li`
 `;
 
 export const Dropdown = ({
-  picture, follows, deletePicture, updateProfpic,
+  picture, follows, deletePicture, updateProfPic, currentUserId
 }) => {
   const [contentVisible, setContentVisible] = useState(false);
 
   const handleClick = () => {
+    console.log(contentVisible)
     setContentVisible(!contentVisible);
   };
-
-  const buttons = [
-    {
-      onClick: deletePicture,
-      text: 'Delete Post',
-    },
-    {
-      onClick: updateProfpic,
-      text: 'Update Profile Picture',
-    },
-  ];
 
   return (
     <>
@@ -52,15 +41,20 @@ export const Dropdown = ({
         {contentVisible
                           && (
                           <UnorderedList>
-                            {buttons.map((button) => (
                               <ListItem>
                                 <div
-                                  onClick={() => button.onClick(picture.id)}
+                                  onClick={() => deletePicture(picture.id)}
                                 >
-                                  {button.text}
+                                  Delete Post
                                 </div>
                               </ListItem>
-                            ))}
+                              <ListItem>
+                                <div
+                                  onClick={() => updateProfPic(currentUserId, picture.id)}
+                                >
+                                  Update Profile Picture
+                                </div>
+                              </ListItem> 
 
                           </UnorderedList>
                           )}

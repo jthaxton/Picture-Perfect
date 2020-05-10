@@ -2,6 +2,12 @@ import React from 'react';
 import {
   withRouter, Route, Redirect, Switch, Link, HashRouter,
 } from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledForm = styled.form`
+  display: flex;
+  align-items: center;
+`
 
 
 class SessionForm extends React.Component {
@@ -89,7 +95,7 @@ class SessionForm extends React.Component {
 
         {this.renderErrors()}
         <div id="modalform">
-          <form onSubmit={this.handleSubmit}>
+          <StyledForm onSubmit={this.handleSubmit}>
             <div className="login-form">
               {this.props.formType === 'Login' ? (
                 <h2 className="modals">
@@ -107,11 +113,11 @@ class SessionForm extends React.Component {
                 </div>
                 <div id="sub"><input id="submit" type="submit" value={this.props.formType} /></div>
               </div>
-              <button onClick={this.handleDemo}>
+              <div onClick={this.handleDemo}>
                 <input id="demo-button" type="submit" value="Demo Login" />
-              </button>
+              </div>
             </div>
-          </form>
+          </StyledForm>
         </div>
       </div>
     );

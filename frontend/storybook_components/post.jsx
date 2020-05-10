@@ -11,18 +11,20 @@ export const StyledPicture = styled.img`
 
 export const StyledPost = styled.div`
   display: grid;
-  padding: 3em;
+  padding: 5em;
   background: white;
   margin-bottom: 1em;
 `;
 
 export const Post = ({
-  owner, picture, submit, followed, deleteFollow, deletePicture, updateProfPic,
-}) => picture.service_url
+  owner, picture, submit, followed, deleteFollow, deletePicture, updateProfPic, currentUserId
+}) => {
+  console.log("PIC", picture)
+  return (picture.service_url
  && (
  <StyledPost>
-   <Header src={owner.profile_picture} followed={followed} picture={picture} name={owner.name} deletePicture={deletePicture} updateProfPic={updateProfPic} />
+   <Header src={owner.profile_picture} followed={followed} picture={picture} name={owner.name} deletePicture={deletePicture} updateProfPic={updateProfPic} currentUserId={currentUserId}/>
    <StyledPicture src={picture.service_url} />
    <CommentSection comments={picture.comments} pictureId={picture.id} submit={submit} />
  </StyledPost>
- );
+ ));}

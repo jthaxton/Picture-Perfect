@@ -20,6 +20,9 @@ export const deletePicture = (picture) => ({
 
 export const fetchPictures = () => (dispatch) => APIUtil.fetchPosts().then((pictures) => dispatch(receivePictures(pictures)));
 
+export const fetchDiscoverPictures = () => (dispatch) => APIUtil.fetchDiscoverPosts().then((pictures) => dispatch(receivePictures(pictures)));
+
+
 export const removePicture = (picture) => (dispatch) => APIUtil.deletePicture(picture).then((picture) => dispatch(deletePicture(picture)));
 
 export const getPicture = (picture) => (dispatch) => APIUtil.getPicture(picture).then((picture).dispatch(receivePicture(picture)));

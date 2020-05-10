@@ -11,17 +11,18 @@ const StyledPostIndex = styled.div`
   max-width: 80%;
 `;
 
-export class PostIndex extends React.Component {
+export class Discover extends React.Component {
   constructor(props) {
     super(props);
     this.store = {};
   }
 
   componentDidMount() {
-    this.props.fetchPosts();
+    this.props.fetchDiscoverPosts();
   }
-  render() {
 
+  render() {
+    console.log(this.props)
     return (
       <StyledPostIndex>
         {this.props.pictures && this.props.pictures.followed_pictures && this.props.pictures.followed_pictures.map((picture) => (

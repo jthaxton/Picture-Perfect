@@ -7,7 +7,7 @@ class CommentSerializer < ActiveModel::Serializer
 
   def prof_pic
     id = object.user.prof_pic_id
-    Picture.find(id).photo.service_url
+    id && Picture.find(id).photo.service_url
   end
 
   def comment

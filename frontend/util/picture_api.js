@@ -8,6 +8,11 @@ export const fetchPosts = () => $.ajax({
   method: 'GET',
 });
 
+export const fetchDiscoverPosts = () => $.ajax({
+  url: '/api/pictures/discover_posts',
+  method: 'GET',
+});
+
 export const getPicture = (picture) => $.ajax({
   url: `/api/pictures/${picture.id}`,
   method: 'GET',

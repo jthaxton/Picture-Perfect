@@ -27,7 +27,7 @@ export const StyledPostHeader = styled.div`
 `;
 
 export const Header = ({
-  src, picture, name, followed, deletePicture, updateProfpic,
+  src, picture, name, followed, deletePicture, updateProfPic,currentUserId
 }) => (
   <>
     <StyledPostHeader>
@@ -37,7 +37,7 @@ export const Header = ({
           {name}
         </Name>
       </PersonalInfo>
-      <Dropdown picture={picture} deletePicture={deletePicture} updateProfpic={updateProfpic} />
+      <Dropdown picture={picture} deletePicture={deletePicture} updateProfPic={updateProfPic} currentUserId={currentUserId}/>
     </StyledPostHeader>
   </>
 );

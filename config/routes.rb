@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :follows, only: [:create, :index, :destroy]
     resources :comments, only: [:create, :index, :show]
   end
+  get '/api/pictures/discover_posts' => "api/pictures#discover_posts"
 
   root to: 'static_pages#root'
 end
