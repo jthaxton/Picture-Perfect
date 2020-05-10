@@ -25,15 +25,23 @@ const ListItem = styled.li`
   color: ${theme.titleText.color};
 `;
 
-export const Dropdown = ({ picture, follows }) => {
+export const Dropdown = ({ picture, follows, deletePicture, updateProfpic }) => {
   const [ contentVisible, setContentVisible ] = useState(false);
 
   const handleClick = () => {
     setContentVisible(!contentVisible);
   }
 
-  const buttons = [];
-
+  const buttons = [
+    {
+      onClick: deletePicture,
+      text: "Delete Post"
+    },
+    {
+      onClick: updateProfpic,
+      text: "Update Profile Picture"
+    }
+  ] 
 
   return (
     <>
@@ -44,7 +52,7 @@ export const Dropdown = ({ picture, follows }) => {
                             {buttons.map(button => (
                                <ListItem >
                                <div
-                                 onClick={() => button.onClick(picture)}
+                                 onClick={() => button.onClick(picture.id)}
                                >
                                  {button.text}
                                </div>

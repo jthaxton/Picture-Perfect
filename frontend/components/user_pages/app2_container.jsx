@@ -6,14 +6,11 @@ import { comment, comments } from '../../actions/comment_actions';
 import { updateProfpic } from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownprops) => {
-  console.log(state)
-
   return {
     currentUser: state.entities.users[state.session.id],
     pictures: state.entities.pictures,
     users: state.entities.users,
-    comments: state.entities.comments,
-    follows: state.entities.follows,
+
   };
 };
 

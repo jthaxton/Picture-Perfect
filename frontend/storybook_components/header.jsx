@@ -26,7 +26,7 @@ export const StyledPostHeader = styled.div`
   justify-content: space-between;
 `;
 
-export const Header = ({src, picture, name, follows}) => {
+export const Header = ({src, picture, name, followed, deletePicture, updateProfpic}) => {
   return (
     <>
       <StyledPostHeader>
@@ -36,7 +36,7 @@ export const Header = ({src, picture, name, follows}) => {
           {name}
         </Name>
       </PersonalInfo>
-      <Dropdown picture={picture}></Dropdown>
+      <Dropdown picture={picture} deletePicture={deletePicture} updateProfpic={updateProfpic}></Dropdown>
       </StyledPostHeader>
     </>
   );

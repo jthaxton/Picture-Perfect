@@ -18,13 +18,13 @@ class SessionForm extends React.Component {
   handleDemo(e) {
     e.preventDefault();
     const demo = { username: 'joe', password: '123456' };
-    this.props.processDemo(demo).then((test) => this.props.history.push('/login'));
+    this.props.processDemo(demo).then((test) => window.location.reload());
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = { ...this.state };
-    this.props.processForm(user).then(() => this.props.history.push('/login'));
+    this.props.processForm(user).then(() => window.location.reload());
   }
 
   update(field) {
@@ -107,9 +107,9 @@ class SessionForm extends React.Component {
                 </div>
                 <div id="sub"><input id="submit" type="submit" value={this.props.formType} /></div>
               </div>
-              <form onSubmit={this.handleDemo}>
+              <button onClick={this.handleDemo}>
                 <input id="demo-button" type="submit" value="Demo Login" />
-              </form>
+              </button>
             </div>
           </form>
         </div>

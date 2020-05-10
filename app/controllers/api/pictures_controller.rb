@@ -23,11 +23,14 @@ class Api::PicturesController < ApplicationController
   end
 
   def destroy
-    @picture = Picture.find_by_id(params[:id])
-
-    if current_user.prof_pic_id != @picture.id
-      @picture.photo.destroy
-      render :show
+    picture = current_user.pictures.detect {|pic| pic.id == params[:id].to_i}
+    if (current_user.prof_pic_id.nil? || current_user.prof_pic_id != picture.id) && picture.photo.attached?
+      picture.photo.purge
+      picture.destroy!
+      render json: current_user, serializer: FeedSerializer
+    elsif current_user.prof_pic_id.nil? || current_user.prof_pic_id != picture.id
+      picture.destroy!
+      render json: current_user, serializer: FeedSerializer
     end
   end
 

@@ -1,36 +1,25 @@
 import { connect } from 'react-redux';
-import { fetchPictures } from '../../actions/picture_actions';
-import { makeFollow, getFollows, deleteFollow } from '../../actions/follow_actions';
-import PostIndex from './postindex.jsx';
+import { fetchPictures, removePicture } from '../../actions/picture_actions';
+// import { makeFollow, getFollows, deleteFollow } from '../../actions/follow_actions';
+import {PostIndex} from './postindex.jsx';
 import { comment } from '../../actions/comment_actions';
+import {withRouter} from 'react-router-dom'
+import { updateProfpic } from '../../actions/user_actions';
 
 const mapStateToProps = (state) => {
-  const result = {};
-  const keys = Object.keys(state.entities.follows);
-  const currentUser = state.entities.users[state.session.id];
-  console.log("HERE")
-  for (let index = 0; index < keys.length; index++) {
-    if (state.entities.follows[keys[index]].follower_id == currentUser.id) {
-      result[state.entities.follows[keys[index]].followee_id] = keys[index];
-    }
-  }
   return {
-    currentUser: state.entities.users[state.session.id],
-    pictures: Object.values(state.entities.pictures),
-    session: state.session,
-    posts: state.posts,
-    com: state.comments,
-    myFollows: result,
-
+    pictures: state.entities.pictures
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   fetchPosts: () => dispatch(fetchPictures()),
-  fetchFollows: () => dispatch(getFollows()),
+  // fetchFollows: () => dispatch(getFollows()),
   makeFollow: (followee) => dispatch(makeFollow(followee)),
   createComment: (com) => dispatch(comment(com)),
   deleteFollow: (follow) => dispatch(deleteFollow(follow)),
+  deletePicture: (picture) => dispatch(removePicture(picture)),
+  updateProfPic: (picture) => dispatch(updateProfpic(picture)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostIndex);

@@ -25,7 +25,7 @@ const StyledCommentBody = styled.div`
   font-family: sans-serif;  
 `;
 
-export const CommentSection = ({comments, submit}) => {
+export const CommentSection = ({comments, submit, pictureId}) => {
   const [body, setBody] = useState("")
 
   const handleChange = (e) => {
@@ -37,16 +37,15 @@ export const CommentSection = ({comments, submit}) => {
   const handleKeyDown = e => {
     if (e.keyCode == 13 || e.which == 13) { 
       e.preventDefault(); 
-      submit(body)
+      submit({comment: body, picture_id: pictureId})
       setBody("")
     }
   }
-
   return (
     <>
       {comments && comments.map(comment => (
         <StyledComment key={comment.id}>
-          <StyledUser>{comment.user.name}</StyledUser>
+          <StyledUser>{comment.name}</StyledUser>
           <StyledCommentBody>{comment.comment}</StyledCommentBody>
         </StyledComment>
       ))}

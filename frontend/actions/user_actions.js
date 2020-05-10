@@ -15,7 +15,7 @@ export const fetchAllUsers = () => (dispatch) => (
   ))
 );
 
-export const updateProfpic = (user, picture) => (dispatch) => APIUtil.updateProfPic(user, picture).then(() => dispatch(updateUser(user, picture)))
+export const updateProfpic = (picture) => (dispatch) => APIUtil.updateProfPic(picture).then(() => dispatch(updateUser(picture)))
   .then(() => dispatch(picActs.receivePictures()));
 
 const updateUser = (user, picture) => ({
