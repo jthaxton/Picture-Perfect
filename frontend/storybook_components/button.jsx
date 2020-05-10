@@ -1,5 +1,5 @@
 import React from 'react';
-import  styled  from 'styled-components';
+import styled from 'styled-components';
 import { theme } from '../theme';
 
 const StyledButton = styled.button`
@@ -20,10 +20,10 @@ white-space: nowrap;
 outline: 0;
 `;
 export const Button = () => {
-  console.log(theme.titleText)
+  console.log(theme.titleText);
   return (
     <StyledButton>
       TEST
     </StyledButton>
-  )
-}
+  );
+};

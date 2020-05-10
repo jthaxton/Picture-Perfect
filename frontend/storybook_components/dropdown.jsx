@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import img from './menu.svg'
-import { theme } from './../theme';
 import styled from 'styled-components';
+import img from './menu.svg';
+import { theme } from '../theme';
 
 const UnorderedList = styled.ul`
 margin: 0;
@@ -25,44 +25,47 @@ const ListItem = styled.li`
   color: ${theme.titleText.color};
 `;
 
-export const Dropdown = ({ picture, follows, deletePicture, updateProfpic }) => {
-  const [ contentVisible, setContentVisible ] = useState(false);
+export const Dropdown = ({
+  picture, follows, deletePicture, updateProfpic,
+}) => {
+  const [contentVisible, setContentVisible] = useState(false);
 
   const handleClick = () => {
     setContentVisible(!contentVisible);
-  }
+  };
 
   const buttons = [
     {
       onClick: deletePicture,
-      text: "Delete Post"
+      text: 'Delete Post',
     },
     {
       onClick: updateProfpic,
-      text: "Update Profile Picture"
-    }
-  ] 
+      text: 'Update Profile Picture',
+    },
+  ];
 
   return (
     <>
-                        <div onClick={() => handleClick()}>
-                          <img src={img} />
-                          {contentVisible &&
+      <div onClick={() => handleClick()}>
+        <img src={img} />
+        {contentVisible
+                          && (
                           <UnorderedList>
-                            {buttons.map(button => (
-                               <ListItem >
-                               <div
-                                 onClick={() => button.onClick(picture.id)}
-                               >
-                                 {button.text}
-                               </div>
-                             </ListItem>
+                            {buttons.map((button) => (
+                              <ListItem>
+                                <div
+                                  onClick={() => button.onClick(picture.id)}
+                                >
+                                  {button.text}
+                                </div>
+                              </ListItem>
                             ))}
 
-                </UnorderedList>
-}
-                        </div>
-                            
-                      </>
-  )
-}
+                          </UnorderedList>
+                          )}
+      </div>
+
+    </>
+  );
+};

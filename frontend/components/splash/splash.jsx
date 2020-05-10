@@ -47,15 +47,15 @@ class Splash extends React.Component {
                       <img src="/menu.png" id="user-menu" />
 
                       <ul className="header-notifications">
-                  <li>
+                        <li>
                           <Link to={`/users/${this.props.session.id}`}>Profile</Link>
                         </li>
-                  <li>
+                        <li>
                           <Link to="/" onClick={this.props.logout}>
                             Logout
                           </Link>
                         </li>
-                </ul>
+                      </ul>
                     </li>
                   </ul>
                   <div id="upload-link">
@@ -66,7 +66,7 @@ class Splash extends React.Component {
                 <div id="auth-buttons">
                   <div id="login-button">
                     <Link to="/login" replace>
-                Login
+                      Login
                     </Link>
                   </div>
                   <div id="signup-button">

@@ -1,5 +1,5 @@
 import React from 'react';
-import {PostIndex} from './postindex';
+import { PostIndex } from './postindex';
 
 export default class App2 extends React.Component {
   constructor(props) {
@@ -8,14 +8,12 @@ export default class App2 extends React.Component {
 
   componentDidMount() {
     this.props.fetchPosts();
-
   }
 
 
   render() {
     return (
-      <div id="test">
-      </div>
+      <div id="test" />
     );
   }
 }

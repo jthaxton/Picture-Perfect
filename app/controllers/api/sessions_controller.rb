@@ -9,7 +9,7 @@ class Api::SessionsController < ApplicationController
       signin(@user)
       render json: current_user, serializer: UserSerializer
     else
-      render json: {status: 402}
+      render json: { status: 402 }
     end
   end
 

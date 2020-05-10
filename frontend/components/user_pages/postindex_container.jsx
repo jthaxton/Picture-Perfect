@@ -1,16 +1,14 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { fetchPictures, removePicture } from '../../actions/picture_actions';
 // import { makeFollow, getFollows, deleteFollow } from '../../actions/follow_actions';
-import {PostIndex} from './postindex.jsx';
+import { PostIndex } from './postindex.jsx';
 import { comment } from '../../actions/comment_actions';
-import {withRouter} from 'react-router-dom'
 import { updateProfpic } from '../../actions/user_actions';
 
-const mapStateToProps = (state) => {
-  return {
-    pictures: state.entities.pictures
-  };
-};
+const mapStateToProps = (state) => ({
+  pictures: state.entities.pictures,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   fetchPosts: () => dispatch(fetchPictures()),

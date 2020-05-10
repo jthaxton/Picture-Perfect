@@ -9,5 +9,5 @@ list-style-type: none;
 export const ListItem = () => {
   <li>
     {children}
-  </li>
-}
+  </li>;
+};

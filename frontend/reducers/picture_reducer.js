@@ -15,10 +15,10 @@ const pictureReducer = (state = {}, action) => {
       const newstate = merge({}, state, action.picture);
       return newstate;
     case RECEIVE_COMMENT:
-      const copiedState = {...state}
-      const pictureIdx = state.followed_pictures.findIndex((picture) => picture.id === action.picture.id );
+      const copiedState = { ...state };
+      const pictureIdx = state.followed_pictures.findIndex((picture) => picture.id === action.picture.id);
       copiedState.followed_pictures[pictureIdx] = action.picture;
-      return merge({}, state, copiedState)
+      return merge({}, state, copiedState);
     default:
       return state;
   }

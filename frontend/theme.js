@@ -23,21 +23,21 @@
 
 export const theme = {
   headerText: {
-    color: "#fff",
-    background: "#403759",
-    family: "sans-serif",
-    weight: "700"
+    color: '#fff',
+    background: '#403759',
+    family: 'sans-serif',
+    weight: '700',
   },
   titleText: {
-    color: "#fff",
-    background: "#403759",
-    family: "sans-serif",
-    weight: "700"
+    color: '#fff',
+    background: '#403759',
+    family: 'sans-serif',
+    weight: '700',
   },
   basicText: {
-    color: "#1a237e",
-    background: "",
-    family: "sans-serif",
-    weight: "700"
-  }
-}
+    color: '#1a237e',
+    background: '',
+    family: 'sans-serif',
+    weight: '700',
+  },
+};

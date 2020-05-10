@@ -1,7 +1,7 @@
 import React from 'react';
-import { Dropdown } from './dropdown';
 import styled from 'styled-components';
-import {theme} from '../theme';
+import { Dropdown } from './dropdown';
+import { theme } from '../theme';
 
 export const ProfilePicture = styled.img`
   border-radius: 50%;
@@ -26,18 +26,18 @@ export const StyledPostHeader = styled.div`
   justify-content: space-between;
 `;
 
-export const Header = ({src, picture, name, followed, deletePicture, updateProfpic}) => {
-  return (
-    <>
-      <StyledPostHeader>
+export const Header = ({
+  src, picture, name, followed, deletePicture, updateProfpic,
+}) => (
+  <>
+    <StyledPostHeader>
       <PersonalInfo>
-        <ProfilePicture src={src}/>
+        <ProfilePicture src={src} />
         <Name>
           {name}
         </Name>
       </PersonalInfo>
-      <Dropdown picture={picture} deletePicture={deletePicture} updateProfpic={updateProfpic}></Dropdown>
-      </StyledPostHeader>
-    </>
-  );
-}
+      <Dropdown picture={picture} deletePicture={deletePicture} updateProfpic={updateProfpic} />
+    </StyledPostHeader>
+  </>
+);

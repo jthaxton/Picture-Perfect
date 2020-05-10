@@ -5,15 +5,15 @@ class UserSerializer < ActiveModel::Serializer
     follows = {}
     object.follows.each do |follow|
       follows[follow.id] = follow
-    end 
-      follows
+    end
+    follows
     end
 
-    def pictures
-      pictures = {}
-      object.pictures.each do |picture|
-        pictures[picture.id] = picture
-      end
-        pictures
+  def pictures
+    pictures = {}
+    object.pictures.each do |picture|
+      pictures[picture.id] = picture
     end
+    pictures
+  end
 end

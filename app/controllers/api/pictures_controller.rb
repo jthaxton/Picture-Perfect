@@ -3,7 +3,7 @@ class Api::PicturesController < ApplicationController
   def index
     @pictures = Picture.with_attached_photo.includes(:user, :comments, :photo_attachment)
     @comments = Comment.includes(:user)
-    
+
     render json: current_user, serializer: FeedSerializer
   end
 
@@ -23,7 +23,7 @@ class Api::PicturesController < ApplicationController
   end
 
   def destroy
-    picture = current_user.pictures.detect {|pic| pic.id == params[:id].to_i}
+    picture = current_user.pictures.detect { |pic| pic.id == params[:id].to_i }
     if (current_user.prof_pic_id.nil? || current_user.prof_pic_id != picture.id) && picture.photo.attached?
       picture.photo.purge
       picture.destroy!

@@ -2,7 +2,7 @@ class PictureSerializer < ActiveModel::Serializer
   attributes :id, :comments, :service_url, :owner
 
   def comments
-    object.comments.map {|comment| CommentSerializer.new(comment)}
+    object.comments.map { |comment| CommentSerializer.new(comment) }
   end
 
   def service_url

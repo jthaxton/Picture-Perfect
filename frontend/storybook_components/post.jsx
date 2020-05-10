@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Header} from './header';
-import { CommentSection } from './comment_section'
+import { Header } from './header';
+import { CommentSection } from './comment_section';
 
 export const StyledPicture = styled.img`
   margin-top: 3em;
@@ -16,13 +16,13 @@ export const StyledPost = styled.div`
   margin-bottom: 1em;
 `;
 
-export const Post = ({owner, picture, submit, followed, deleteFollow, deletePicture, updateProfPic}) => {
-  return picture.service_url &&
- (
-    <StyledPost>
-      <Header src={owner.profile_picture} followed={followed} picture={picture} name={owner.name} deletePicture={deletePicture} updateProfPic={updateProfPic}/>
-      <StyledPicture src={picture.service_url} />
-      <CommentSection comments={picture.comments} pictureId={picture.id} submit={submit}/>
-    </StyledPost>
-  )
-}
+export const Post = ({
+  owner, picture, submit, followed, deleteFollow, deletePicture, updateProfPic,
+}) => picture.service_url
+ && (
+ <StyledPost>
+   <Header src={owner.profile_picture} followed={followed} picture={picture} name={owner.name} deletePicture={deletePicture} updateProfPic={updateProfPic} />
+   <StyledPicture src={picture.service_url} />
+   <CommentSection comments={picture.comments} pictureId={picture.id} submit={submit} />
+ </StyledPost>
+ );

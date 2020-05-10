@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import {Post} from '../../storybook_components/post';
+import styled from 'styled-components';
+import { Post } from '../../storybook_components/post';
 import CommentForm from './comment_form';
 import CommentIndex from './comment_index';
 import { Dropdown } from '../../storybook_components/dropdown';
-import styled from 'styled-components';
 
 const StyledPostIndex = styled.div`
   display: block;
@@ -50,16 +50,13 @@ export class PostIndex extends React.Component {
   //   this.setState({ comment: e.currentTarget.value });
   // }
   render() {
-
     return (
       <StyledPostIndex>
-        {this.props.pictures && this.props.pictures.followed_pictures && this.props.pictures.followed_pictures.map((picture) => {
-          return (
-            <Post owner={picture.owner} picture={picture} submit={this.props.createComment} updateProfPic={this.props.updateProfPic} deletePicture={this.props.deletePicture}/>
-        )})}
+        {this.props.pictures && this.props.pictures.followed_pictures && this.props.pictures.followed_pictures.map((picture) => (
+          <Post owner={picture.owner} picture={picture} submit={this.props.createComment} updateProfPic={this.props.updateProfPic} deletePicture={this.props.deletePicture} />
+        ))}
         {!(this.props.pictures && this.props.pictures.followed_pictures) && (<div>No photos... yet! Upload photos and follow other pages!</div>) }
       </StyledPostIndex>
     );
   }
 }
-
