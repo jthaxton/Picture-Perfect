@@ -17,3 +17,18 @@ export const getPicture = (picture) => $.ajax({
   url: `/api/pictures/${picture.id}`,
   method: 'GET',
 });
+
+
+export const fetchPicturesWithOffset = (offset) => {
+  return $.ajax({
+  url: `/api/pictures/offset_index`,
+  method: 'GET',
+  data: { offset }
+});}
+
+export const fetchPicturesDiscoverWithOffset = (offset) => {
+  return $.ajax({
+    url: `/api/pictures/offset_discover_index`,
+    method: 'GET',
+    data: { offset }
+  });}

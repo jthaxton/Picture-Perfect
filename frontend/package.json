@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "react-infinite-scroll-component": "4.1.0",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {

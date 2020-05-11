@@ -9,7 +9,6 @@ export const fetchAllUsers = () => $.ajax({
 });
 
 export const updateProfPic = (userId, picture) => {
-  console.log(userId, picture)
   return $.ajax({
   url: `/api/users/${userId}?picture=${picture}`,
   method: 'PATCH',

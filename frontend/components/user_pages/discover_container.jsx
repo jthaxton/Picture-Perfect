@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchPictures, fetchDiscoverPictures, removePicture } from '../../actions/picture_actions';
+import { fetchPictures, fetchDiscoverPictures, fetchPicturesWithOffset, removePicture, fetchDiscoverWithOffset } from '../../actions/picture_actions';
 // import { makeFollow, getFollows, deleteFollow } from '../../actions/follow_actions';
 import { Discover } from './discover.jsx';
 import { comment } from '../../actions/comment_actions';
@@ -19,6 +19,8 @@ const mapDispatchToProps = (dispatch) => ({
   deleteFollow: (follow) => dispatch(deleteFollow(follow)),
   deletePicture: (picture) => dispatch(removePicture(picture)),
   updateProfPic: (user, picture) => dispatch(updateProfpic(user, picture)),
+  fetchPicturesOffset: (offset) => dispatch(fetchDiscoverWithOffset(offset))
+
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Discover));

@@ -19,6 +19,29 @@ class Api::PicturesController < ApplicationController
     end
   end
 
+  def offset_index
+    followed_pictures = []
+    current_user.pictures.limit(params[:offset].to_i).map {|pic| followed_pictures << PictureSerializer.new(pic)}
+    # current_user.pictures.offset(params[:offset].to_i).map {|pic| followed_pictures << PictureSerializer.new(pic)}
+    remaining = current_user.pictures.limit(params[:offset].to_i + 1).length != followed_pictures.length
+    render json: {followed_pictures: followed_pictures, next: remaining}
+  end
+
+  def offset_discover_index
+    pictures = []
+
+    Follow.includes(:follower).where.not(follower_id: current_user.id)
+    users = User.where.not(id: current_user.id)
+    filtered_users = users.select {|user| !current_user.followees.include?(user) }
+    filtered_users.each do |user| 
+      user.pictures.map {|pic| pictures << PictureSerializer.new(pic) }
+    end
+    filtered_pictures = pictures[0..params[:offset].to_i]
+    remaining = filtered_pictures.length < pictures.length
+    render json: {followed_pictures: filtered_pictures, next: remaining}
+
+  end
+
   def discover_posts
     render json: current_user, serializer: DiscoverFeedSerializer
   end

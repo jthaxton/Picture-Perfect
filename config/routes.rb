@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :index, :show]
   end
   get '/api/pictures/discover_posts' => "api/pictures#discover_posts"
+  get '/api/pictures/offset_index' => "api/pictures#offset_index"
+  get '/api/pictures/offset_discover_index' => "api/pictures#offset_discover_index"
 
   root to: 'static_pages#root'
 end
