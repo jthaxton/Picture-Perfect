@@ -8,14 +8,7 @@ const mapStateToProps = ({ session, entities: { users } }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  // fetchDiscoverPosts: () => dispatch(fetchDiscoverPictures()),
-  // // fetchFollows: () => dispatch(getFollows()),
-  // makeFollow: (followee) => dispatch(makeFollow(followee)),
-  // createComment: (com) => dispatch(comment(com)),
-  // deleteFollow: (follow) => dispatch(deleteFollow(follow)),
   uploadPicture: (picture) => dispatch(uploadPost(picture)),
-  // updateProfPic: (user, picture) => dispatch(updateProfpic(user, picture)),
-
 });
 
 

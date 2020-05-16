@@ -1,10 +1,6 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { Post } from '../../storybook_components/post';
-import CommentForm from './comment_form';
-import CommentIndex from './comment_index';
-import { Dropdown } from '../../storybook_components/dropdown';
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const StyledPostIndex = styled.div`
@@ -39,7 +35,7 @@ export class Discover extends React.Component {
           next={this.fetchPictures}
           hasMore={this.props.pictures && this.props.pictures.next}
           loader={<h4>Loading...</h4>}
-          height={900}
+          height={this.props.size * 0.8}
           endMessage={
             <p style={{ textAlign: "center" }}>
               <b>Yay! You have seen it all</b>

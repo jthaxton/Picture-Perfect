@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const StyledDivContainer = styled.div`
   display: block;
   min-width: 50%;
-  min-height: ${900 / 2}px;
+  min-height: ${(props) => props.size / 2}px;
 `;
 
 export const StyledPreview = styled.img`
@@ -14,14 +14,14 @@ export const StyledPreview = styled.img`
 `;
 
 export const StyledButton = styled.button`
-  background: #34bf49;
+  background: ${props => props.disabled ? "grey" : "#34bf49"};
   color: white;
   cursor: pointer;
   width: 100%;
   height: 3em;
   font-size: 24px;
   &:hover {
-    background: #65e278;
+    background: ${props => props.disabled ? "grey" : "#65e278"};
     cursor: pointer;
   }
 `;
@@ -87,7 +87,7 @@ export default class FileUpload extends React.Component {
     const preview = this.state.photoUrl ? <StyledPreview id="careful-pic" src={this.state.photoUrl} /> : null;
     return (
       <form onSubmit={this.handleSubmit}>
-        <StyledDivContainer>
+        <StyledDivContainer size={this.props.size}>
             <StyledInput
               type="file"
               onChange={(e) => this.handleFileInput(e)}
@@ -115,7 +115,7 @@ export default class FileUpload extends React.Component {
                     Or drop some files here!
         </FileDrop>}
         </StyledDivContainer>
-            <StyledButton>Post a Perfect Picture</StyledButton>
+            <StyledButton disabled={this.state.body === '' || this.state.photoUrl === null}>Post a Perfect Picture</StyledButton>
       </form>
 
     );

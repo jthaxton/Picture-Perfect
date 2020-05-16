@@ -33,7 +33,7 @@ export const StyledUploadButton = styled.div`
   }
 `;
 
-const FileUploadModalButton = ({uploadPicture}) => {
+const FileUploadModalButton = ({uploadPicture, size}) => {
   const [modalVisible, setModalVisible] = useState(false)
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const FileUploadModalButton = ({uploadPicture}) => {
       style={customStyles}
       contentLabel="Example Modal"
     >
-    <FileUpload uploadPicture={uploadPicture} setModalVisible={setModalVisible}/>
+    <FileUpload uploadPicture={uploadPicture} setModalVisible={setModalVisible} size={size}/>
     </Modal>
           </>
   );

@@ -1327,13 +1327,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Discover", function() { return Discover; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _storybook_components_post__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../storybook_components/post */ "./frontend/storybook_components/post.jsx");
-/* harmony import */ var _comment_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./comment_form */ "./frontend/components/user_pages/comment_form.jsx");
-/* harmony import */ var _comment_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./comment_index */ "./frontend/components/user_pages/comment_index.jsx");
-/* harmony import */ var _storybook_components_dropdown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../storybook_components/dropdown */ "./frontend/storybook_components/dropdown.jsx");
-/* harmony import */ var react_infinite_scroll_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-infinite-scroll-component */ "./node_modules/react-infinite-scroll-component/dist/index.es.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _storybook_components_post__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../storybook_components/post */ "./frontend/storybook_components/post.jsx");
+/* harmony import */ var react_infinite_scroll_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-infinite-scroll-component */ "./node_modules/react-infinite-scroll-component/dist/index.es.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1368,11 +1364,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
-
-
-
-var StyledPostIndex = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject());
+var StyledPostIndex = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject());
 var Discover = /*#__PURE__*/function (_React$Component) {
   _inherits(Discover, _React$Component);
 
@@ -1408,19 +1400,19 @@ var Discover = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPostIndex, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_infinite_scroll_component__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPostIndex, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_infinite_scroll_component__WEBPACK_IMPORTED_MODULE_3__["default"], {
         dataLength: this.props.pictures && this.props.pictures.followed_pictures && this.props.pictures.followed_pictures.length || 1,
         next: this.fetchPictures,
         hasMore: this.props.pictures && this.props.pictures.next,
         loader: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Loading..."),
-        height: 900,
+        height: this.props.size * 0.8,
         endMessage: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           style: {
             textAlign: "center"
           }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Yay! You have seen it all"))
       }, this.props.pictures && this.props.pictures.followed_pictures && this.props.pictures.followed_pictures.map(function (picture) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_storybook_components_post__WEBPACK_IMPORTED_MODULE_3__["Post"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_storybook_components_post__WEBPACK_IMPORTED_MODULE_2__["Post"], {
           owner: picture.owner,
           picture: picture,
           submit: _this2.props.createComment,
@@ -1458,11 +1450,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var size;
+
+function mediaQuery(x) {
+  if (x.matches) {
+    size = 600;
+  } else {
+    size = 1080;
+  }
+}
+
+var x = window.matchMedia("(max-width: 600px)");
+mediaQuery(x);
+x.addListener(mediaQuery);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
     pictures: state.entities.pictures,
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    size: size
   };
 };
 
@@ -1608,7 +1614,7 @@ var OtherProfile = /*#__PURE__*/function (_React$Component) {
         next: this.fetchPictures,
         hasMore: this.props.pictures && this.props.pictures.next,
         loader: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Loading..."),
-        height: 900,
+        height: this.props.size * 0.8,
         endMessage: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           style: {
             textAlign: "center"
@@ -1647,16 +1653,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _other_profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./other_profile */ "./frontend/components/user_pages/other_profile.jsx");
 /* harmony import */ var _actions_picture_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/picture_actions */ "./frontend/actions/picture_actions.js");
-/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
 
 
 
 
+var size;
 
+function mediaQuery(x) {
+  if (x.matches) {
+    size = 600;
+  } else {
+    size = 1080;
+  }
+}
+
+var x = window.matchMedia("(max-width: 600px)");
+mediaQuery(x);
+x.addListener(mediaQuery);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    pictures: state.entities.pictures
+    pictures: state.entities.pictures,
+    size: size
   };
 };
 
@@ -1768,12 +1786,13 @@ var PostIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      console.log(this.props.size);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPostIndex, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_infinite_scroll_component__WEBPACK_IMPORTED_MODULE_7__["default"], {
         dataLength: this.props.pictures && this.props.pictures.followed_pictures && this.props.pictures.followed_pictures.length || 1,
         next: this.fetchPictures,
         hasMore: this.props.pictures && this.props.pictures.next,
         loader: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Loading..."),
-        height: 900,
+        height: this.props.size * 0.8,
         endMessage: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           style: {
             textAlign: "center"
@@ -1814,16 +1833,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
 
 
- // import { makeFollow, getFollows, deleteFollow } from '../../actions/follow_actions';
 
 
 
 
+var size;
+
+function mediaQuery(x) {
+  if (x.matches) {
+    size = 600;
+  } else {
+    size = 1080;
+  }
+}
+
+var x = window.matchMedia("(max-width: 600px)");
+mediaQuery(x);
+x.addListener(mediaQuery);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
     pictures: state.entities.pictures,
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    size: size
   };
 };
 
@@ -1832,7 +1864,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchPosts: function fetchPosts() {
       return dispatch(Object(_actions_picture_actions__WEBPACK_IMPORTED_MODULE_2__["fetchPictures"])());
     },
-    // fetchFollows: () => dispatch(getFollows()),
     makeFollow: function (_makeFollow) {
       function makeFollow(_x) {
         return _makeFollow.apply(this, arguments);
@@ -1951,12 +1982,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var size;
+
+function mediaQuery(x) {
+  if (x.matches) {
+    size = 600;
+  } else {
+    size = 1080;
+  }
+}
+
+var x = window.matchMedia("(max-width: 600px)");
+mediaQuery(x);
+x.addListener(mediaQuery);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
     currentUser: state.entities.users[state.session.id],
     pictures: Object.values(state.entities.pictures),
-    session: state.session
+    session: state.session,
+    size: size
   };
 };
 
@@ -2231,15 +2276,9 @@ var mapStateToProps = function mapStateToProps(_ref) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    // fetchDiscoverPosts: () => dispatch(fetchDiscoverPictures()),
-    // // fetchFollows: () => dispatch(getFollows()),
-    // makeFollow: (followee) => dispatch(makeFollow(followee)),
-    // createComment: (com) => dispatch(comment(com)),
-    // deleteFollow: (follow) => dispatch(deleteFollow(follow)),
     uploadPicture: function uploadPicture(picture) {
       return dispatch(Object(_actions_picture_actions__WEBPACK_IMPORTED_MODULE_3__["uploadPost"])(picture));
-    } // updateProfPic: (user, picture) => dispatch(updateProfpic(user, picture)),
-
+    }
   };
 };
 
@@ -34240,7 +34279,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  background: #34bf49;\n  color: white;\n  cursor: pointer;\n  width: 100%;\n  height: 3em;\n  font-size: 24px;\n  &:hover {\n    background: #65e278;\n    cursor: pointer;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  background: ", ";\n  color: white;\n  cursor: pointer;\n  width: 100%;\n  height: 3em;\n  font-size: 24px;\n  &:hover {\n    background: ", ";\n    cursor: pointer;\n  }\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -34274,9 +34313,15 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledDivContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject(), 900 / 2);
+var StyledDivContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject(), function (props) {
+  return props.size / 2;
+});
 var StyledPreview = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject2());
-var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button(_templateObject3());
+var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button(_templateObject3(), function (props) {
+  return props.disabled ? "grey" : "#34bf49";
+}, function (props) {
+  return props.disabled ? "grey" : "#65e278";
+});
 var StyledInput = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].input(_templateObject4());
 var StyledLabel = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].label(_templateObject5());
 
@@ -34372,7 +34417,9 @@ var FileUpload = /*#__PURE__*/function (_React$Component) {
       }) : null;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledDivContainer, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledDivContainer, {
+        size: this.props.size
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledInput, {
         type: "file",
         onChange: function onChange(e) {
           return _this5.handleFileInput(e);
@@ -34403,7 +34450,9 @@ var FileUpload = /*#__PURE__*/function (_React$Component) {
         onDrop: function onDrop(files, event) {
           return _this5.handleFile(files[0]);
         }
-      }, "Or drop some files here!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledButton, null, "Post a Perfect Picture"));
+      }, "Or drop some files here!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledButton, {
+        disabled: this.state.body === '' || this.state.photoUrl === null
+      }, "Post a Perfect Picture"));
     }
   }]);
 
@@ -34476,7 +34525,8 @@ var customStyles = {
 var StyledUploadButton = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject());
 
 var FileUploadModalButton = function FileUploadModalButton(_ref) {
-  var uploadPicture = _ref.uploadPicture;
+  var uploadPicture = _ref.uploadPicture,
+      size = _ref.size;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -34502,7 +34552,8 @@ var FileUploadModalButton = function FileUploadModalButton(_ref) {
     contentLabel: "Example Modal"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_file_upload__WEBPACK_IMPORTED_MODULE_2__["default"], {
     uploadPicture: uploadPicture,
-    setModalVisible: setModalVisible
+    setModalVisible: setModalVisible,
+    size: size
   })));
 };
 
@@ -34527,9 +34578,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var size;
+
+function mediaQuery(x) {
+  if (x.matches) {
+    size = "small";
+  } else {
+    size = "large";
+  }
+}
+
+var x = window.matchMedia("(max-width: 700px)");
+mediaQuery(x);
+x.addListener(mediaQuery);
 
 var mapStateToProps = function mapStateToProps(state) {
-  return {};
+  return {
+    size: size
+  };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {

@@ -34,7 +34,7 @@ export class PostIndex extends React.Component {
     this.props.fetchPicturesOffset(this.state.offset);
   }
   render() {
-
+    console.log(this.props.size)
     return (
       <StyledPostIndex>
           <InfiniteScroll
@@ -42,7 +42,7 @@ export class PostIndex extends React.Component {
           next={this.fetchPictures}
           hasMore={this.props.pictures && this.props.pictures.next}
           loader={<h4>Loading...</h4>}
-          height={900}
+          height={this.props.size * 0.8}
           endMessage={
             <p style={{ textAlign: "center" }}>
               <b>Yay! You have seen it all</b>
