@@ -19,7 +19,6 @@ export const StyledPost = styled.div`
 export const Post = ({
   owner, picture, submit, followed, deleteFollow, deletePicture, updateProfPic, currentUserId
 }) => {
-  console.log("PIC", picture)
   return (picture.service_url
  && (
  <StyledPost>

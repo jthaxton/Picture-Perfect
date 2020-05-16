@@ -35,11 +35,11 @@ export class Discover extends React.Component {
     return (
       <StyledPostIndex>
                   <InfiniteScroll
-          dataLength={this.props.pictures && this.props.pictures.followed_pictures &&this.props.pictures.followed_pictures.length || 1}
+          dataLength={this.props.pictures && this.props.pictures.followed_pictures && this.props.pictures.followed_pictures.length || 1}
           next={this.fetchPictures}
           hasMore={this.props.pictures && this.props.pictures.next}
           loader={<h4>Loading...</h4>}
-          height={1080}
+          height={900}
           endMessage={
             <p style={{ textAlign: "center" }}>
               <b>Yay! You have seen it all</b>

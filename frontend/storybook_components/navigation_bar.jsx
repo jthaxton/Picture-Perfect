@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import SplashContainer from '../components/splash/splash_container';
 import styled from 'styled-components';
+import FileUploadModalButtonContainer from '../storybook_components/file_upload_modal_button_container';
 
 const StyledFeedLinks = styled.div`
   display: flex;
@@ -48,9 +49,7 @@ export const NavigationBar = ({ currentUser, logout }) => (
                 </ul>
               </li>
             </ul>
-            <div id="upload-link">
-              <Link to="/upload">Upload</Link>
-            </div>
+            <FileUploadModalButtonContainer/>
           </div>
           </>
         ) : (

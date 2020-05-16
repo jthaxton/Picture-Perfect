@@ -23,9 +23,8 @@ export const receivePicturesWithOffset = (pictures) => ({
   pictures
 });
 
-
-
 export const fetchPictures = () => (dispatch) => APIUtil.fetchPosts().then((pictures) => dispatch(receivePictures(pictures)));
+export const fetchOwnPicturesOffset = (offset) => (dispatch) => APIUtil.fetchOwnPostsOffset(offset).then((pictures) => dispatch(receivePictures(pictures)));
 
 export const fetchDiscoverPictures = () => (dispatch) => APIUtil.fetchDiscoverPosts().then((pictures) => dispatch(receivePictures(pictures)));
 
@@ -38,3 +37,5 @@ export const fetchDiscoverWithOffset = (offset) => (dispatch) => APIUtil.fetchPi
 export const removePicture = (picture) => (dispatch) => APIUtil.deletePicture(picture).then((picture) => dispatch(deletePicture(picture)));
 
 export const getPicture = (picture) => (dispatch) => APIUtil.getPicture(picture).then((picture).dispatch(receivePicture(picture)));
+
+export const uploadPost = (picture) => (dispatch) => APIUtil.uploadPicture(picture).then((pictures) => dispatch(receivePictures(pictures)));

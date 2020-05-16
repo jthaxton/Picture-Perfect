@@ -1,61 +1,57 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import Profile from './profile';
-import Form from '../welcome/form';
-import Splash from '../splash/splash';
+import InfiniteScroll from "react-infinite-scroll-component";
+import { Post } from '../../storybook_components/post';
+import styled from 'styled-components'
+
+const StyledPostIndex = styled.div`
+  display: block;
+  max-width: 80%;
+  height: -moz-available;
+  height: -webkit-fill-available;
+  height: fill-available;
+`;
 
 export default class OtherProfile extends React.Component {
   constructor(props) {
     super(props);
+    this.store = {};
+    this.state = {
+      offset: 1,
+    };
+    this.fetchPictures = this.fetchPictures.bind(this);
   }
-
   componentDidMount() {
-    const variable = this.props.userId;
-    this.props.fetchUser(variable);
+    this.props.fetchPicturesOffset(1);
   }
 
-  componentDidUpdate(prevprops) {
-    if (!this.props.user) {
-      this.props.fetchUser(this.props.userId);
-    }
+  fetchPictures() {
+    this.setState({offset: this.state.offset + 1});
+    this.props.fetchPicturesOffset(this.state.offset);
   }
 
-  render() {
-    if (!this.props.user) return null;
-    if (!this.props.posts) return null;
-    const back = this.props.posts[0];
-    const allPosts = this.props.posts.slice(0, this.props.posts.length).map((post) => (
-      <div key={post.id}>
-        {post.photoUrl
-          ? (
-            <div className="index-posts">
-              <div id="infpost">
-                <div id="indexitem">
-                  <img id="careful-pic" src={post.photoUrl} />
-                  <h2 className="nomargin" id="bodypost">
-                    {post.body}
-                  </h2>
-                </div>
-              </div>
-            </div>
-          ) : null}
-      </div>
-    ));
+  render() {  
     return (
-      <div>
-        <Splash session={this.props.session} />
-        <div id="test">
-          <div>
-            <div id="user-post-info">
+      <StyledPostIndex>
+          <InfiniteScroll
+          dataLength={this.props.pictures && this.props.pictures.followed_pictures && this.props.pictures.followed_pictures.length || 1}
+          next={this.fetchPictures}
+          hasMore={this.props.pictures && this.props.pictures.next}
+          loader={<h4>Loading...</h4>}
+          height={900}
+          endMessage={
+            <p style={{ textAlign: "center" }}>
+              <b>Yay! You have seen it all</b>
+            </p>
+          }
+        >
+          {this.props.pictures && this.props.pictures.followed_pictures && this.props.pictures.followed_pictures.map((picture) => (
+            <Post owner={picture.owner} picture={picture} submit={this.props.createComment} updateProfPic={this.props.updateProfPic} deletePicture={this.props.deletePicture} currentUserId={this.props.currentUserId}/>
+          ))}
+        </InfiniteScroll>
 
-              <h1>{this.props.user.username}</h1>
-            </div>
-            <div id="user-index-posts">
-              <div>{allPosts}</div>
-            </div>
-          </div>
-        </div>
-      </div>
+        {!(this.props.pictures && this.props.pictures.followed_pictures) && (<div>No photos... yet! Upload photos and follow other pages!</div>) }
+
+      </StyledPostIndex>
     );
   }
 }

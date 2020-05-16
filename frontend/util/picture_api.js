@@ -18,7 +18,6 @@ export const getPicture = (picture) => $.ajax({
   method: 'GET',
 });
 
-
 export const fetchPicturesWithOffset = (offset) => {
   return $.ajax({
   url: `/api/pictures/offset_index`,
@@ -32,3 +31,17 @@ export const fetchPicturesDiscoverWithOffset = (offset) => {
     method: 'GET',
     data: { offset }
   });}
+
+  export const fetchOwnPostsOffset = (offset) => $.ajax({
+    url: '/api/pictures/own_pictures',
+    method: 'GET',
+    data: { offset }
+  });
+
+  export const uploadPicture = (picture) => $.ajax({
+    url: '/api/pictures',
+    method: 'POST',
+    contentType: false,
+    processData: false,
+    data:  picture
+  });

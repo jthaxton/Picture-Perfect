@@ -14,7 +14,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "react-dropzone": "^11.0.1",
+    "react-file-drop": "^3.0.6",
     "react-infinite-scroll-component": "4.1.0",
+    "react-modal": "^3.11.2",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {

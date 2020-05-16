@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/api/pictures/discover_posts' => "api/pictures#discover_posts"
   get '/api/pictures/offset_index' => "api/pictures#offset_index"
   get '/api/pictures/offset_discover_index' => "api/pictures#offset_discover_index"
+  get '/api/pictures/own_pictures' => "api/pictures#own_pictures"
 
   root to: 'static_pages#root'
 end

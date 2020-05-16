@@ -4,11 +4,11 @@ import img from './menu.svg';
 import { theme } from '../theme';
 
 const UnorderedList = styled.ul`
-margin: 0;
-list-style-type: none;
-    white-space: nowrap;
-    padding: 0;
-    max-width: fit-content;
+  margin: 0;
+  list-style-type: none;
+  white-space: nowrap;
+  padding: 0;
+  max-width: fit-content;
 `;
 
 const ListItem = styled.li`
@@ -54,7 +54,7 @@ export const Dropdown = ({
                                 >
                                   Update Profile Picture
                                 </div>
-                              </ListItem> 
+                              </ListItem>
 
                           </UnorderedList>
                           )}

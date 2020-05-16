@@ -1,26 +1,16 @@
 import { connect } from 'react-redux';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ProfileDetails from './profile_details';
-import { fetchUser, fetchAllUsers } from '../../actions/user_actions';
+import { withRouter } from 'react-router-dom';
 import OtherProfile from './other_profile';
-import { fetchPictures } from '../../actions/picture_actions';
+import { fetchOwnPicturesOffset, removePicture } from '../../actions/picture_actions';
+import { updateProfpic } from '../../actions/user_actions';
 
-
-const mapStateToProps = (state, ownprops) => ({
-  currentUserId: state.session.currentUserId,
-  users: state.entities.users,
-  userId: ownprops.match.params.userId,
-  user: state.entities.users[ownprops.match.params.userId],
-  posts: Object.values(state.entities.pictures),
-  session: state.session,
+const mapStateToProps = (state) => ({
+  pictures: state.entities.pictures
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAllUsers: () => dispatch(fetchAllUsers()),
-  fetchPosts: () => dispatch(fetchPictures()),
-  fetchUser: (id) => dispatch(fetchUser(id)),
-
+  deletePicture: (picture) => dispatch(removePicture(picture)),
+  fetchPicturesOffset: (offset) => dispatch(fetchOwnPicturesOffset(offset))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(OtherProfile);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OtherProfile));

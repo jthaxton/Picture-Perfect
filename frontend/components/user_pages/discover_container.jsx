@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchPictures, fetchDiscoverPictures, fetchPicturesWithOffset, removePicture, fetchDiscoverWithOffset } from '../../actions/picture_actions';
-// import { makeFollow, getFollows, deleteFollow } from '../../actions/follow_actions';
+import { fetchDiscoverPictures, fetchPicturesWithOffset, removePicture, fetchDiscoverWithOffset } from '../../actions/picture_actions';
 import { Discover } from './discover.jsx';
 import { comment } from '../../actions/comment_actions';
 import { updateProfpic } from '../../actions/user_actions';
