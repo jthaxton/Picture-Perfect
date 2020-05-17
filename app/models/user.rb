@@ -2,6 +2,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  validates :prof_pic_id, required: false
   after_initialize :ensure_session_token
   attr_reader :password
 
@@ -11,6 +12,10 @@ class User < ApplicationRecord
 
   has_many :follows,
            foreign_key: :follower_id,
+           class_name: :Follow
+
+  has_many :followees,
+           foreign_key: :followee_id,
            class_name: :Follow
 
   has_many :comments,
@@ -24,10 +29,6 @@ class User < ApplicationRecord
   has_one :background_pic,
           foreign_key: :background_pic_id,
           class_name: :Picture
-
-  # has_one :prof_pic,
-  # foreign_key: :user_id,
-  # class_name: :Picture
 
   has_many :affection
 

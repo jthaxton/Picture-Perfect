@@ -1,5 +1,6 @@
 import React from 'react';
 import SplashContainer from '../splash/splash_container';
+import { FileDrop } from 'react-file-drop';
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -9,14 +10,16 @@ export default class Form extends React.Component {
       photoFile: null,
       photoUrl: null,
     };
+    this.handleInput = this.handleInput.bind(this);
+    this.handleFile = this.handleFile.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInput(e) {
     this.setState({ body: e.currentTarget.value });
   }
 
-  handleFile(e) {
-    const file = e.currentTarget.files[0];
+  handleFile(file) {
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
       this.setState({ photoFile: file, photoUrl: fileReader.result });
@@ -33,42 +36,40 @@ export default class Form extends React.Component {
     if (this.state.photoFile) {
       formData.append('picture[photo]', this.state.photoFile);
     }
-    $.ajax({
-      url: '/api/pictures',
-      method: 'POST',
-      data: formData,
-      contentType: false,
-      processData: false,
-    }).then(
-      (response) => console.log(response.message),
-      (response) => {
-        console.log(response.responseJSON);
-      },
-    );
+    this.props.uploadPicture(formData)
     this.props.history.push('/');
   }
 
   render() {
-    console.log(this.state);
     const preview = this.state.photoUrl ? <img id="careful-pic" src={this.state.photoUrl} /> : null;
     return (
       <div id="upload-style">
         <SplashContainer component={this.props.session} />
         <div id="upload-container">
-          <form id="upload-form" onSubmit={this.handleSubmit.bind(this)}>
+          <form id="upload-form" onSubmit={this.handleSubmit}>
             <label htmlFor="post-body">Body of Post</label>
             <input
               type="text"
               id="post-body"
               value={this.state.body}
-              onChange={this.handleInput.bind(this)}
+              onChange={this.handleInput}
             />
             <input
               type="file"
-              onChange={this.handleFile.bind(this)}
+              onChange={this.handleFile}
             />
             <h3>Image preview </h3>
             {preview}
+            <FileDrop
+          onFrameDragEnter={(event) => console.log('onFrameDragEnter', event)}
+          onFrameDragLeave={(event) => console.log('onFrameDragLeave', event)}
+          onFrameDrop={(event) => console.log('onFrameDrop', event)}
+          onDragOver={(event) => console.log('onDragOver', event)}
+          onDragLeave={(event) => console.log('onDragLeave', event)}
+          onDrop={(files, event) => this.handleFile(files[0])}
+        >
+                    Drop some files here!
+        </FileDrop>
             <button id="post-picture">Post a Perfect Picture</button>
           </form>
 

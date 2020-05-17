@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
     if @user.save
       signin(@user)
       render '/api/users/show'
-      elsed
+    else
       render json: ['Choose different credentials'], status: 404
     end
   end
@@ -15,9 +15,8 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by_id(current_user.id)
-    @user.update(prof_pic_id: params[:picture])
-    render :update
+    current_user.update(prof_pic_id: params[:picture])
+    render json: current_user, serializer: FeedSerializer
   end
 
   def show

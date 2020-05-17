@@ -7,12 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "lint-fix": "eslint --fix --ext .js,.jsx ."
+    "lint-fix": "eslint --fix --ext .js,.jsx .",
+    "start": "webpack --watch --mode=development"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "react-dropzone": "^11.0.1",
+    "react-file-drop": "^3.0.6",
+    "react-infinite-scroll-component": "4.1.0",
+    "react-modal": "^3.11.2",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
@@ -27,6 +32,8 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.1"
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "file-loader": "^6.0.0",
+    "react-svg-loader": "^3.0.3"
   }
 }

@@ -7,16 +7,16 @@ class Api::SessionsController < ApplicationController
 
     if @user
       signin(@user)
-      render 'api/users/show'
+      render json: current_user, serializer: UserSerializer
     else
-      render json: ['Invalid Credentials'], status: 402
+      render json: { status: 402 }
     end
-end
+  end
 
   def destroy
     if current_user
       logout
-      render json: ['YOU ARE LOGGED OUT']
+      render json: {}
     else
       render json: ['No Current User'], status: 404
     end

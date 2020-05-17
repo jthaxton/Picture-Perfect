@@ -2,6 +2,12 @@ import React from 'react';
 import {
   withRouter, Route, Redirect, Switch, Link, HashRouter,
 } from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledForm = styled.form`
+  display: flex;
+  align-items: center;
+`
 
 
 class SessionForm extends React.Component {
@@ -18,13 +24,13 @@ class SessionForm extends React.Component {
   handleDemo(e) {
     e.preventDefault();
     const demo = { username: 'joe', password: '123456' };
-    this.props.processDemo(demo).then((test) => this.props.history.push('/'));
+    this.props.processDemo(demo).then((test) => window.location.reload());
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = { ...this.state };
-    this.props.processForm(user).then(() => this.props.history.push('/'));
+    this.props.processForm(user).then(() => window.location.reload());
   }
 
   update(field) {
@@ -89,7 +95,7 @@ class SessionForm extends React.Component {
 
         {this.renderErrors()}
         <div id="modalform">
-          <form onSubmit={this.handleSubmit}>
+          <StyledForm onSubmit={this.handleSubmit}>
             <div className="login-form">
               {this.props.formType === 'Login' ? (
                 <h2 className="modals">
@@ -107,11 +113,11 @@ class SessionForm extends React.Component {
                 </div>
                 <div id="sub"><input id="submit" type="submit" value={this.props.formType} /></div>
               </div>
-              <form onSubmit={this.handleDemo}>
+              <div onClick={this.handleDemo}>
                 <input id="demo-button" type="submit" value="Demo Login" />
-              </form>
+              </div>
             </div>
-          </form>
+          </StyledForm>
         </div>
       </div>
     );

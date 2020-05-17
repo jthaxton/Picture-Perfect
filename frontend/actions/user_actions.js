@@ -15,12 +15,11 @@ export const fetchAllUsers = () => (dispatch) => (
   ))
 );
 
-export const updateProfpic = (user, picture) => (dispatch) => APIUtil.updateProfPic(user, picture).then(() => dispatch(updateUser(user, picture)))
-  .then(() => dispatch(picActs.receivePictures()));
+export const updateProfpic = (user, picture) => (dispatch) => APIUtil.updateProfPic(user, picture).then((pictures) => dispatch(updateUser(pictures)))
 
-const updateUser = (user, picture) => ({
+const updateUser = (pictures) => ({
   type: UPDATE_USER,
-  data: { user, picture },
+  pictures,
 });
 
 

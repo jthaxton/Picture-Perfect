@@ -16,7 +16,7 @@ gem "mini_magick"
 gem 'pry-remote'
 gem 'pry-nav'
 gem 'rubocop', require: false
-
+gem 'active_model_serializers', '~> 0.10.2'
 gem 'activestorage'
 
 # Use Puma as the app server

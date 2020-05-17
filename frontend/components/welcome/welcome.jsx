@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Form from './form';
-import App2Container from '../user_pages/app2_container';
+import PostIndexContainer from '../user_pages/postindex_container';
 
 const welcome = ({ currentUser, logout, users }) => {
   const sessionLinks = () => (
@@ -21,7 +21,7 @@ const welcome = ({ currentUser, logout, users }) => {
             !
           </h1>
         </div>
-        <App2Container />
+        {/* <PostIndexContainer /> */}
       </div>
 
     </div>

@@ -20,7 +20,11 @@ module.exports = {
             presets: ['@babel/env', '@babel/react']
           }
         },
-      }
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader'],
+      },
     ]
   },
   devtool: 'source-map',
@@ -28,3 +32,4 @@ module.exports = {
     extensions: ['.js', '.jsx', '*']
   }
 }
+

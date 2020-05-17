@@ -8,7 +8,9 @@ export const fetchAllUsers = () => $.ajax({
   method: 'GET',
 });
 
-export const updateProfPic = (user, picture) => $.ajax({
-  url: `/api/users/${user.id}?picture=${picture.id}`,
+export const updateProfPic = (userId, picture) => {
+  return $.ajax({
+  url: `/api/users/${userId}?picture=${picture}`,
   method: 'PATCH',
 });
+}
