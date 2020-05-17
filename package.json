@@ -51,7 +51,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch --mode=development",
     "heroku-prebuild": "rm -rf node_modules && npm install",
-    "postinstall": "npm start",
+    "heroku-postbuild": "npm start",
     "storybook": "start-storybook"
   },
   "repository": {
