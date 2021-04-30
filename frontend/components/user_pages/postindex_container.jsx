@@ -4,6 +4,8 @@ import { fetchPictures, removePicture, fetchPicturesWithOffset } from '../../act
 import { PostIndex } from './postindex.jsx';
 import { comment } from '../../actions/comment_actions';
 import { updateProfpic } from '../../actions/user_actions';
+import { deleteFollow, makeFollow } from '../../actions/follows_actions'
+
 let size;
 function mediaQuery(x) {
   if (x.matches) { 
@@ -21,10 +23,9 @@ const mapStateToProps = (state) => ({
   currentUserId: state.session.id,
   size: size,
 });
-
 const mapDispatchToProps = (dispatch) => ({
   fetchPosts: () => dispatch(fetchPictures()),
-  makeFollow: (followee) => dispatch(makeFollow(followee)),
+  createFollow: (followee) => dispatch(makeFollow(followee)),
   createComment: (com) => dispatch(comment(com)),
   deleteFollow: (follow) => dispatch(deleteFollow(follow)),
   deletePicture: (picture) => dispatch(removePicture(picture)),
@@ -32,4 +33,4 @@ const mapDispatchToProps = (dispatch) => ({
   fetchPicturesOffset: (offset) => dispatch(fetchPicturesWithOffset(offset))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostIndex);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PostIndex));

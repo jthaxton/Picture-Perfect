@@ -33,7 +33,6 @@ export const fetchPicturesWithOffset = (offset) => (dispatch) => APIUtil.fetchPi
 
 export const fetchDiscoverWithOffset = (offset) => (dispatch) => APIUtil.fetchPicturesDiscoverWithOffset(offset).then((pictures) => dispatch(receivePictures(pictures)));
 
-
 export const removePicture = (picture) => (dispatch) => APIUtil.deletePicture(picture).then((picture) => dispatch(deletePicture(picture)));
 
 export const getPicture = (picture) => (dispatch) => APIUtil.getPicture(picture).then((picture).dispatch(receivePicture(picture)));

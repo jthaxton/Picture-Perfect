@@ -1,7 +1,8 @@
 import React from 'react';
 import { FileDrop } from 'react-file-drop';
 import styled from 'styled-components';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 export const StyledDivContainer = styled.div`
   display: block;
   min-width: 50%;
@@ -41,6 +42,7 @@ export default class FileUpload extends React.Component {
       body: '',
       photoFile: null,
       photoUrl: null,
+      loading: false,
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleFile = this.handleFile.bind(this);
@@ -63,12 +65,16 @@ export default class FileUpload extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.setState({loading: true})
     const formData = new FormData();
     formData.append('picture[body]', this.state.body);
     if (this.state.photoFile) {
       formData.append('picture[photo]', this.state.photoFile);
     }
-    this.props.uploadPicture(formData).then(() => this.props.setModalVisible(false))
+    this.props.uploadPicture(formData).then(() => {
+      this.props.setModalVisible(false);
+      this.setState({loading: false});
+    })
   }
 
   handleFileInput(e) {
@@ -87,6 +93,7 @@ export default class FileUpload extends React.Component {
     const preview = this.state.photoUrl ? <StyledPreview id="careful-pic" src={this.state.photoUrl} /> : null;
     return (
       <form onSubmit={this.handleSubmit}>
+       {this.state.loading && <FontAwesomeIcon icon={faSpinner} spin/>}
         <StyledDivContainer size={this.props.size}>
             <StyledInput
               type="file"

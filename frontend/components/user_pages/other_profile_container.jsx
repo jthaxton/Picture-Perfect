@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import OtherProfile from './other_profile';
 import { fetchOwnPicturesOffset, removePicture } from '../../actions/picture_actions';
+import { deleteFollow, makeFollow } from '../../actions/follows_actions'
 
 let size;
 function mediaQuery(x) {
@@ -23,7 +24,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   deletePicture: (picture) => dispatch(removePicture(picture)),
-  fetchPicturesOffset: (offset) => dispatch(fetchOwnPicturesOffset(offset))
+  fetchPicturesOffset: (offset) => dispatch(fetchOwnPicturesOffset(offset)),
+  createFollow: (followee) => dispatch(makeFollow(followee)),
+  deleteFollow: (follow) => dispatch(deleteFollow(follow)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OtherProfile));

@@ -17,12 +17,13 @@ export const StyledPost = styled.div`
 `;
 
 export const Post = ({
-  owner, picture, submit, followed, deleteFollow, deletePicture, updateProfPic, currentUserId
+  owner, picture, submit, followed, createFollow,  deleteFollow, deletePicture, updateProfPic, currentUserId
 }) => {
+
   return (picture.service_url
  && (
  <StyledPost>
-   <Header src={owner.profile_picture} followed={followed} picture={picture} name={owner.name} deletePicture={deletePicture} updateProfPic={updateProfPic} currentUserId={currentUserId}/>
+   <Header src={owner.profile_picture} followed={followed} picture={picture} name={owner.name} deletePicture={deletePicture} updateProfPic={updateProfPic} currentUserId={currentUserId} createFollow={createFollow} deleteFollow={deleteFollow}/>
    <StyledPicture src={picture.service_url} />
    <CommentSection comments={picture.comments} pictureId={picture.id} submit={submit} />
  </StyledPost>

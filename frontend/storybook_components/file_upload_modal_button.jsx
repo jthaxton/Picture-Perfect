@@ -42,19 +42,19 @@ const FileUploadModalButton = ({uploadPicture, size}) => {
   })
   return (
     <>
-    <StyledUploadButton onClick={() => setModalVisible(true)}>
-      Upload
-    </StyledUploadButton>
-    <Modal
-      isOpen={modalVisible}
-      onAfterOpen={()=> console.log("opened")}
-      onRequestClose={() => setModalVisible(false)}
-      style={customStyles}
-      contentLabel="Example Modal"
-    >
-    <FileUpload uploadPicture={uploadPicture} setModalVisible={setModalVisible} size={size}/>
-    </Modal>
-          </>
+      <StyledUploadButton onClick={() => setModalVisible(true)}>
+        Upload
+      </StyledUploadButton>
+      <Modal
+        isOpen={modalVisible}
+        onAfterOpen={()=> console.log("opened")}
+        onRequestClose={() => setModalVisible(false)}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+      <FileUpload uploadPicture={uploadPicture} setModalVisible={setModalVisible} size={size}/>
+      </Modal>
+    </>
   );
 }
 

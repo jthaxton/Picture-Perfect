@@ -1,4 +1,5 @@
 import { createFollow, fetchFollows, unFollow } from '../util/follow_api_util';
+import { receivePictures } from '../actions/picture_actions';
 
 export const RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
 export const RECEIVE_ALL_FOLLOWS = 'RECEIVE_ALL_FOLLOWS';
@@ -19,7 +20,7 @@ const removeFollow = (follow) => ({
   follow,
 });
 
-export const makeFollow = (followee) => (dispatch) => createFollow(followee).then((followee) => dispatch(receiveFollow(followee)));
+export const makeFollow = (followee) => (dispatch) => createFollow(followee).then((pictures) => dispatch(receivePictures(pictures)));
 
 export const getFollows = () => (dispatch) => fetchFollows().then((follows) => dispatch(receiveAllFollows(follows)));
 

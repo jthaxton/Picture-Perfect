@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import img from './menu.svg';
 import { theme } from '../theme';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
 const UnorderedList = styled.ul`
   margin: 0;
@@ -9,6 +11,7 @@ const UnorderedList = styled.ul`
   white-space: nowrap;
   padding: 0;
   max-width: fit-content;
+  z-index: 2;
 `;
 
 const ListItem = styled.li`
@@ -25,41 +28,75 @@ const ListItem = styled.li`
 `;
 
 export const Dropdown = ({
-  picture, follows, deletePicture, updateProfPic, currentUserId
+  picture, createFollow, deleteFollow, deletePicture, updateProfPic
 }) => {
   const [contentVisible, setContentVisible] = useState(false);
 
   const handleClick = () => {
-    console.log(contentVisible)
     setContentVisible(!contentVisible);
   };
+
 
   return (
     <>
       <div onClick={() => handleClick()}>
-        <img src={img} />
+        <FontAwesomeIcon icon={contentVisible ? faAngleDown : faAngleLeft} />
         {contentVisible
                           && (
-                          <UnorderedList>
-                              <ListItem>
-                                <div
-                                  onClick={() => deletePicture(picture.id)}
-                                >
-                                  Delete Post
-                                </div>
-                              </ListItem>
-                              <ListItem>
-                                <div
-                                  onClick={() => updateProfPic(currentUserId, picture.id)}
-                                >
-                                  Update Profile Picture
-                                </div>
-                              </ListItem>
-
-                          </UnorderedList>
+                            <DropdownContents picture={picture} deletePicture={deletePicture} updateProfPic={updateProfPic} createFollow={createFollow} deleteFollow={deleteFollow}/>
                           )}
       </div>
 
     </>
   );
 };
+
+export const DropdownContents = ({picture, currentUserId, deletePicture, updateProfPic, createFollow, deleteFollow}) => {
+
+  if (picture.belongs_to_current_user) {
+    return (
+    <UnorderedList>
+      <ListItem>
+        <div
+          onClick={() => deletePicture(picture.id)}
+        >
+          Delete Post
+        </div>
+      </ListItem>
+      <ListItem>
+        <div
+          onClick={() => updateProfPic(currentUserId, picture.id)}
+        >
+          Update Profile Picture
+        </div>
+      </ListItem>
+    </UnorderedList>
+
+    );
+  } else if(picture.followed_by_current_user) {
+    return (
+      <UnorderedList>
+      <ListItem>
+        <div
+          onClick={() => deleteFollow(picture.owner.id)}
+        >
+          Unfollow
+        </div>
+      </ListItem>
+    </UnorderedList>
+    )
+  } else if(!picture.followed_by_current_user && !picture.belongs_to_current_user) {
+    return (
+    <UnorderedList>
+    <ListItem>
+      <div
+        onClick={() => createFollow(picture.owner.id)}
+      >
+        Follow
+      </div>
+    </ListItem>
+  </UnorderedList>
+    );
+  }
+
+}

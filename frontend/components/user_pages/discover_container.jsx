@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchDiscoverPictures, fetchPicturesWithOffset, removePicture, fetchDiscoverWithOffset } from '../../actions/picture_actions';
+import { fetchDiscoverPictures, removePicture, fetchDiscoverWithOffset } from '../../actions/picture_actions';
 import { Discover } from './discover.jsx';
 import { comment } from '../../actions/comment_actions';
 import { updateProfpic } from '../../actions/user_actions';
+import { deleteFollow, makeFollow } from '../../actions/follows_actions'
 
 let size;
 function mediaQuery(x) {
@@ -26,8 +27,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchDiscoverPosts: () => dispatch(fetchDiscoverPictures()),
-  // fetchFollows: () => dispatch(getFollows()),
-  makeFollow: (followee) => dispatch(makeFollow(followee)),
+  createFollow: (followee) => dispatch(makeFollow(followee)),
   createComment: (com) => dispatch(comment(com)),
   deleteFollow: (follow) => dispatch(deleteFollow(follow)),
   deletePicture: (picture) => dispatch(removePicture(picture)),

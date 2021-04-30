@@ -21,25 +21,24 @@ class Api::PicturesController < ApplicationController
 
   def offset_index
     followed_pictures = []
-    current_user.pictures.order(created_at: :desc).limit(params[:offset].to_i).map {|pic| followed_pictures << PictureSerializer.new(pic)}
+    current_user.pictures.order(created_at: :desc).limit(params[:offset].to_i).map { |pic| followed_pictures << PictureSerializer.new(pic, current_user) }
     # current_user.pictures.offset(params[:offset].to_i).map {|pic| followed_pictures << PictureSerializer.new(pic)}
     remaining = current_user.pictures.order(created_at: :desc).limit(params[:offset].to_i + 1).length != followed_pictures.length
-    render json: {followed_pictures: followed_pictures, next: remaining}
+    render json: { followed_pictures: followed_pictures, next: remaining }
   end
 
   def offset_discover_index
     pictures = []
 
-    Follow.includes(:follower).where.not(follower_id: current_user.id)
+    # Follow.includes(:follower).where.not(follower_id: current_user.id)
     users = User.where.not(id: current_user.id)
-    filtered_users = users.select {|user| !current_user.followees.include?(user) }
-    filtered_users.each do |user| 
-      user.pictures.order(created_at: :desc).map {|pic| pictures << PictureSerializer.new(pic) }
+    filtered_users = users.select { |user| !current_user.followees.include?(user) }
+    filtered_users.each do |user|
+      user.pictures.order(created_at: :desc).map { |pic| pictures << PictureSerializer.new(pic, current_user) }
     end
     filtered_pictures = pictures[0..params[:offset].to_i]
     remaining = filtered_pictures.length < pictures.length
-    render json: {followed_pictures: filtered_pictures, next: remaining}
-
+    render json: { followed_pictures: filtered_pictures, next: remaining }
   end
 
   def discover_posts
@@ -48,9 +47,9 @@ class Api::PicturesController < ApplicationController
 
   def own_pictures
     pictures = []
-    current_user.pictures.order(created_at: :desc).limit(params[:offset].to_i).map {|pic| pictures << PictureSerializer.new(pic)}
+    current_user.pictures.order(created_at: :desc).limit(params[:offset].to_i).map { |pic| pictures << PictureSerializer.new(pic, current_user) }
     remaining = current_user.pictures.limit(params[:offset].to_i + 1).length != pictures.length
-    render json: {followed_pictures: pictures, next: remaining}
+    render json: { followed_pictures: pictures, next: remaining }
   end
 
   def destroy

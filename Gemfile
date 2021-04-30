@@ -18,6 +18,7 @@ gem 'pry-nav'
 gem 'rubocop', require: false
 gem 'active_model_serializers', '~> 0.10.2'
 gem 'activestorage'
+gem 'devise'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'

@@ -20,7 +20,6 @@ white-space: nowrap;
 outline: 0;
 `;
 export const Button = () => {
-  console.log(theme.titleText);
   return (
     <StyledButton>
       TEST
