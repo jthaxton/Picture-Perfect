@@ -30,7 +30,6 @@ export const Dropdown = ({
   const [contentVisible, setContentVisible] = useState(false);
 
   const handleClick = () => {
-    console.log(contentVisible)
     setContentVisible(!contentVisible);
   };
 

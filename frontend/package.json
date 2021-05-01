@@ -14,12 +14,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "react-dropzone": "^11.0.1",
-    "react-file-drop": "^3.0.6",
-    "react-infinite-scroll-component": "4.1.0",
-    "react-modal": "^3.11.2",
-    "styled-components": "^5.1.0",
     "@babel/core": "^7.9.6",
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
@@ -32,7 +29,12 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "file-loader": "^6.0.0",
-    "react-svg-loader": "^3.0.3"
+    "react-dropzone": "^11.0.1",
+    "react-file-drop": "^3.0.6",
+    "react-infinite-scroll-component": "4.1.0",
+    "react-modal": "^3.11.2",
+    "react-svg-loader": "^3.0.3",
+    "styled-components": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

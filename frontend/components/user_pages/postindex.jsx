@@ -10,9 +10,9 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const StyledPostIndex = styled.div`
   display: block;
   max-width: 80%;
-  height: -moz-available;
-  height: -webkit-fill-available;
-  height: fill-available;
+  // height: -moz-available;
+  // height: -webkit-fill-available;
+  // height: fill-available;
 `;
 
 export class PostIndex extends React.Component {
@@ -34,7 +34,6 @@ export class PostIndex extends React.Component {
     this.props.fetchPicturesOffset(this.state.offset);
   }
   render() {
-    console.log(this.props.size)
     return (
       <StyledPostIndex>
           <InfiniteScroll

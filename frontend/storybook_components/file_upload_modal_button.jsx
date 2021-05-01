@@ -1,7 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import Modal from 'react-modal';
+// import Modal from 'react-modal';
 import FileUpload from './file_upload';
 import styled from 'styled-components';
+import { Fab, DialogTitle, Dialog, makeStyles, Box, AppBar, Typography } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
 
 const customStyles = {
   content : {
@@ -19,6 +24,24 @@ const customStyles = {
   },
 };
 
+const useStyles = makeStyles({
+  uploadIcon: {
+    background: "#34bf49"
+  },
+  container: {
+    display: "flex",
+    justifyContent: "flex-end",
+    paddingBottom: "20px",
+    alignItems: "flex-end",
+  },
+  fade: {
+    height: "50%"
+  },
+  modal: {
+    height: "100%"
+  }
+})
+
 export const StyledUploadButton = styled.div`
   display: flex;
   justify-content: center;
@@ -35,17 +58,33 @@ export const StyledUploadButton = styled.div`
 
 const FileUploadModalButton = ({uploadPicture, size}) => {
   const [modalVisible, setModalVisible] = useState(false)
+  const classes = useStyles();
 
-  useEffect(() => {
-    Modal.setAppElement('body');
-
-  })
   return (
-    <>
-    <StyledUploadButton onClick={() => setModalVisible(true)}>
-      Upload
-    </StyledUploadButton>
-    <Modal
+    <Box className={classes.container}>
+    <Fab color="primary" aria-label="add" className={classes.uploadIcon}>
+      <AddIcon onClick={() => setModalVisible(true)} />
+    </Fab>
+
+    <Dialog
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={modalVisible}
+        onClose={() => setModalVisible(false)}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+        disableAutoFocus={true}
+        style={{width: "-webkit-fill-available"}}
+      >
+        {/* <Fade in={modalVisible} className={classes.fade}> */}
+          <FileUpload uploadPicture={uploadPicture} setModalVisible={setModalVisible} size={size}/>
+        {/* </Fade> */}
+      </Dialog>
+    {/* <Modal
       isOpen={modalVisible}
       onAfterOpen={()=> console.log("opened")}
       onRequestClose={() => setModalVisible(false)}
@@ -53,8 +92,8 @@ const FileUploadModalButton = ({uploadPicture, size}) => {
       contentLabel="Example Modal"
     >
     <FileUpload uploadPicture={uploadPicture} setModalVisible={setModalVisible} size={size}/>
-    </Modal>
-          </>
+    </Modal> */}
+    </Box>
   );
 }
 

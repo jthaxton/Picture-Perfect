@@ -1,4 +1,5 @@
-import React from 'react';
+import { Button, Input, DialogTitle, Card, makeStyles, Box, AppBar, Typography } from '@material-ui/core';
+import React, {useState, useEffect} from 'react';
 import {
   withRouter, Route, Redirect, Switch, Link, HashRouter,
 } from 'react-router-dom';
@@ -8,119 +9,111 @@ const StyledForm = styled.form`
   display: flex;
   align-items: center;
 `
+const useStyles = makeStyles({
+  dialogue: {
+    display: "flex",
+    justifyContent: "center",
+    height: "100%",
+    paddingBottom: "5vw"
+  },
+  buttonContainer: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  form: {
 
+  },
+  navLoginContainer: {
+    display: "flex"
+  },
+  navContents: {
+    display: "flex",
+    justifyContent: "space-between"
+  },
+  navLogin: {
+    paddingRight: "10px",
+  },
+  appBar: {
+    padding: "20px",
+    paddingRight: "30px",
+    paddingLeft: "30px",
+  },
+  card: {
+    minWidth: "25%",
+    minHeight: "25%",
+    paddingBottom: "5vw",
+    paddingLeft: "5vw",
+    paddingRight: "5vw",
+  },
+  input: {
+    paddingBottom: "10px",
+    display: "flex",
+    flexDirection: "column",
+  },
+  loginSubmit: {
+    marginBottom: "10px"
+  },
+  inputContainer: {
 
-class SessionForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDemo = this.handleDemo.bind(this);
-    this.state = {
-      username: '',
-      password: '',
-    };
   }
+});
 
-  handleDemo(e) {
+const SessionForm = (props) => {
+    const [password, setPassword] = useState(""); 
+    const [username, setUsername] = useState(""); 
+
+  const classes = useStyles();
+
+  const handleDemo = (e) => {
     e.preventDefault();
     const demo = { username: 'joe', password: '123456' };
-    this.props.processDemo(demo).then((test) => window.location.reload());
+    props.processDemo(demo).then((test) => window.location.reload());
   }
 
-  handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const user = { ...this.state };
-    this.props.processForm(user).then(() => window.location.reload());
+    const user = { username: username, password: password };
+    props.processForm(user).then(() => window.location.reload());
   }
 
-  update(field) {
-    return (e) => this.setState({
-      [field]: e.currentTarget.value,
-    });
-  }
+  useEffect(() => {
+    props.clearErrors();
+  }, [])
 
-  componentWillUnmount() {
-    this.props.clearErrors();
-  }
-
-
-  renderErrors() {
     return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
+      <>
+        <AppBar className={classes.appBar} position="fixed">
+          <Box className={classes.navContents}>
+            <Link to="/">Picture Perfect</Link>
+            <Box className={classes.navLoginContainer}>
+              <Link to="/login" replace className={classes.navLogin}>
+              <Typography>Login</Typography>
+              </Link>
+              <Link to="/signup"><Typography>Signup</Typography></Link>
+            </Box>
+          </Box>
+        </AppBar>
+        <Card className={classes.card}>
+          <Box className={classes.form}>
+            {props.formType === 'Login' ? (
+              <DialogTitle className={classes.dialogue}>
+                Log In
+              </DialogTitle>
+            ) : <DialogTitle className={classes.dialogue}>Sign Up</DialogTitle>}
+            <Box className={classes.inputContainer}>
+              <Box className={classes.input}>
+                  <Input placeholder="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+                  <Input placeholder="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              </Box>
+              <Box className={classes.buttonContainer}>
+                <Button className={classes.loginSubmit} onClick={handleSubmit} variant="contained" color="primary">{props.formType === 'Login' ? "Log In" : "Sign Up"}</Button>
+                <Button onClick={handleDemo} variant="contained" color="primary">Demo Log In</Button>
+              </Box>
+            </Box>
+          </Box>
+        </Card>
+      </>
     );
-  }
-
-  render() {
-    return (
-      <div className="login-container">
-        <div id="stick">
-          <div id="banner">
-            <nav id="navbar">
-              <div id="logo1">
-                <Link to="/">Picture</Link>
-              </div>
-              <div id="logo2">
-                <Link to="/">Perfect</Link>
-              </div>
-              <div id="other-nav">
-                <div id="discover">
-                  <Link to="/discover">Discover</Link>
-                </div>
-                <div id="about">
-                  <Link to="/about">About</Link>
-                </div>
-                <div id="licensing">
-                  <Link to="/licensing">Licensing</Link>
-                </div>
-              </div>
-              <div id="auth-buttons">
-                <div id="login-button">
-                  <Link to="/login" replace>
-                    Login
-                  </Link>
-                </div>
-                <div id="signup-button">
-                  <Link to="/signup">Signup</Link>
-                </div>
-              </div>
-            </nav>
-          </div>
-        </div>
-
-        {this.renderErrors()}
-        <div id="modalform">
-          <StyledForm onSubmit={this.handleSubmit}>
-            <div className="login-form">
-              {this.props.formType === 'Login' ? (
-                <h2 className="modals">
-                  Log into PicturePerfect
-                </h2>
-              ) : <h2 className="modals">Sign up for PicturePerfect</h2>}
-              <div id="login-center">
-                <div className="anotha-one">
-                  <label>Username:</label>
-                  <input type="text" value={this.state.username} onChange={this.update('username')} />
-                </div>
-                <div className="anotha-one">
-                  <label>Password:</label>
-                  <input type="password" value={this.state.password} onChange={this.update('password')} />
-                </div>
-                <div id="sub"><input id="submit" type="submit" value={this.props.formType} /></div>
-              </div>
-              <div onClick={this.handleDemo}>
-                <input id="demo-button" type="submit" value="Demo Login" />
-              </div>
-            </div>
-          </StyledForm>
-        </div>
-      </div>
-    );
-  }
+  
 }
 export default withRouter(SessionForm);

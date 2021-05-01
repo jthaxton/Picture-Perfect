@@ -1,6 +1,7 @@
 import React from 'react';
 import { FileDrop } from 'react-file-drop';
 import styled from 'styled-components';
+import { Fab, Typography, Card, makeStyles, Box, AppBar, Button } from '@material-ui/core';
 
 export const StyledDivContainer = styled.div`
   display: block;
@@ -11,6 +12,14 @@ export const StyledDivContainer = styled.div`
 export const StyledPreview = styled.img`
   max-width: 40%;
   max-height: 40%;
+`;
+
+export const StyledForm = styled.form`
+  background: white;
+  min-width: 50%;
+  display: grid;
+  grid-template-columns: 100%;
+  padding: 10px;
 `;
 
 export const StyledButton = styled.button`
@@ -26,13 +35,29 @@ export const StyledButton = styled.button`
   }
 `;
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const StyledFormContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  height: -webkit-fill-available;
+`;
+
 export const StyledInput = styled.input`
-  display: block;
+  text-align-last: center;
+  width: -webkit-fill-available;
 `;
 
 export const StyledLabel = styled.label`
   display: block;
 `;
+
+export const PreviewContainer = styled.div`
+  width: 100%;
+`
 
 export default class FileUpload extends React.Component {
   constructor(props) {
@@ -83,10 +108,10 @@ export default class FileUpload extends React.Component {
   }
 
   render() {
-    
-    const preview = this.state.photoUrl ? <StyledPreview id="careful-pic" src={this.state.photoUrl} /> : null;
+    const preview = this.state.photoUrl ? <PreviewContainer><StyledPreview id="careful-pic" src={this.state.photoUrl} /></PreviewContainer> : null;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <StyledFormContainer>
+      <StyledForm onSubmit={this.handleSubmit}>
         <StyledDivContainer size={this.props.size}>
             <StyledInput
               type="file"
@@ -95,7 +120,9 @@ export default class FileUpload extends React.Component {
             {preview}
             {this.state.photoUrl && (
             <>
-            <StyledLabel htmlFor="post-body">Body of Post</StyledLabel>
+            <StyledLabel htmlFor="post-body">
+              <Typography>Body of Post</Typography>
+            </StyledLabel>
             <StyledInput
               type="text"
               id="post-body"
@@ -104,7 +131,7 @@ export default class FileUpload extends React.Component {
             />
             </>)
     }
-          {!this.state.photoUrl && <FileDrop
+          {/* {!this.state.photoUrl && <FileDrop
           onFrameDragEnter={(event) => console.log('onFrameDragEnter', event)}
           onFrameDragLeave={(event) => console.log('onFrameDragLeave', event)}
           onFrameDrop={(event) => console.log('onFrameDrop', event)}
@@ -112,12 +139,14 @@ export default class FileUpload extends React.Component {
           onDragLeave={(event) => console.log('onDragLeave', event)}
           onDrop={(files, event) => this.handleFile(files[0])}
         >
-                    Or drop some files here!
-        </FileDrop>}
+        <Typography>Or drag and drop pictures here</Typography>
+        </FileDrop>} */}
         </StyledDivContainer>
-            <StyledButton disabled={this.state.body === '' || this.state.photoUrl === null}>Post a Perfect Picture</StyledButton>
-      </form>
-
+        <ButtonContainer>
+          <Button onClick={this.handleSubmit} ddisabled={this.state.body === '' || this.state.photoUrl === null}>Post a Perfect Picture</Button>
+        </ButtonContainer>
+      </StyledForm>
+      </StyledFormContainer>
     );
   }
 }

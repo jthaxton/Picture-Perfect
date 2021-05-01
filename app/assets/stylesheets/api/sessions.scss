@@ -7,6 +7,10 @@
   margin-top:-25;
 }
 
+#root {
+  height: 100%;
+}
+
 #comment{
     width: 300px;
     border-radius: 30px;
@@ -707,9 +711,9 @@ ul:hover #hlist {
 
 .file-drop {
   /* relatively position the container bc the contents are absolute */
-  position: relative;
-  height: 100px;
-  width: 100%;
+  height: 100%;
+  width: 99%;
+  border: dashed;
 }
 
 .file-drop > .file-drop-target {
