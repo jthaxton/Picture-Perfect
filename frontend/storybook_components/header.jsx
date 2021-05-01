@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Dropdown } from './dropdown';
 import { theme } from '../theme';
+import { Avatar, DialogTitle, Dialog, makeStyles, Box, AppBar, Typography } from '@material-ui/core';
 
 export const ProfilePicture = styled.img`
   border-radius: 50%;
@@ -32,7 +33,7 @@ export const Header = ({
   <>
     <StyledPostHeader>
       <PersonalInfo>
-        <ProfilePicture src={src} />
+      <Avatar alt={name} src={src} />
         <Name>
           {name}
         </Name>
