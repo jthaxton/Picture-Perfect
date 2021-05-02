@@ -26,13 +26,17 @@ const customStyles = {
 
 const useStyles = makeStyles({
   uploadIcon: {
-    background: "#34bf49"
+    background: "#34bf49",
   },
   container: {
     display: "flex",
     justifyContent: "flex-end",
     paddingBottom: "20px",
     alignItems: "flex-end",
+    position: "absolute",
+    right: 0,
+    bottom: 0,
+    paddingRight: "20px",
   },
   fade: {
     height: "50%"

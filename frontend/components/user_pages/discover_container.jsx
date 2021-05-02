@@ -4,7 +4,7 @@ import { fetchDiscoverPictures, fetchPicturesWithOffset, removePicture, fetchDis
 import { Discover } from './discover.jsx';
 import { comment } from '../../actions/comment_actions';
 import { updateProfpic } from '../../actions/user_actions';
-
+import { makeFollow, deleteFollow } from '../../actions/follows_actions';
 let size;
 function mediaQuery(x) {
   if (x.matches) { 

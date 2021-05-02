@@ -49,7 +49,16 @@ export class PostIndex extends React.Component {
           }
         >
           {this.props.pictures && this.props.pictures.followed_pictures && this.props.pictures.followed_pictures.map((picture) => (
-            <Post owner={picture.owner} picture={picture} submit={this.props.createComment} updateProfPic={this.props.updateProfPic} deletePicture={this.props.deletePicture} currentUserId={this.props.currentUserId}/>
+            <Post 
+              owner={picture.owner} 
+              picture={picture} 
+              submit={this.props.createComment} 
+              updateProfPic={this.props.updateProfPic} 
+              deletePicture={this.props.deletePicture}
+              currentUserId={this.props.currentUserId}
+              makeFollow={this.props.makeFollow}
+              deleteFollow={this.props.deleteFollow}
+             />
           ))}
         </InfiniteScroll>
 

@@ -26,7 +26,6 @@ export class Discover extends React.Component {
     this.setState({offset: this.state.offset + 1});
     this.props.fetchPicturesOffset(this.state.offset);
   }
-
   render() {
     return (
       <StyledPostIndex>
@@ -43,7 +42,15 @@ export class Discover extends React.Component {
           }
         >
         {this.props.pictures && this.props.pictures.followed_pictures && this.props.pictures.followed_pictures.map((picture) => (
-          <Post owner={picture.owner} picture={picture} submit={this.props.createComment} updateProfPic={this.props.updateProfPic} deletePicture={this.props.deletePicture} currentUserId={this.props.currentUserId}/>
+          <Post owner={picture.owner}
+            picture={picture} 
+            submit={this.props.createComment}
+            updateProfPic={this.props.updateProfPic}
+            deletePicture={this.props.deletePicture}
+            currentUserId={this.props.currentUserId}
+            makeFollow={this.props.makeFollow}
+            deleteFollow={this.props.deleteFollow}
+              />
         ))}
         </InfiniteScroll>
         {!(this.props.pictures && this.props.pictures.followed_pictures) && (<div>No photos... yet! Upload photos and follow other pages!</div>) }

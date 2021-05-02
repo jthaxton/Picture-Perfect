@@ -7,5 +7,7 @@ class Follow < ApplicationRecord
   foreign_key: :followee_id,
   class_name: :User
 
+  
+
   validates :followee_id, uniqueness: { scope: :follower_id }
 end

@@ -1,8 +1,8 @@
 class Api::FollowsController < ApplicationController
   def create
-    @follow = Follow.new(follower_id: current_user.id, followee_id: params[:id])
+    @follow = Follow.new(follower_id: current_user.id, followee_id: params[:id].to_i)
     @follow.save
-    render json: @follow
+    render json: current_user, serializer: DiscoverFeedSerializer
   end
 
   def index
@@ -10,8 +10,8 @@ class Api::FollowsController < ApplicationController
   end
 
   def destroy
-    @follow = Follow.find_by_id(params[:id])
+    @follow = Follow.find_by_followee_id(params[:id].to_i)
     @follow.destroy
-    render json: @follow
+    render json: current_user, serializer: DiscoverFeedSerializer
   end
 end

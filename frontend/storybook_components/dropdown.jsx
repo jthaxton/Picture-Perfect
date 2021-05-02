@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import img from './menu.svg';
 import { theme } from '../theme';
+import { Button, Menu, MenuItem, Card, makeStyles, Box, AppBar, Typography } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const UnorderedList = styled.ul`
   margin: 0;
@@ -27,38 +29,53 @@ const ListItem = styled.li`
 export const Dropdown = ({
   picture, follows, deletePicture, updateProfPic, currentUserId
 }) => {
-  const [contentVisible, setContentVisible] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
 
-  const handleClick = () => {
-    setContentVisible(!contentVisible);
-  };
+  const handleDelete = () => {
+    deletePicture(picture.id);
+    setAnchorEl(null);
+  }
+
+  const handleUpdateProfPic = () => {
+    updateProfPic(currentUserId, picture.id);
+    setAnchorEl(null);
+  }
+  console.log("PICTURE", picture)
 
   return (
-    <>
-      <div onClick={() => handleClick()}>
-        <img src={img} />
-        {contentVisible
-                          && (
-                          <UnorderedList>
-                              <ListItem>
-                                <div
-                                  onClick={() => deletePicture(picture.id)}
-                                >
-                                  Delete Post
-                                </div>
-                              </ListItem>
-                              <ListItem>
-                                <div
-                                  onClick={() => updateProfPic(currentUserId, picture.id)}
-                                >
-                                  Update Profile Picture
-                                </div>
-                              </ListItem>
+<>
+                          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={(e)=> setAnchorEl(e.currentTarget)}>
+                            <MenuIcon/>
+                          </Button>
+                          <Menu
+                            id="simple-menu"
+                            anchorEl={anchorEl}
+                            keepMounted
+                            open={Boolean(anchorEl)}
+                            onClose={() => setAnchorEl(null)}
+                          >
+                            <MenuItem onClick={() => handleDelete()}>Delete Post</MenuItem>
+                            <MenuItem onClick={() => handleUpdateProfPic()}>Update Profile Picture</MenuItem>
+                          </Menu>
+                          </>
+                          // <UnorderedList>
+                          //     <ListItem>
+                          //       <div
+                          //         onClick={() => deletePicture(picture.id)}
+                          //       >
+                          //         Delete Post
+                          //       </div>
+                          //     </ListItem>
+                          //     <ListItem>
+                          //       <div
+                          //         onClick={() => updateProfPic(currentUserId, picture.id)}
+                          //       >
+                          //         Update Profile Picture
+                          //       </div>
+                          //     </ListItem>
 
-                          </UnorderedList>
-                          )}
-      </div>
+                          // </UnorderedList>
+                          // )}
 
-    </>
   );
 };

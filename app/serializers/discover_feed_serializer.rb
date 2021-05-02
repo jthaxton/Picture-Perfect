@@ -8,7 +8,7 @@ class DiscoverFeedSerializer < ActiveModel::Serializer
     users = User.where.not(id: object.id)
     filtered_users = users.select {|user| !object.followees.include?(user) }
     filtered_users.each do |user| 
-      user.pictures.map {|pic| pictures << PictureSerializer.new(pic) }
+      user.pictures.map {|pic| pictures << PictureSerializer.new(pic, :scope => current_user) }
     end
     pictures
   end
