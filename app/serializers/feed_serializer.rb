@@ -3,6 +3,7 @@ class FeedSerializer < ActiveModel::Serializer
 
   def followed_pictures
     pictures = []
+    binding.pry
     object.followees.map do |followee|
       followee.pictures.each { |picture| pictures << PictureSerializer.new(picture, :scope => current_user) }
     end

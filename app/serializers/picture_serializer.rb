@@ -1,8 +1,12 @@
 class PictureSerializer < ActiveModel::Serializer
-  attributes :id, :comments, :service_url, :owner
+  attributes :id, :comments, :service_url, :owner, :created_at
 
   def comments
     object.comments.map { |comment| CommentSerializer.new(comment) }
+  end
+
+  def created_at
+    object.created_at
   end
 
   def service_url
@@ -11,6 +15,7 @@ class PictureSerializer < ActiveModel::Serializer
   end
 
   def owner
+    binding.pry
     user = object.user
     profile_picture ||= user.prof_pic_id && Picture.find(user.prof_pic_id).photo.service_url
     {
