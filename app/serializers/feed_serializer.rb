@@ -8,6 +8,6 @@ class FeedSerializer < ActiveModel::Serializer
     end
     pictures += object.pictures.map { |picture| PictureSerializer.new(picture, :scope => current_user) }
 
-    pictures
+    pictures.sort_by {|picture| picture.created_at }
   end
 end
