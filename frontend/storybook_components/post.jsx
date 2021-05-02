@@ -28,13 +28,22 @@ const useStyles = makeStyles({
 });
 
 export const Post = ({
-  owner, picture, submit, followed, deleteFollow, deletePicture, updateProfPic, currentUserId
+  owner, picture, submit, followed, deletePicture, updateProfPic, currentUserId, makeFollow, deleteFollow
 }) => {
   const classes = useStyles();
   return (picture.service_url
  && (
  <Card className={classes.card}>
-   <Header src={owner.profile_picture} followed={followed} picture={picture} name={owner.name} deletePicture={deletePicture} updateProfPic={updateProfPic} currentUserId={currentUserId}/>
+   <Header src={owner.profile_picture} 
+   followed={followed} 
+   picture={picture} 
+   name={owner.name} 
+   deletePicture={deletePicture} 
+   updateProfPic={updateProfPic} 
+   currentUserId={currentUserId}
+   makeFollow={makeFollow}
+   deleteFollow={deleteFollow}
+   />
    <StyledPicture src={picture.service_url} />
    <CommentSection comments={picture.comments} pictureId={picture.id} submit={submit} />
  </Card>

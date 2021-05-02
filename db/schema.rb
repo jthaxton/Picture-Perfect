@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_14_191800) do
+ActiveRecord::Schema.define(version: 2021_05_02_004800) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,8 +45,8 @@ ActiveRecord::Schema.define(version: 2019_02_14_191800) do
   end
 
   create_table "follows", force: :cascade do |t|
-    t.string "follower_id", null: false
-    t.string "followee_id", null: false
+    t.integer "follower_id", null: false
+    t.integer "followee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["followee_id"], name: "index_follows_on_followee_id"
@@ -79,4 +80,5 @@ ActiveRecord::Schema.define(version: 2019_02_14_191800) do
     t.index ["session_token"], name: "index_users_on_session_token"
     t.index ["username"], name: "index_users_on_username"
   end
+
 end

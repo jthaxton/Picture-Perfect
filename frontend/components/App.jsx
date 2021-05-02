@@ -30,7 +30,7 @@ const useStyles = makeStyles({
   loggedInContainer: {
     display: "flex",
     justifyContent: "center",
-    paddingTop: "25%"
+    // paddingTop: "25%"
   },
   container: {
     display: "flex",

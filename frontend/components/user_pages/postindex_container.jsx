@@ -4,6 +4,7 @@ import { fetchPictures, removePicture, fetchPicturesWithOffset } from '../../act
 import { PostIndex } from './postindex.jsx';
 import { comment } from '../../actions/comment_actions';
 import { updateProfpic } from '../../actions/user_actions';
+import { makeFollow, deleteFollow } from '../../actions/follows_actions';
 let size;
 function mediaQuery(x) {
   if (x.matches) { 
